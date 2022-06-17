@@ -41,9 +41,8 @@
   --bs-danger: #dc3545;
   --bs-light: #f8f9fa;
   --bs-dark: #212529;
-  /*--bs-primary-rgb: 189, 93, 56;*/
-  --bs-primary-rgb: 113, 189, 196;
-  --bs-secondary-rgb: 108, 117, 125;
+  --bs-primary-rgb: 56, 129, 134;
+  --bs-secondary-rgb: 165, 233, 225;
   --bs-success-rgb: 25, 135, 84;
   --bs-info-rgb: 13, 202, 240;
   --bs-warning-rgb: 255, 193, 7;
@@ -61,8 +60,8 @@
   --bs-body-font-size: 1rem;
   --bs-body-font-weight: 400;
   --bs-body-line-height: 1.5;
-  --bs-body-color: #212529;
-  --bs-body-bg: #fff;
+  --bs-body-color: #2E2B2B;
+  --bs-body-bg: #FDF6F6;
 }
 
 *,
@@ -7205,6 +7204,10 @@ textarea.form-control-lg {
   order: 6 !important;
 }
 
+.list-style-none {
+  list-style: none;
+}
+
 .m-0 {
   margin: 0 !important;
 }
@@ -11391,8 +11394,8 @@ p.lead {
   justify-content: center;
   height: 3.5rem;
   width: 3.5rem;
-  background-color: #495057;
-  color: #fff;
+  background-color: var(--bs-body-color);
+  color: #FDF6F6;
   border-radius: 100%;
   font-size: 1.5rem;
   margin-right: 1.5rem;
@@ -11401,7 +11404,7 @@ p.lead {
   margin-right: 0;
 }
 .social-icons .social-icon:hover {
-  background-color: #71BDC4FF;
+  background-color: #388186;
 }
 
 .dev-icons {
