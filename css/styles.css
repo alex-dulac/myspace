@@ -11439,10 +11439,8 @@ section.resume-section .resume-section-content {
 }
 
 .skills-education-grid {
-  justify-content: center;
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(2, 1fr);
+  grid-template-columns: 1fr 1fr;
   grid-template-areas:"skills education"
                         "skills education";
 }
