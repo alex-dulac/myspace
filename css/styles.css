@@ -11437,3 +11437,21 @@ section.resume-section .resume-section-content {
     padding-bottom: 5rem;
   }
 }
+
+.skills-education-grid {
+  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  grid-template-areas:"skills education"
+                        "skills education";
+}
+
+.skills {
+  grid-area: skills;
+}
+
+.education {
+  grid-area: education;
+  text-align: right;
+}
