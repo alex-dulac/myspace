@@ -614,6 +614,14 @@ progress {
   height: auto;
 }
 
+.bandcamp {
+  padding: 0.25rem;
+  background-color: #fff;
+  border: 1px solid #dee2e6;
+  border-radius: 0.25rem;
+  max-width: 100%;
+}
+
 .figure {
   display: inline-block;
 }
@@ -11452,4 +11460,12 @@ section.resume-section .resume-section-content {
 .education {
   grid-area: education;
   text-align: right;
+}
+
+.pup {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 363px;
+  width: 302px;
 }
