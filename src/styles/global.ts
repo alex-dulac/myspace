@@ -1,6 +1,6 @@
-import { createGlobalStyle } from "styled-components";
+import styled, { createGlobalStyle } from "styled-components";
 
-export const Global = createGlobalStyle`
+export const GlobalStyle = createGlobalStyle`
   * {
     margin: 0;
     padding: 0;
@@ -8,11 +8,11 @@ export const Global = createGlobalStyle`
   }
   :focus {
     outline: 0;
-    box-shadow: 0 0 0 2px #3294F8;
+    box-shadow: 0 0 0 2px ${props => props.theme['blue']};
   }
   body {
-    background: #071422;
-    color: #AFC2D4; 
+    background: ${props => props.theme['base-background']};
+    color: ${props => props.theme['base-text']};
     -webkit-font-smoothing: antialiased;
   }
   body, input, textarea, button {
@@ -26,10 +26,105 @@ export const Global = createGlobalStyle`
 }
 /* Track */
 ::-webkit-scrollbar-track {
-  background: #0B1B2B;
+  background: ${props => props.theme['base-profile']};
 }
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #3294F8;
+  background: ${props => props.theme.blue};
 }
-`
+`;
+
+export const PageContainer = styled.div`
+  max-width: 864px;
+  width: 100%;
+  height: 212px;
+  display: flex;
+  background: ${props => props.theme['base-profile']};
+  box-shadow: 0px 2px 28px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  padding: 2rem;
+  gap: 2rem;
+  img {
+    border-radius: 10px;
+  }
+  div {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      h1 {
+        font-weight: 700;
+        font-size: 1.5rem;
+        line-height: 130%;
+      }
+      a {
+        font-weight: 700;
+        font-size: 0.75rem;
+        line-height: 160%;
+        text-transform: uppercase;
+        text-decoration: none;
+        display: flex;
+        gap: 0.5rem;
+        align-items: center;
+        color: ${props => props.theme.blue};
+        transition: border 0.2s;
+        border-bottom: 2px solid transparent;
+        &:hover {
+          border-bottom: 2px solid ${props => props.theme.blue};
+        }
+      }
+    }
+    main {
+      p {
+        margin-top: 0.5rem;
+        word-wrap: break-word;
+      }
+    }
+    footer {
+      display: flex;
+      height: 100%;
+      align-items: flex-end;
+      gap: 1.5rem;
+      span {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: ${props => props.theme['base-subtitle']};
+        i {
+          color: ${props => props.theme['base-label']};
+        }
+      }
+      
+    }
+  }
+  @media (max-width:680px) {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    align-items: center;
+    justify-content: center;
+  }
+  @media (max-width: 450px) {
+    div {
+      header {
+        flex-direction: column;
+        gap: 0.8rem;
+      }
+      main {
+        p {
+          text-align: center;
+        }
+      }
+      footer {
+        display: flex;
+        flex-direction: column;
+        align-items: center ;
+      }
+    }
+  }
+`;
