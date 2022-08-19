@@ -1,13 +1,12 @@
 import React from "react";
-import { PageContainer } from "../../styles/global";
-import { HomeContent } from "./home-elements";
+import { PageContainer, PageContent } from "../../styles/style-elements";
 
 export function Home() {
 	return (
 		<PageContainer>
-			<HomeContent>
-				Home Page
-			</HomeContent>
+			<PageContent>
+				<h1>Home</h1>
+			</PageContent>
 		</PageContainer>
 	);
 }

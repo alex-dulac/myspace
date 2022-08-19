@@ -1,7 +1,12 @@
 import React from "react";
+import {PageContainer, PageContent} from "../../styles/style-elements";
 
 export function Interests() {
 	return (
-		<h1>Interests</h1>
+		<PageContainer>
+			<PageContent>
+				<h1>Interests</h1>
+			</PageContent>
+		</PageContainer>
 	);
 }

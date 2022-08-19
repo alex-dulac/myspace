@@ -1,5 +1,13 @@
 import styled from "styled-components";
 
+export const HeaderContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 100vw;
+`;
+
 export const HeaderNav = styled.nav`
   background: ${props => props.theme['base-background']};
   height: 5rem;
@@ -8,6 +16,7 @@ export const HeaderNav = styled.nav`
   align-items: center;
   position: sticky;
   width: 100%;
+  max-width: 1200px;
   top: 0;
   font-size: 1.2em;
   z-index: 999;
@@ -16,7 +25,7 @@ export const HeaderNav = styled.nav`
   }
 `;
 
-export const HeaderContainer = styled.div`
+export const NavContainer = styled.div`
   display: flex;
   justify-content: space-between;
   height: 5rem;
@@ -25,7 +34,7 @@ export const HeaderContainer = styled.div`
   z-index: 1;
 `;
 
-export const HeaderMenu = styled.ul`
+export const NavMenu = styled.ul`
   display: flex;
   align-items: center;
   list-style: none;
@@ -35,11 +44,11 @@ export const HeaderMenu = styled.ul`
   }
 `;
 
-export const HeaderItem = styled.li`
+export const NavItem = styled.li`
   height: 3.6em;
 `;
 
-export const HeaderNavLink = styled.a`
+export const NavLink = styled.a`
   color: ${props => props.theme['base-text']};
   display: flex;
   align-items: center;

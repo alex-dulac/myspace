@@ -5,43 +5,36 @@ import {
 	NavContainer,
 	NavMenu,
 	NavItem,
-	NavLink,
-	HeaderTitle
-} from "./header-elements";
+	NavLink
+} from "../header/header-elements";
 
-export function Header() {
+export function Footer() {
 	return (
 		<HeaderContainer>
 			<HeaderNav>
 				<NavContainer>
 					<NavMenu>
 						<NavItem>
-							<NavLink href="/">
-								Home
+							<NavLink href="mailto:alex@alexdulac.dev">
+								Email
 							</NavLink>
 						</NavItem>
 						<NavItem>
-							<NavLink href="/experience">
-								Experience
+							<NavLink href="https://www.linkedin.com/in/alexdulac/">
+								LinkedIn
 							</NavLink>
 						</NavItem>
 						<NavItem>
-							<NavLink href="/skills">
-								Skills + Education
+							<NavLink href="https://github.com/alex-dulac">
+								Github
 							</NavLink>
 						</NavItem>
 						<NavItem>
-							<NavLink href="/interests">
-								Interests
-							</NavLink>
-						</NavItem>
-						<NavItem>
-							<NavLink href="/contact">
-								Contact
+							<NavLink href="https://www.last.fm/user/alexdulac">
+								LastFm
 							</NavLink>
 						</NavItem>
 					</NavMenu>
-					<HeaderTitle>ALEX DULAC</HeaderTitle>
 				</NavContainer>
 			</HeaderNav>
 		</HeaderContainer>
