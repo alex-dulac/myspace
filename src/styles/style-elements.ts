@@ -7,7 +7,7 @@ export const PageContainer = styled.div`
   align-items: center;
   justify-content: center;
   gap: 4.5rem;
-  padding: 1rem 2rem;
+  padding: 2rem 2rem;
 `;
 
 export const PageContent = styled.div`
