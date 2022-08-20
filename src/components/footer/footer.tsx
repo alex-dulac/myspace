@@ -32,7 +32,7 @@ export function Footer() {
 							</NavLink>
 						</NavItem>
 					</NavMenu>
-					<FooterTitle>© 2022 Alex Dulac</FooterTitle>
+					<FooterTitle>Alex Dulac</FooterTitle>
 				</NavContainer>
 			</FooterNav>
 		</FooterContainer>

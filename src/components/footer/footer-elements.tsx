@@ -60,7 +60,7 @@ export const NavLink = styled.a`
   padding: 0 1rem;
 `;
 
-export const FooterTitle = styled.h6`
+export const FooterTitle = styled.h3`
   color: ${props => props.theme['base-text']};
   display: flex;
   align-items: center;

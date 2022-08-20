@@ -41,7 +41,6 @@ export function Header() {
 							</NavLink>
 						</NavItem>
 					</NavMenu>
-					<HeaderTitle>ALEX DULAC</HeaderTitle>
 				</NavContainer>
 			</HeaderNav>
 		</HeaderContainer>

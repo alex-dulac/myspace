@@ -13,12 +13,12 @@ export const PageContainer = styled.div`
 export const PageContent = styled.div`
   max-width: 1200px;
   width: 100%;
-  height: 212px;
+  height: 755px;
   display: flex;
   background: ${props => props.theme['base-profile']};
   box-shadow: 0px 2px 28px rgba(0, 0, 0, 0.2);
   border-radius: 10px;
-  padding: 2rem;
+  padding: 4rem;
   gap: 2rem;
   img {
     border-radius: 10px;
