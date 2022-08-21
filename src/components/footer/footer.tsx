@@ -1,5 +1,5 @@
 import React from "react";
-import { FooterContainer, FooterNav, NavContainer, NavMenu, NavItem, NavLink, FooterTitle} from "./footer-elements";
+import { FooterContainer, FooterNav, NavContainer, NavMenu, NavItem, NavLink} from "./footer-elements";
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
@@ -32,7 +32,10 @@ export function Footer() {
 							</NavLink>
 						</NavItem>
 					</NavMenu>
-					<FooterTitle>Alex Dulac</FooterTitle>
+					<h3 className={"footer-name"}>
+						<span className={"purple-text"}>ALEX&nbsp;</span>
+						<span className={"teal-text"}>DULAC</span>
+					</h3>
 				</NavContainer>
 			</FooterNav>
 		</FooterContainer>

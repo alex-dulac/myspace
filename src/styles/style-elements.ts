@@ -8,14 +8,15 @@ export const PageContainer = styled.div`
   justify-content: center;
   gap: 4.5rem;
   padding: 2rem 2rem;
+  height: 100%;
 `;
 
 export const PageContent = styled.div`
-  max-width: 1200px;
+  max-width: 1100px;
   width: 100%;
-  height: 755px;
+  height: 760px;
   display: flex;
-  background: ${props => props.theme['base-profile']};
+  background: ${props => props.theme['panel-background']};
   box-shadow: 0px 2px 28px rgba(0, 0, 0, 0.2);
   border-radius: 10px;
   padding: 4rem;

@@ -9,6 +9,11 @@ export const defaultTheme = {
 	'base-border': '#1C2F41',
 	'base-post': '#112131',
 	'base-profile': '#0B1B2B',
-	'base-background': '#071422',
+	'base-background2': '#071422',
 	'base-input': '#040F1A',
+
+	'base-background3': '#f5f0f2',
+	'base-background': '#7B96B2',
+	'panel-background': '#F6EBF4',
+	'navy-text': '#043b59'
 } as const
