@@ -14,8 +14,10 @@ export const PageContainer = styled.div`
 export const PageContent = styled.div`
   max-width: 1100px;
   width: 100%;
-  height: 760px;
+  min-height: 760px;
+  height: 100%;
   display: flex;
+  align-items: center;
   background: ${props => props.theme['panel-background']};
   box-shadow: 0px 2px 28px rgba(0, 0, 0, 0.2);
   border-radius: 10px;

@@ -50,3 +50,15 @@
     height: 100%;
     padding: 0 1rem;
 }
+
+.fade-in {
+    animation: fade 0.9s ease-in;
+}
+
+
+
+@keyframes fade {
+    0% {
+        opacity: 0;
+    }
+}

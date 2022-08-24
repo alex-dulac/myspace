@@ -12,6 +12,7 @@ export function Router() {
 		<Routes>
 			<Route path="/" element={<Layout/>}>
 				<Route path="/" element={<Home/>}/>
+				<Route path="/home" element={<Home/>}/>
 				<Route path="/experience" element={<Experience/>}/>
 				<Route path="/skills" element={<Skills/>}/>
 				<Route path="/interests" element={<Interests/>}/>

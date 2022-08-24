@@ -1,12 +1,19 @@
 import React from "react";
-import {PageContainer, PageContent} from "../../styles/style-elements";
+import {
+	SkillsContainer, SkillsContentContainer, SkillsContent, SkillsList
+} from "./skills-elements";
 
 export function Skills() {
 	return (
-		<PageContainer>
-			<PageContent>
-				<h1>Skills</h1>
-			</PageContent>
-		</PageContainer>
+		<SkillsContainer className={"fade-in"}>
+			<SkillsContentContainer>
+				<h1 className={"page-header"}>
+					<span className={"purple-text"}>Skills & Education</span>
+				</h1>
+				<SkillsContent className={"navy-text page-content"}>
+					Yes yes ya'll
+				</SkillsContent>
+			</SkillsContentContainer>
+		</SkillsContainer>
 	);
 }

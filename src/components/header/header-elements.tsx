@@ -57,11 +57,7 @@ export const NavLink = styled.a`
   height: 100%;
   padding: 0 1rem;
   font-weight: bold;
-  a:active, a:focus {
-  outline: 0;
-  border: none;
-  -moz-outline-style: none;
-}
+  outline : none;
 `;
 
 export const HeaderTitle = styled.h3`

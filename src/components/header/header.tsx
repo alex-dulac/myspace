@@ -5,8 +5,7 @@ import {
 	NavContainer,
 	NavMenu,
 	NavItem,
-	NavLink,
-	HeaderTitle
+	NavLink
 } from "./header-elements";
 
 export function Header() {
