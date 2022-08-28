@@ -20,12 +20,12 @@ export function Header() {
 							</NavLink>
 						</NavItem>
 						<NavItem>
-							<NavLink href="/experience">
+							<NavLink href="/#/experience">
 								Experience
 							</NavLink>
 						</NavItem>
 						<NavItem>
-							<NavLink href="/skills">
+							<NavLink href="/#/skills">
 								Skills & Education
 							</NavLink>
 						</NavItem>
@@ -35,7 +35,7 @@ export function Header() {
 							</NavLink>
 						</NavItem>*/}
 						<NavItem>
-							<NavLink href="/contact">
+							<NavLink href="/#/contact">
 								Contact
 							</NavLink>
 						</NavItem>
