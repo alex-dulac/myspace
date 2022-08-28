@@ -1,4 +1,4 @@
-# Getting Started with Create React App
+# Personal page
 
 Personal page built using React with TypeScript.
 
