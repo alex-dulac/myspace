@@ -17,7 +17,7 @@ export function Footer() {
 							</NavLink>
 						</NavItem>
 						<NavItem>
-							<NavLink href="https://www.linkedin.com/in/alexdulac/" target="_blank">
+							<NavLink href="https://www.linkedin.com/in/alexdulac" target="_blank">
 								<FontAwesomeIcon icon={faLinkedinIn} />
 							</NavLink>
 						</NavItem>

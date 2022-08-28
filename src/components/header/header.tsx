@@ -26,14 +26,14 @@ export function Header() {
 						</NavItem>
 						<NavItem>
 							<NavLink href="/skills">
-								Skills + Education
+								Skills & Education
 							</NavLink>
 						</NavItem>
-						<NavItem>
+						{/*<NavItem>
 							<NavLink href="/interests">
 								Interests
 							</NavLink>
-						</NavItem>
+						</NavItem>*/}
 						<NavItem>
 							<NavLink href="/contact">
 								Contact

@@ -14,6 +14,6 @@ export const defaultTheme = {
 
 	'base-background3': '#f5f0f2',
 	'base-background': '#7B96B2',
-	'panel-background': '#F6EBF4',
+	'panel-background': '#FDF6F6',
 	'navy-text': '#043b59'
 } as const

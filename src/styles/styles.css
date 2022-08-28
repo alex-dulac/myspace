@@ -19,20 +19,28 @@
 }
 
 .sub-header {
+    font-size: 3rem;
+}
+
+.hello {
     font-size: 2.5rem;
+    font-weight: bolder;
 }
 
 .page-content {
     font-size: 1.5rem;
 }
 
+.mb-minus {
+    margin-bottom: -1rem;
+}
+
 .mb-1 {
     margin-bottom: 1rem;
 }
 
-.img-right {
-    float: right;
-    margin: 20px;
+.mb-2 {
+    margin-bottom: 2rem;
 }
 
 .rounded-circle {
@@ -55,7 +63,21 @@
     animation: fade 0.9s ease-in;
 }
 
+.bold {
+    font-weight: bolder;
+}
 
+.italic {
+    font-style: italic;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.text-right {
+    text-align: right;
+}
 
 @keyframes fade {
     0% {

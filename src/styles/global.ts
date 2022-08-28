@@ -13,9 +13,6 @@ export const GlobalStyle = createGlobalStyle`
   body {
     background: ${props => props.theme['panel-background']};
     color: ${props => props.theme['navy-text']};
-    -webkit-font-smoothing: antialiased;
-  }
-  body, input, textarea, button {
-    font-family: 'Nova Flat';
+    font-family: "Open Sans", sans-serif;
   }
 `;
