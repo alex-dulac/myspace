@@ -1,9 +1,7 @@
-A personal portfolio page made with Html, CSS & JavaScript.
+# Personal page
 
-Live page: https://alexdulac.dev/
+Personal page built using React with TypeScript.
 
-Design utilizes the [Resume Template](https://startbootstrap.com/themes/resume/) from Start Bootstrap.
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-### Copyright and License
-
-Copyright 2013-2022 Start Bootstrap LLC. Code released under the [MIT](https://github.com/StartBootstrap/startbootstrap-resume/blob/master/LICENSE) license.
+Visit the live page [here](https://www.alexdulac.dev)

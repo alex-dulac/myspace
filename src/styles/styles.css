@@ -1,0 +1,86 @@
+.purple-text {
+    color: #47267a;
+}
+
+.magenta-text {
+    color: #ee0a71;
+}
+
+.teal-text {
+    color: #43bfa7;
+}
+
+.navy-text {
+    color: #043b59
+}
+
+.page-header {
+    font-size: 4rem;
+}
+
+.sub-header {
+    font-size: 3rem;
+}
+
+.hello {
+    font-size: 2.5rem;
+    font-weight: bolder;
+}
+
+.page-content {
+    font-size: 1.5rem;
+}
+
+.mb-minus {
+    margin-bottom: -1rem;
+}
+
+.mb-1 {
+    margin-bottom: 1rem;
+}
+
+.mb-2 {
+    margin-bottom: 2rem;
+}
+
+.rounded-circle {
+    border-radius: 50% !important;
+}
+
+.profile-image {
+    max-width: 30rem;
+    max-height: 30rem;
+}
+
+.footer-name {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    padding: 0 1rem;
+}
+
+.fade-in {
+    animation: fade 0.9s ease-in;
+}
+
+.bold {
+    font-weight: bolder;
+}
+
+.italic {
+    font-style: italic;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.text-right {
+    text-align: right;
+}
+
+@keyframes fade {
+    0% {
+        opacity: 0;
+    }
+}
