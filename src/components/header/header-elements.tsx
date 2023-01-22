@@ -60,11 +60,38 @@ export const NavLink = styled.a`
   outline : none;
 `;
 
-export const HeaderTitle = styled.h3`
-  color: ${props => props.theme['navy-text']};
-  display: flex;
-  align-items: center;
-  text-decoration: none;
-  height: 100%;
-  padding: 0 1rem;
+export const MobileNavMenuIcon = styled.a`
+ font-size: 1.75rem;
+ padding-top: 20px;
+
+ @media screen and (min-width: 0px) and (max-width: 768px) {
+   display: block;
+ }
+ 
+ @media screen and (min-width: 768px) {
+    display: none;
+ }`;
+
+export const MobileNavMenu = styled.div`
+  @media screen and (min-width: 768px) {
+    display: none;
+  }
+  display: none;
+  background-color: #FDF6F6;
+  height: 275px;
+  width: 400px;
+  border:1px solid #043b59;
+`;
+
+export const MobileList = styled.ul`
+	list-style: none;
+	text-decoration: none;
+	padding: 20px;
+`;
+
+export const MobileNavItem = styled.li`
+  @media screen and (min-width: 768px) {
+    display: none;
+  }
+  height: 1.5em;
 `;

@@ -54,15 +54,13 @@ export function Skills() {
 							<h2 className={"page-content teal-text"}>University of Southern Maine</h2>
 							<span className={"page-content"}>Bachelor of Arts</span>
 							<span className={"mb-1"}>Class of 2014</span>
-							<span className={"italic"}>Communication Major</span>
-							<span className={"italic"}>Marketing Minor</span>
-							<span>Dean's List, 4 semesters</span>
+							<span className={"italic"}>Communication Major<br/>Marketing Minor</span>
 						</EducationItem>
 						<EducationItem>
 							<h2 className={"page-content teal-text"}>University of New England</h2>
 							<span className={"page-content"}>Digital Academy Course</span>
 							<span className={"mb-1"}>Spring 2017</span>
-							<span className={"italic"}>Development and Programming Fundamentals - Python</span>
+							<span className={"italic"}>Development and Programming Fundamentals<br/>Python</span>
 						</EducationItem>
 					</Education>
 				</SkillsContent>

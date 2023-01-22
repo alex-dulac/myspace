@@ -80,29 +80,4 @@ export const PageContent = styled.div`
       
     }
   }
-  @media (max-width:680px) {
-    display: flex;
-    flex-direction: column;
-    height: auto;
-    align-items: center;
-    justify-content: center;
-  }
-  @media (max-width: 450px) {
-    div {
-      header {
-        flex-direction: column;
-        gap: 0.8rem;
-      }
-      main {
-        p {
-          text-align: center;
-        }
-      }
-      footer {
-        display: flex;
-        flex-direction: column;
-        align-items: center ;
-      }
-    }
-  }
 `;
