@@ -1,7 +1,9 @@
 import styled from "styled-components";
 
 export const ExperienceContainer = styled.div`
-  
+  h1 {
+  		text-align: center;
+  	}
 `;
 
 export const ExperienceListContainer = styled.div`

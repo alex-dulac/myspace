@@ -40,12 +40,6 @@ export function Experience() {
 					</HistoryTime>
 				</HistoryItem>
 			</HistoryContainer>
-			<Resume>
-				<a href="/resume.pdf" target="_blank">
-					<FontAwesomeIcon icon={faFile}/>
-				</a>
-				<a href="/resume.pdf" target="_blank">View Full Resume</a>
-			</Resume>
 			<ExperienceListContainer>
 				<h1 className={"sub-header mb-2 purple-text"}>Experience</h1>
 				<ExperienceContent className={"navy-text page-content"}>
@@ -59,6 +53,12 @@ export function Experience() {
 					</ExperienceList>
 				</ExperienceContent>
 			</ExperienceListContainer>
+			<Resume>
+				<a href="/resume.pdf" target="_blank">
+					<FontAwesomeIcon icon={faFile}/>
+				</a>
+				<a href="/resume.pdf" target="_blank">View Full Resume</a>
+			</Resume>
 		</ExperienceContainer>
 	);
 }

@@ -19,14 +19,29 @@ export const SkillsList = styled.ul`
 
 export const SkillListItem = styled.li`
 	margin-bottom: 0.8rem;
-	font-size: 1.5rem;
 	span {
 		padding-left: 10px;
 	}
+	
+	@media screen and (min-width: 0px) and (max-width: 768px) {
+		font-size: 1.3rem;
+	}
+ 
+ 	@media screen and (min-width: 768px) and (max-width: 3000px) {
+ 		font-size: 1.5rem;
+ 	}
 `;
 
 export const EducationItem = styled.div`
 	margin-bottom: 4rem;
+	
+	@media screen and (min-width: 0px) and (max-width: 768px) {
+		h2 { font-size: 1.3rem; }
+	}
+ 
+ 	@media screen and (min-width: 768px) and (max-width: 3000px) {
+ 		h2 { font-size: 1.5rem; }
+ 	}
 `;
 
 export const SkillsContent = styled.div`

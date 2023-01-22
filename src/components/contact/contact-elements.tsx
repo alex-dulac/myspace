@@ -23,7 +23,7 @@ export const ContactContent = styled.div`
 `;
 
 export const ContactListContainer = styled.ul`
-	width: 970px;
+	
 `;
 
 export const ContactList = styled.ul`

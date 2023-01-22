@@ -4,7 +4,7 @@ import {
 	HomeContentContainer,
 	HomeContent,
 	ProfileImageContainer,
-	ProfileImage, HomeItem
+	ProfileImage, HomeItem, MobileProfileImage
 } from "./home-elements";
 
 export function Home() {
@@ -19,13 +19,19 @@ export function Home() {
 				<br/><br/>
 				<span className={"hello magenta-text mb-1"}>Hello!</span>
 				<HomeContent>
-					<HomeItem className={"text-left"}>I am full-stack software developer who is constantly seeking to improve myself and learn new technologies.</HomeItem>
-					<HomeItem className={"text-right"}>I'm energized by work that allows me to troubleshoot issues, deliver solutions, and provide a great experience!</HomeItem>
+					<HomeItem className={"text-left"}>
+						I am full-stack software developer who is constantly seeking to improve myself and learn new technologies.
+						<br/><br/>
+						I'm energized by work that allows me to troubleshoot issues, deliver solutions, and provide a great experience!
+					</HomeItem>
+					<ProfileImageContainer>
+						<ProfileImage src="/profile.jpeg"/>
+					</ProfileImageContainer>
 				</HomeContent>
+				<ProfileImageContainer>
+					<MobileProfileImage src="/profile.jpeg"/>
+				</ProfileImageContainer>
 			</HomeContentContainer>
-			<ProfileImageContainer>
-				<ProfileImage src="/profile.jpeg"/>
-			</ProfileImageContainer>
 		</HomeContainer>
 	);
 }
