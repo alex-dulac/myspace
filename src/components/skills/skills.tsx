@@ -22,10 +22,10 @@ export function Skills() {
 				<SkillsContent>
 					<SkillsList>
 						<SkillListItem>
-							<FontAwesomeIcon icon={faPhp}/><span>PHP 7.4+</span>
+							<FontAwesomeIcon icon={faPhp}/><span>PHP</span>
 						</SkillListItem>
 						<SkillListItem>
-							<FontAwesomeIcon icon={faAngular}/><span>Angular 6+</span>
+							<FontAwesomeIcon icon={faAngular}/><span>Angular (2+)</span>
 						</SkillListItem>
 						<SkillListItem>
 							<FontAwesomeIcon icon={faCheck}/><span>TypeScript</span>
@@ -34,7 +34,7 @@ export function Skills() {
 							<FontAwesomeIcon icon={faJsSquare}/><span>JavaScript</span>
 						</SkillListItem>
 						<SkillListItem>
-							<FontAwesomeIcon icon={faDatabase}/><span>SQL / MySQL</span>
+							<FontAwesomeIcon icon={faDatabase}/><span>SQL</span>
 						</SkillListItem>
 						<SkillListItem>
 							<FontAwesomeIcon icon={faReact}/><span>React</span>
@@ -55,12 +55,6 @@ export function Skills() {
 							<span className={"page-content"}>Bachelor of Arts</span>
 							<span className={"mb-1"}>Class of 2014</span>
 							<span className={"italic"}>Communication Major<br/>Marketing Minor</span>
-						</EducationItem>
-						<EducationItem>
-							<h2 className={"page-content teal-text"}>University of New England</h2>
-							<span className={"page-content"}>Digital Academy Course</span>
-							<span className={"mb-1"}>Spring 2017</span>
-							<span className={"italic"}>Development and Programming Fundamentals<br/>Python</span>
 						</EducationItem>
 					</Education>
 				</SkillsContent>
