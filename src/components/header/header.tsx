@@ -28,7 +28,7 @@ export function Header() {
 						</NavItem>
 						<NavItem>
 							<NavLink href="/#/skills">
-								Skills & Education
+								Skills
 							</NavLink>
 						</NavItem>
 						{/*<NavItem>
@@ -58,7 +58,7 @@ export function Header() {
 								</MobileNavItem>
 								<MobileNavItem className={'mb-1'}>
 									<NavLink href="/#/skills">
-										Skills & Education
+										Skills
 									</NavLink>
 								</MobileNavItem>
 								{/*<MobileNavItem>

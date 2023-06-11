@@ -19,7 +19,7 @@ export function Home() {
 				<br/><br/>
 				<span className={"hello magenta-text mb-1"}>Hello!</span>
 				<HomeContent>
-					<HomeItem>
+					<HomeItem className={"summary"}>
 						I am full-stack software developer who is constantly seeking to improve myself and learn new technologies.
 						<br/><br/>
 						I'm energized by work that allows me to troubleshoot issues, deliver solutions, and provide a great experience!

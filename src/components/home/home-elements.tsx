@@ -50,9 +50,5 @@ export const HomeContent = styled.div`
 
 export const HomeItem = styled.div`
     padding: 19px;
-    text-align: left; 
-    @media (max-width: 680px) {
-		font-size: 80%;
-		text-align: center; 
-	}
+    text-align: left;
 `;
