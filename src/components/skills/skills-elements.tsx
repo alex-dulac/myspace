@@ -51,10 +51,20 @@ export const SkillsContent = styled.div`
 	justify-content: space-between;
 	text-align: left;
 	margin-bottom: 2rem;
+	@media (max-width: 680px) {
+		display: none !important;
+	}
 `;
 
 export const Education = styled.div`
 	flex-shrink: 0;
 	text-align: right;
 	font-size: 0.9rem;
+`;
+
+export const MobileSkills = styled.div`
+	display: none;
+	@media (max-width: 680px) {
+		display: block;
+	}
 `;

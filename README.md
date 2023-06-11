@@ -1,6 +1,8 @@
 # Personal page
 
-Personal page built using React with TypeScript.
+Personal webpage using React with TypeScript.
+
+It's a little scrappy.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 

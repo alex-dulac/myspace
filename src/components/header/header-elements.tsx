@@ -78,9 +78,8 @@ export const MobileNavMenu = styled.div`
   }
   display: none;
   background-color: #FDF6F6;
-  height: 275px;
-  width: 400px;
   border:1px solid #043b59;
+  font-size: 75%;
 `;
 
 export const MobileList = styled.ul`

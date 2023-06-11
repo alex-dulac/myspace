@@ -22,6 +22,9 @@ export const PageContent = styled.div`
   box-shadow: 0px 2px 28px rgba(0, 0, 0, 0.2);
   border-radius: 10px;
   padding: 4rem;
+  @media (max-width: 680px) {
+		padding: 2rem;
+	}
   gap: 2rem;
   img {
     border-radius: 10px;

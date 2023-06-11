@@ -5,13 +5,13 @@ import {
 	SkillsList,
 	SkillListItem,
 	EducationItem,
-	SkillsContent, Education
+	SkillsContent, Education, MobileSkills
 } from "./skills-elements";
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faCheck, faDatabase} from '@fortawesome/free-solid-svg-icons';
 import {
-	faPhp, faJsSquare, faAngular, faReact, faPython, faHtml5, faCss3
+	faPhp, faJsSquare, faAngular, faReact, faPython, faHtml5, faCss3, faJava
 } from '@fortawesome/free-brands-svg-icons';
 
 export function Skills() {
@@ -25,7 +25,7 @@ export function Skills() {
 							<FontAwesomeIcon icon={faPhp}/><span>PHP</span>
 						</SkillListItem>
 						<SkillListItem>
-							<FontAwesomeIcon icon={faAngular}/><span>Angular (2+)</span>
+							<FontAwesomeIcon icon={faAngular}/><span>Angular</span>
 						</SkillListItem>
 						<SkillListItem>
 							<FontAwesomeIcon icon={faCheck}/><span>TypeScript</span>
@@ -35,6 +35,9 @@ export function Skills() {
 						</SkillListItem>
 						<SkillListItem>
 							<FontAwesomeIcon icon={faDatabase}/><span>SQL</span>
+						</SkillListItem>
+						<SkillListItem>
+							<FontAwesomeIcon icon={faJava}/><span>Java</span>
 						</SkillListItem>
 						<SkillListItem>
 							<FontAwesomeIcon icon={faReact}/><span>React</span>
@@ -58,6 +61,41 @@ export function Skills() {
 						</EducationItem>
 					</Education>
 				</SkillsContent>
+
+				<MobileSkills>
+					<SkillsList>
+						<SkillListItem>
+							<FontAwesomeIcon icon={faPhp}/><span>PHP</span>
+						</SkillListItem>
+						<SkillListItem>
+							<FontAwesomeIcon icon={faAngular}/><span>Angular</span>
+						</SkillListItem>
+						<SkillListItem>
+							<FontAwesomeIcon icon={faCheck}/><span>TypeScript</span>
+						</SkillListItem>
+						<SkillListItem>
+							<FontAwesomeIcon icon={faJsSquare}/><span>JavaScript</span>
+						</SkillListItem>
+						<SkillListItem>
+							<FontAwesomeIcon icon={faDatabase}/><span>SQL</span>
+						</SkillListItem>
+						<SkillListItem>
+							<FontAwesomeIcon icon={faJava}/><span>Java</span>
+						</SkillListItem>
+						<SkillListItem>
+							<FontAwesomeIcon icon={faReact}/><span>React</span>
+						</SkillListItem>
+						<SkillListItem>
+							<FontAwesomeIcon icon={faPython}/><span>Python</span>
+						</SkillListItem>
+						<SkillListItem>
+							<FontAwesomeIcon icon={faHtml5}/><span>HTML</span>
+						</SkillListItem>
+						<SkillListItem>
+							<FontAwesomeIcon icon={faCss3}/><span>CSS</span>
+						</SkillListItem>
+					</SkillsList>
+				</MobileSkills>
 			</SkillsContainer>
 		</SkillsEducationContainer>
 	);

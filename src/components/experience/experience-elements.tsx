@@ -20,6 +20,9 @@ export const ExperienceList = styled.ul`
 	list-style: none;
 	text-align: left;
 	padding: 0px 55px;
+	@media (max-width: 680px) {
+		padding: 0;
+	}
 `;
 
 export const ExperienceListItem = styled.li`

@@ -88,3 +88,10 @@
 *:focus {
     outline: none;
 }
+
+@media (max-width: 680px) {
+    .mobile {
+        font-size: 50px;
+        text-align: center;
+    }
+}

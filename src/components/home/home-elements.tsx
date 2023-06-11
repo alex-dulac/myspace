@@ -40,15 +40,19 @@ export const MobileProfileImage = styled.img`
 `;
 
 export const HomeContent = styled.div`
-	color: ${props => props.theme['navy-text']};;
+	color: ${props => props.theme['navy-text']};
 	font-size: 1.6rem;
 	flex-direction: row !important;
 	justify-content: space-between;
-	text-align: left;
 	margin-bottom: 2rem;
 	align-items: center;
 `;
 
 export const HomeItem = styled.div`
     padding: 19px;
+    text-align: left; 
+    @media (max-width: 680px) {
+		font-size: 80%;
+		text-align: center; 
+	}
 `;

@@ -11,7 +11,7 @@ export function Home() {
 	return (
 		<HomeContainer className={"fade-in"}>
 			<HomeContentContainer>
-				<h1 className={"page-header mb-minus"}>
+				<h1 className={"page-header mb-minus mobile"}>
 					<span className={"purple-text"}>ALEX </span>
 					<span className={"teal-text"}>DULAC</span>
 				</h1>
@@ -19,7 +19,7 @@ export function Home() {
 				<br/><br/>
 				<span className={"hello magenta-text mb-1"}>Hello!</span>
 				<HomeContent>
-					<HomeItem className={"text-left"}>
+					<HomeItem>
 						I am full-stack software developer who is constantly seeking to improve myself and learn new technologies.
 						<br/><br/>
 						I'm energized by work that allows me to troubleshoot issues, deliver solutions, and provide a great experience!
