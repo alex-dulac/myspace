@@ -1,6 +1,6 @@
 # Personal page
 
-Personal webpage using React with TypeScript.
+Personal resume/cv webpage using React with TypeScript.
 
 It's a little scrappy.
 
