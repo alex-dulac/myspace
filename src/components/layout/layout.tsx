@@ -8,6 +8,7 @@ import { Home } from "../home/home";
 import { Experience } from "../experience/experience";
 import { Skills } from "../skills/skills";
 import { Contact } from "../contact/contact";
+import { Interests } from "../interests/interests";
 
 export function Layout() {
 	const [isSinglePage, setIsSinglePage] = useState(false);
@@ -21,6 +22,7 @@ export function Layout() {
 						<PageContent><Home/></PageContent>
 						<PageContent><Experience/></PageContent>
 						<PageContent><Skills/></PageContent>
+						<PageContent><Interests/></PageContent>
 						<PageContent><Contact/></PageContent>
 					</> :
 					<PageContent><Outlet/></PageContent>

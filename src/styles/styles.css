@@ -63,6 +63,8 @@
     padding: 0 1rem;
     font-size: 0.9rem;
     cursor: pointer;
+    text-decoration: none;
+    color: var(--main-text-color);
 }
 
 .footer-name {
@@ -133,6 +135,14 @@
     padding: 20px;
 }
 
+.sent {
+    text-align: center;
+}
+
+.scroll-into-margin {
+    scroll-margin-top: 100px;
+}
+
 .email-form-container {
     width: 100%;
 }
@@ -140,6 +150,10 @@
 .email-text-box {
     height: 150px;
     border: 1px solid var(--main-text-color);
+}
+
+.border-rounded {
+    border-radius: 15px;
 }
 
 @media (max-width: 680px) {
@@ -168,4 +182,5 @@ textarea, input {
     display: block;
     background: transparent !important;
     width: 100%;
+    padding: 5px;
 }

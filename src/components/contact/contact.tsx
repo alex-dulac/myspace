@@ -8,7 +8,6 @@ import { GeneralListItem, GeneralContainer, GeneralContent, GeneralDetail } from
 export function Contact() {
 	const [submittingForm, setSubmittingForm] = useState(false);
 	const [formSubmitted, setFormSubmitted] = useState(false);
-	const [contactFormName, setContactFormName] = useState("");
 
 	const contactForm = useRef<HTMLFormElement>(null);
 	const sendEmail = (e: any) => {
@@ -29,13 +28,8 @@ export function Contact() {
 				contactForm.current,
 				process.env.REACT_APP_EMAILJS_PUBLIC_KEY as string
 			).then(r => {
-					setContactFormName(contactForm.current ? contactForm.current.name : "");
 					setSubmittingForm(false);
 					setFormSubmitted(true);
-					const contactDiv = document.getElementById('contact');
-					if (contactDiv) {
-						window.scrollTo({top: contactDiv.offsetTop - 50, behavior: "smooth", })
-					}
 				}
 			).catch(err => {
 				alert("There was an error with your RSVP submission. Please try again.");
@@ -43,13 +37,12 @@ export function Contact() {
 				formElements.forEach(element => element.setAttribute('readonly', 'false'));
 			});
 		} else {
-			alert("Names, Email, and Message are all required fields! :) ");
+			alert("Name, Email, and Message are all required fields! :) ");
 		}
 	}
 
 	return (
-		<GeneralContainer className={"fade-in"}>
-			<h1 className={"sub-header mb-2 purple-text"}>Contact</h1>
+		<GeneralContainer id={"contact"} className={"fade-in scroll-into-margin"}>
 			<GeneralContent className={"section"}>
 				<h4 className={"mb-2 flex-center"}>Connect with me at any time, I look forward to it!</h4>
 				<GeneralDetail className={"flex-center mb-2"}>
@@ -75,10 +68,10 @@ export function Contact() {
 			</GeneralContent>
 			{formSubmitted ?
 				<>
-					<div className={"email"}>
+					<div className={"email sent"}>
 						<div className={"email-form-container navy-text"}>
-							<h2> Thank you for your message {contactFormName}! </h2>
-							<p> I will be in touch as soon as possible. </p>
+							<h2> Thank you for your message! </h2>
+							<p> I have received it and will be in touch as soon as possible. </p>
 							<p className={"italic"}> --Alex </p>
 						</div>
 					</div>
@@ -87,16 +80,16 @@ export function Contact() {
 					<div className="email-form-container navy-text">
 						<form ref={contactForm} id="contact-form" onSubmit={sendEmail}>
 							<label>Name </label>
-							<input type="text" name="name"/>
+							<input className={"border-rounded"} type="text" name="name"/>
 
 							<br/><br/>
 							<label>Email </label>
-							<input type="email" name="email" />
+							<input className={"border-rounded"} type="email" name="email" />
 
 							<br/><br/>
 							<label>Message </label>
 							<br/>
-							<textarea name="message" className={"email-text-box"} />
+							<textarea name="message" className={"email-text-box border-rounded"} />
 
 							<br/>
 							{submittingForm ?

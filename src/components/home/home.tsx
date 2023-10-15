@@ -8,7 +8,7 @@ import {
 export function Home() {
 	return (
 		<>
-			<HomeContainer id={"home"} className={"fade-in"}>
+			<HomeContainer id={"home"} className={"fade-in scroll-into-margin"}>
 				<HomeContentContainer>
 					<h1 className={"page-header mb-minus mobile"}>
 						<span className={"purple-text"}>ALEX </span>

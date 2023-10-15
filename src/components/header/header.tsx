@@ -17,14 +17,15 @@ export class Header extends React.Component<{ isSinglePage: boolean, setIsSingle
 		const homeLink = {link: '/', name: 'Home', divId: 'home'};
 		const experienceLink = {link: '/#/experience', name: 'Experience', divId: 'experience'};
 		const skillsLink = {link: '/#/skills', name: 'Skills', divId: 'skills'};
+		const interestsLink = {link: '/#/interests', name: 'About Me', divId: 'interests'};
 		const contactLink = {link: '/#/contact', name: 'Contact', divId: 'contact'};
-		const links = [homeLink, experienceLink, skillsLink, contactLink];
+		const links = [homeLink, experienceLink, skillsLink, interestsLink, contactLink];
 
 		function handleHeaderLinkClick(event: React.MouseEvent<HTMLAnchorElement>, link: { link: string; name?: string; divId: string; }) {
 			event.preventDefault();
 
 			if (isSinglePage) {
-				document.getElementById(link.divId)?.scrollIntoView();
+				document.getElementById(link.divId)?.scrollIntoView({block: "start", behavior: "smooth"});
 			} else {
 				window.location.href = link.link;
 			}
@@ -32,7 +33,7 @@ export class Header extends React.Component<{ isSinglePage: boolean, setIsSingle
 
 		function toggleSinglePage(event: React.MouseEvent<HTMLAnchorElement>) {
 			event.preventDefault();
-			const toggle = document.getElementById("singlePageToggle") as HTMLAnchorElement;;
+			const toggle = document.getElementById("singlePageToggle") as HTMLAnchorElement;
 
 			if (isSinglePage) {
 				setIsSinglePage(false);
@@ -40,14 +41,7 @@ export class Header extends React.Component<{ isSinglePage: boolean, setIsSingle
 			} else {
 				setIsSinglePage(true);
 				toggle.className = "single-page-link italic";
-				/*if ("pushState" in history) {
-					history.pushState("", document.title, window.location.pathname);
-				}*/
-			}
-
-			const header = document.getElementById('header');
-			if (header) {
-				window.scrollTo({top: header.offsetTop - 50, behavior: 'smooth',});
+				window.location.hash = "";
 			}
 		}
 
@@ -64,16 +58,14 @@ export class Header extends React.Component<{ isSinglePage: boolean, setIsSingle
 			<HeaderContainer id={"header"}>
 				<HeaderNav>
 					<NavContainer>
-						<a id={"singlePageToggle"} className={"single-page-link"} onClick={(event) => { toggleSinglePage(event) }}>
-							{isSinglePage ? "Single Page Enabled" : "Single Page Off"}
+						<a id={"singlePageToggle"} className={"single-page-link"} href={"#"} onClick={(event) => { toggleSinglePage(event) }}>
+							{isSinglePage ? "Single Page Enabled" : "Toggle Single Page"}
 						</a>
 						<NavMenu>
 							{
 								links.map(link =>
 									<NavItem key={link.name}>
-										<NavLink onClick={(event) => {
-											handleHeaderLinkClick(event, link)
-										}}>
+										<NavLink href={"#"} onClick={(event) => { handleHeaderLinkClick(event, link) }}>
 											{link.name}
 										</NavLink>
 									</NavItem>
@@ -87,9 +79,7 @@ export class Header extends React.Component<{ isSinglePage: boolean, setIsSingle
 										{
 											links.map(link =>
 												<MobileNavItem key={link.name}>
-													<NavLink onClick={(event) => {
-														handleHeaderLinkClick(event, link)
-													}}>
+													<NavLink href={"#"} onClick={(event) => { handleHeaderLinkClick(event, link)}}>
 														{link.name}
 													</NavLink>
 												</MobileNavItem>

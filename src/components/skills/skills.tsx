@@ -11,7 +11,7 @@ import {
 
 export function Skills() {
 	return (
-		<GeneralContainer id={"skills"} className={"fade-in"}>
+		<GeneralContainer id={"skills"} className={"fade-in scroll-into-margin"}>
 			<h1 className={"sub-header mb-2 purple-text"}>Skills</h1>
 			<GeneralContent className={"section"}>
 
@@ -45,12 +45,12 @@ export function Skills() {
 
 				<GeneralType>Knowledge / Experience </GeneralType>
 				<GeneralDetail className={"flex-center mb-2"}>
-					<div>Object-oriented methodologies and class design, API development, state management, relational database design, query optimization, proficient in debugging and troubleshooting</div>
+					<p>Object-oriented methodologies and class design, API development, state management, relational database design, query optimization, proficient in debugging and troubleshooting, implementation of third-party integrations</p>
 				</GeneralDetail>
 
 				<GeneralType>Tools: </GeneralType>
 				<GeneralDetail className={"flex-center mb-2"}>
-					<div>Docker, AWS (S3, RDS, ECS, EC2, SQS, Lambda), DataDog, Sentry, Github, Postman, PHPUnit, Selenium, Jenkins, Jira, Excel</div>
+					<p>Docker, AWS (<span className={"italic"}>S3, RDS, ECS, EC2, SQS, Lambda</span>), DataDog, Sentry, Github, Postman, PHPUnit, Selenium, Jenkins, Jira, Excel</p>
 				</GeneralDetail>
 
 			</GeneralContent>
