@@ -47,6 +47,11 @@ export const NavMenu = styled.ul`
 
 export const NavItem = styled.li`
   height: 3.6em;
+  a {
+		color: ${props => props.theme['navy-text']};
+  		text-decoration: none;
+  		cursor: pointer;
+  	}
 `;
 
 export const NavLink = styled.a`
@@ -60,7 +65,7 @@ export const NavLink = styled.a`
   outline : none;
 `;
 
-export const MobileNavMenuIcon = styled.a`
+export const MobileNavMenuIcon = styled.div`
  font-size: 1.75rem;
  padding-top: 20px;
 

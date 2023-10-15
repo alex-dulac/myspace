@@ -1,7 +1,7 @@
 import React from "react";
 import {
-	SkillsContainer, SkillListItem, SkillsContent, SkillsType, SkillsDetail,
-} from "./skills-elements";
+	GeneralContainer, GeneralListItem, GeneralContent, GeneralType, GeneralDetail,
+} from "../general-elements";
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck, faDatabase } from '@fortawesome/free-solid-svg-icons';
@@ -11,49 +11,49 @@ import {
 
 export function Skills() {
 	return (
-		<SkillsContainer className={"fade-in"}>
+		<GeneralContainer id={"skills"} className={"fade-in"}>
 			<h1 className={"sub-header mb-2 purple-text"}>Skills</h1>
-			<SkillsContent className={"section"}>
+			<GeneralContent className={"section"}>
 
-				<SkillsType>Languages </SkillsType>
-				<SkillsDetail className={"flex-center mb-2"}>
-					<SkillListItem><FontAwesomeIcon icon={faPhp}/> PHP</SkillListItem>
-					<SkillListItem><FontAwesomeIcon icon={faJsSquare}/> JavaScript</SkillListItem>
-					<SkillListItem><FontAwesomeIcon icon={faCheck}/> TypeScript</SkillListItem>
-					<SkillListItem><FontAwesomeIcon icon={faDatabase}/> SQL</SkillListItem>
-					<SkillListItem><FontAwesomeIcon icon={faJava}/> Java</SkillListItem>
-					<SkillListItem><FontAwesomeIcon icon={faPython}/> Python</SkillListItem>
-					<SkillListItem><FontAwesomeIcon icon={faHtml5}/> HTML</SkillListItem>
-					<SkillListItem><FontAwesomeIcon icon={faCss3}/> CSS</SkillListItem>
-				</SkillsDetail>
+				<GeneralType>Languages </GeneralType>
+				<GeneralDetail className={"flex-center mb-2"}>
+					<GeneralListItem><FontAwesomeIcon icon={faPhp}/> PHP</GeneralListItem>
+					<GeneralListItem><FontAwesomeIcon icon={faJsSquare}/> JavaScript</GeneralListItem>
+					<GeneralListItem><FontAwesomeIcon icon={faCheck}/> TypeScript</GeneralListItem>
+					<GeneralListItem><FontAwesomeIcon icon={faDatabase}/> SQL</GeneralListItem>
+					<GeneralListItem><FontAwesomeIcon icon={faJava}/> Java</GeneralListItem>
+					<GeneralListItem><FontAwesomeIcon icon={faPython}/> Python</GeneralListItem>
+					<GeneralListItem><FontAwesomeIcon icon={faHtml5}/> HTML</GeneralListItem>
+					<GeneralListItem><FontAwesomeIcon icon={faCss3}/> CSS</GeneralListItem>
+				</GeneralDetail>
 
-				<SkillsType>Frameworks etc. </SkillsType>
-				<SkillsDetail className={"flex-center mb-2"}>
-					<SkillListItem><FontAwesomeIcon icon={faAngular}/> Angular</SkillListItem>
-					<SkillListItem><FontAwesomeIcon icon={faReact}/> React</SkillListItem>
-					<SkillListItem><FontAwesomeIcon icon={faNodeJs}/> Node.js</SkillListItem>
-					<SkillListItem><FontAwesomeIcon icon={faLaravel}/> Laravel</SkillListItem>
-					<SkillListItem><FontAwesomeIcon icon={faCheck}/> Doctrine</SkillListItem>
-					<SkillListItem><FontAwesomeIcon icon={faSymfony}/> Symfony</SkillListItem>
-				</SkillsDetail>
+				<GeneralType>Frameworks etc. </GeneralType>
+				<GeneralDetail className={"flex-center mb-2"}>
+					<GeneralListItem><FontAwesomeIcon icon={faAngular}/> Angular</GeneralListItem>
+					<GeneralListItem><FontAwesomeIcon icon={faReact}/> React</GeneralListItem>
+					<GeneralListItem><FontAwesomeIcon icon={faNodeJs}/> Node</GeneralListItem>
+					<GeneralListItem><FontAwesomeIcon icon={faSymfony}/> Symfony</GeneralListItem>
+					<GeneralListItem><FontAwesomeIcon icon={faLaravel}/> Laravel</GeneralListItem>
+					<GeneralListItem><FontAwesomeIcon icon={faCheck}/> Doctrine</GeneralListItem>
+				</GeneralDetail>
 
-				<SkillsType>Databases </SkillsType>
-				<SkillsDetail className={"flex-center mb-2"}>
-					<SkillListItem><FontAwesomeIcon icon={faDatabase}/> MySQL</SkillListItem>
-					<SkillListItem><FontAwesomeIcon icon={faDatabase}/> Oracle</SkillListItem>
-				</SkillsDetail>
+				<GeneralType>Databases </GeneralType>
+				<GeneralDetail className={"flex-center mb-2"}>
+					<GeneralListItem><FontAwesomeIcon icon={faDatabase}/> MySQL</GeneralListItem>
+					<GeneralListItem><FontAwesomeIcon icon={faDatabase}/> Oracle</GeneralListItem>
+				</GeneralDetail>
 
-				<SkillsType>Knowledge / Experience </SkillsType>
-				<SkillsDetail className={"flex-center mb-2"}>
+				<GeneralType>Knowledge / Experience </GeneralType>
+				<GeneralDetail className={"flex-center mb-2"}>
 					<div>Object-oriented methodologies and class design, API development, state management, relational database design, query optimization, proficient in debugging and troubleshooting</div>
-				</SkillsDetail>
+				</GeneralDetail>
 
-				<SkillsType>Tools: </SkillsType>
-				<SkillsDetail className={"flex-center mb-2"}>
+				<GeneralType>Tools: </GeneralType>
+				<GeneralDetail className={"flex-center mb-2"}>
 					<div>Docker, AWS (S3, RDS, ECS, EC2, SQS, Lambda), DataDog, Sentry, Github, Postman, PHPUnit, Selenium, Jenkins, Jira, Excel</div>
-				</SkillsDetail>
+				</GeneralDetail>
 
-			</SkillsContent>
-		</SkillsContainer>
+			</GeneralContent>
+		</GeneralContainer>
 	);
 }

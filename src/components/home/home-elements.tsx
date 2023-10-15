@@ -10,33 +10,37 @@ export const HomeContentContainer = styled.div`
 `;
 
 export const ProfileImageContainer = styled.div`
-  	justify-content: space-around;
-  	align-items: center;
-  	padding: 20px;
+  	@media screen and (min-width: 0px) and (max-width: 768px) {
+		display: none !important;
+	}
+ 
+ 	@media screen and (min-width: 768px) and (max-width: 3000px) {
+ 		justify-content: space-around;
+ 		align-items: center;
+ 		padding: 20px;
+ 	}
+`;
+
+export const MobileProfileImageContainer = styled.div`
+  	@media screen and (min-width: 0px) and (max-width: 768px) {
+		justify-content: space-around;
+ 		align-items: center;
+ 		padding: 20px;
+	}
+ 
+ 	@media screen and (min-width: 768px) and (max-width: 3000px) {
+ 		display: none !important;
+ 	}
 `;
 
 export const ProfileImage = styled.img`
-	@media screen and (min-width: 0px) and (max-width: 768px) {
-		display: none;
-	}
- 
- 	@media screen and (min-width: 768px) and (max-width: 3000px) {
- 		border-radius: 50% !important;
-    	max-width: 25rem;
-    	max-height: 25rem;
- 	}
+    max-width: 25rem;
+    max-height: 25rem;
 `;
 
 export const MobileProfileImage = styled.img`
-	@media screen and (min-width: 0px) and (max-width: 768px) {
-		border-radius: 50% !important;
-    	max-width: 13rem;
-    	max-height: 13rem;
-	}
- 
- 	@media screen and (min-width: 768px) and (max-width: 3000px) {
- 		display: none;
- 	}
+    max-width: 13rem;
+    max-height: 13rem;
 `;
 
 export const HomeContent = styled.div`
@@ -50,5 +54,4 @@ export const HomeContent = styled.div`
 
 export const HomeItem = styled.div`
     padding: 19px;
-    text-align: left;
 `;

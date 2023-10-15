@@ -10,6 +10,10 @@ export function Footer() {
 		<FooterContainer>
 			<FooterNav>
 				<NavContainer>
+					<h3 className={"footer-name"}>
+						<span className={"purple-text"}>ALEX&nbsp;</span>
+						<span className={"teal-text"}>DULAC</span>
+					</h3>
 					<NavMenu>
 						<NavItem>
 							<NavLink href="mailto:alex@alexdulac.dev">
@@ -32,10 +36,6 @@ export function Footer() {
 							</NavLink>
 						</NavItem>
 					</NavMenu>
-					<h3 className={"footer-name"}>
-						<span className={"purple-text"}>ALEX&nbsp;</span>
-						<span className={"teal-text"}>DULAC</span>
-					</h3>
 				</NavContainer>
 			</FooterNav>
 		</FooterContainer>

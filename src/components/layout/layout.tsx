@@ -3,15 +3,28 @@ import { Header } from "../header/header";
 import { Footer } from "../footer/footer";
 import { LayoutContainer } from "./layout-elements";
 import { PageContainer, PageContent } from "../../styles/style-elements";
+import React, { useState } from "react";
+import { Home } from "../home/home";
+import { Experience } from "../experience/experience";
+import { Skills } from "../skills/skills";
+import { Contact } from "../contact/contact";
 
 export function Layout() {
+	const [isSinglePage, setIsSinglePage] = useState(false);
+
 	return (
 		<LayoutContainer>
-			<Header />
+			<Header isSinglePage={isSinglePage} setIsSinglePage={setIsSinglePage} />
 			<PageContainer>
-				<PageContent>
-					<Outlet />
-				</PageContent>
+				{isSinglePage ?
+					<>
+						<PageContent><Home/></PageContent>
+						<PageContent><Experience/></PageContent>
+						<PageContent><Skills/></PageContent>
+						<PageContent><Contact/></PageContent>
+					</> :
+					<PageContent><Outlet/></PageContent>
+				}
 			</PageContainer>
 			<Footer />
 		</LayoutContainer>

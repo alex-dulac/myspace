@@ -26,7 +26,7 @@ export const ExperienceList = styled.ul`
 `;
 
 export const ExperienceListItem = styled.li`
-	margin-bottom: 0.8rem;
+	margin-bottom: 1.5rem;
 	font-size: 1.1rem;
 `;
 

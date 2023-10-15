@@ -1,3 +1,7 @@
+:root {
+    --main-text-color: #043b59;
+}
+
 .purple-text {
     color: #47267a;
 }
@@ -11,7 +15,7 @@
 }
 
 .navy-text {
-    color: #043b59
+    color: #043b59;
 }
 
 .page-header {
@@ -50,6 +54,15 @@
 .profile-image {
     max-width: 30rem;
     max-height: 30rem;
+}
+
+.single-page-link {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    padding: 0 1rem;
+    font-size: 0.9rem;
+    cursor: pointer;
 }
 
 .footer-name {
@@ -112,4 +125,47 @@
 
 .section > div {
     flex: 1 1;
+}
+
+.email {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+.email-form-container {
+    width: 100%;
+}
+
+.email-text-box {
+    height: 150px;
+    border: 1px solid var(--main-text-color);
+}
+
+@media (max-width: 680px) {
+    .email { flex-direction: column; }
+    .email-form-container {
+        margin-bottom: 20px;
+    }
+}
+
+.right { margin-right: 0; margin-left: auto; }
+
+.btn-submit {
+    background: none;
+    color: var(--main-text-color);
+    font-size: 1.25rem;
+    border: 0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-submit:hover { color: var(--main-text-color); }
+
+textarea, input {
+    font-family: "Open Sans", sans-serif !important;
+    font-size: 1.25rem;
+    display: block;
+    background: transparent !important;
+    width: 100%;
 }

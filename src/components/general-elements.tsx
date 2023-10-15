@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const SkillsContainer = styled.div`
+export const GeneralContainer = styled.div`
 	width: 100%;
 	color: ${props => props.theme['navy-text']};
 	display: flex;
@@ -19,11 +19,11 @@ export const SkillsContainer = styled.div`
   	}
 `;
 
-export const SkillsContent = styled.div`
+export const GeneralContent = styled.div`
 	margin-bottom: 2rem;
 `;
 
-export const SkillsDetail = styled.div`
+export const GeneralDetail = styled.div`
 	@media screen and (min-width: 0px) and (max-width: 768px) {
 		flex-direction: column;
 	}
@@ -33,13 +33,17 @@ export const SkillsDetail = styled.div`
  	}
 `;
 
-export const SkillsType = styled.div`
+export const GeneralType = styled.div`
 	text-align: left;
 	text-decoration: underline;
 	
 	
 `;
 
-export const SkillListItem = styled.span`
+export const GeneralListItem = styled.span`
 	padding: 10px;
+	a {
+		color: ${props => props.theme['navy-text']};
+  		text-decoration: none;
+  	}
 `;
