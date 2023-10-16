@@ -77,6 +77,18 @@ export const MobileNavMenuIcon = styled.div`
     display: none;
  }`;
 
+export const PrimaryToggleDiv = styled.div`
+ font-size: 1.75rem;
+ padding-top: 20px;
+
+ @media screen and (min-width: 0px) and (max-width: 768px) {
+   display: none;
+ }
+ 
+ @media screen and (min-width: 768px) {
+    display: block;
+ }`;
+
 export const MobileNavMenu = styled.div`
   @media screen and (min-width: 768px) {
     display: none;

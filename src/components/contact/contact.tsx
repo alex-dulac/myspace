@@ -37,7 +37,7 @@ export function Contact() {
 				formElements.forEach(element => element.setAttribute('readonly', 'false'));
 			});
 		} else {
-			alert("Name, Email, and Message are all required fields! :) ");
+			alert("Name, Email, and Message are all required fields");
 		}
 	}
 

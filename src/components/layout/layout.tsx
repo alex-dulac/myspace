@@ -15,7 +15,10 @@ export function Layout() {
 
 	return (
 		<LayoutContainer>
-			<Header isSinglePage={isSinglePage} setIsSinglePage={setIsSinglePage} />
+			<Header
+				isSinglePage={isSinglePage}
+				setIsSinglePage={setIsSinglePage}
+			/>
 			<PageContainer>
 				{isSinglePage ?
 					<>

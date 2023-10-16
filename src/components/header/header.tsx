@@ -1,16 +1,19 @@
-import React, {Dispatch, SetStateAction} from "react";
+import React, {Dispatch, SetStateAction, useEffect, useState} from "react";
 import {
 	HeaderContainer,
 	HeaderNav,
 	NavContainer,
 	NavMenu,
 	NavItem,
-	NavLink, MobileNavMenuIcon, MobileNavMenu, MobileNavItem, MobileList
+	NavLink, MobileNavMenuIcon, MobileNavMenu, MobileNavItem, MobileList, PrimaryToggleDiv
 } from "./header-elements";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faBars} from "@fortawesome/free-solid-svg-icons";
 
-export class Header extends React.Component<{ isSinglePage: boolean, setIsSinglePage: Dispatch<SetStateAction<any>> }> {
+export class Header extends React.Component<{
+	isSinglePage: boolean,
+	setIsSinglePage: Dispatch<SetStateAction<any>>
+}> {
 	render() {
 		let {isSinglePage, setIsSinglePage} = this.props;
 
@@ -37,10 +40,10 @@ export class Header extends React.Component<{ isSinglePage: boolean, setIsSingle
 
 			if (isSinglePage) {
 				setIsSinglePage(false);
-				toggle.className = "single-page-link";
+				toggle.className = "single-page-link mb-2";
 			} else {
 				setIsSinglePage(true);
-				toggle.className = "single-page-link italic";
+				toggle.className = "single-page-link mb-2 italic";
 				window.location.hash = "";
 			}
 		}
@@ -58,9 +61,6 @@ export class Header extends React.Component<{ isSinglePage: boolean, setIsSingle
 			<HeaderContainer id={"header"}>
 				<HeaderNav>
 					<NavContainer>
-						<a id={"singlePageToggle"} className={"single-page-link"} href={"#"} onClick={(event) => { toggleSinglePage(event) }}>
-							{isSinglePage ? "Single Page Enabled" : "Toggle Single Page"}
-						</a>
 						<NavMenu>
 							{
 								links.map(link =>
@@ -76,9 +76,14 @@ export class Header extends React.Component<{ isSinglePage: boolean, setIsSingle
 							<FontAwesomeIcon icon={faBars}/>
 								<MobileNavMenu id={"mobileNav"}>
 									<MobileList>
+										<a id={"singlePageToggle"} className={"single-page-link mb-2"} href={"#"} onClick={(event) => {
+											toggleSinglePage(event)
+										}}>
+											{isSinglePage ? "Single Page Enabled" : "Toggle Single Page"}
+										</a>
 										{
 											links.map(link =>
-												<MobileNavItem key={link.name}>
+												<MobileNavItem key={link.name} className={'mb-1'}>
 													<NavLink href={"#"} onClick={(event) => { handleHeaderLinkClick(event, link)}}>
 														{link.name}
 													</NavLink>
@@ -88,6 +93,13 @@ export class Header extends React.Component<{ isSinglePage: boolean, setIsSingle
 									</MobileList>
 								</MobileNavMenu>
 						</MobileNavMenuIcon>
+						<PrimaryToggleDiv>
+							<a id={"singlePageToggle"} className={"single-page-link"} href={"#"} onClick={(event) => {
+								toggleSinglePage(event)
+							}}>
+								{isSinglePage ? "Single Page Enabled" : "Toggle Single Page"}
+							</a>
+						</PrimaryToggleDiv>
 					</NavContainer>
 				</HeaderNav>
 			</HeaderContainer>

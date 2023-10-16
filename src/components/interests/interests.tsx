@@ -15,9 +15,9 @@ export function Interests() {
 				<HomeContentContainer>
 					<HomeContent>
 						<HomeItem className={"summary"}>
-							I'm a (mostly) lifelong Mainer and couldn't be happier!
+							I'm a lifelong Mainer, having graduated from Maine schools, with plenty of experience from some of Maine's best companies.
 							<br/><br/>
-							I live here with my wife and our pit mix Lila.
+							I currently live in southern Maine with my wife and our pit mix Lila.
 						</HomeItem>
 						<ProfileImageContainer>
 							<ProfileImage src="/doog1.jpg"/>
@@ -33,11 +33,11 @@ export function Interests() {
 							<ProfileImage src="/doog2.jpg"/>
 						</ProfileImageContainer>
 						<HomeItem className={"summary"}>
-							When I'm not breaking/fixing code, I'm breaking/fixing something in my house while calling it home improvement.
+							When I'm not creating/breaking/fixing code, I'm creating/breaking/fixing something in my house. I guess it's what I like to do.
 							<br/><br/>
 							Or maybe I'm in the basement, turning up my VTM 60 and making my tinnitus worse than it already is.
 							<br/><br/>
-							Otherwise, you'll find me on my motorcycle headed to the beach in the summer!
+							But if it's summer, you'll find us at the beach!
 						</HomeItem>
 					</HomeContent>
 					<MobileProfileImageContainer>
