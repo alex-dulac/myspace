@@ -15,7 +15,7 @@ export function Interests() {
 				<HomeContentContainer>
 					<HomeContent>
 						<HomeItem className={"summary"}>
-							I'm a lifelong Mainer, having graduated from Maine schools, with plenty of experience from some of Maine's best companies.
+							I'm a lifelong Mainer, having graduated from Maine schools, with valuable experience from some of Maine's best companies.
 							<br/><br/>
 							I currently live in southern Maine with my wife and our pit mix Lila.
 						</HomeItem>
