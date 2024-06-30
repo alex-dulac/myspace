@@ -1,0 +1,217 @@
+<body>
+<div>
+    <div>
+        <div>
+            <nav>
+                <div>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Experience</a></li>
+                        <li><a href="#">Skills</a></li>
+                        <li><a href="#">About Me</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                    <a href="#">Single Page Enabled</a>
+                </div>
+            </nav>
+        </div>
+        <div>
+            <div>
+                <div>
+                    <div>
+                        <h1>
+                            <span>ALEX </span>
+                            <span>DULAC</span>
+                        </h1>
+                        <span>Full-Stack Developer</span>
+                        <br>
+                        <br>
+                        <span>Hello!</span>
+                        <div>
+                            <div>
+                                <div>I am a full-stack developer who is constantly seeking to improve myself and learn new technologies.</div>
+                                <br>
+                                <br>
+                                <div>I'm energized by work that allows me to troubleshoot issues, deliver solutions, and provide a great experience!</div>
+                            </div>
+                            <div>
+                                <img src="/profile2.png">
+                            </div>
+                        </div>
+                        <div>
+                            <img src="/profile2.png">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div>
+                    <div>
+                        <h1>Experience</h1>
+                        <div>
+                            <ul>
+                                <li>5 years as a professional full-stack developer has given me a strong foundation of application development best practices.</li>
+                                <li>This time has given me experience writing, testing, and debugging modern code using a variety of programming languages-- in particular, PHP &amp; Node for backend and Javascript + Angular with TypeScript for frontend.</li>
+                                <li>I have experience with writing tests using a variety of frameworks including PHPUnit, Cypress, and automated testing utilizing Selenium &amp; Sauce Labs.</li>
+                                <li>I am comfortable releasing code to production often, using various tools to deploy and monitor such as Amazon Web Services (AWS) and Datadog.</li>
+                                <li>I understand the importance of translating technical issues into easy-to-understand solutions.</li>
+                                <li>My experience in data integration quality assurance gave me the tools to be proficient with SQL, relation database development &amp; design, and query optimization.</li>
+                                <li>I'm not devoted to any particular language, so no matter the project/tech stack, I'm always eager to jump right in to learning and contributing.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div>
+                    <h1>Skills</h1>
+                    <div>
+                        <div>Languages </div>
+                        <div>
+                            <span>PHP</span>
+                            <span>JavaScript</span>
+                            <span>TypeScript</span>
+                            <span>SQL</span>
+                            <span>Java</span>
+                            <span>Python</span>
+                            <span>HTML</span>
+                            <span>CSS</span>
+                        </div>
+                        <div>Frameworks etc. </div>
+                        <div>
+                            <span>Angular</span>
+                            <span>React</span>
+                            <span>Node</span>
+                            <span>Symfony</span>
+                            <span>Laravel</span>
+                            <span>Doctrine</span>
+                        </div>
+                        <div>Databases </div>
+                        <div>
+                            <span>MySQL</span>
+                            <span>Oracle</span>
+                        </div>
+                        <div>Knowledge / Experience </div>
+                        <div>
+                            <p>Object-oriented methodologies and class design, API development, state management, relational database design, query optimization, proficient in debugging and troubleshooting, implementation of third-party integrations</p>
+                        </div>
+                        <div>Tools: </div>
+                        <div>
+                            <p>Docker, AWS (<span>S3, RDS, ECS, EC2, SQS, Lambda</span>), DataDog, Sentry, Github, Postman, PHPUnit, Selenium, Jenkins, Jira, Excel</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div>
+                    <div>
+                        <div>
+                            <div>
+                                <div>I'm a lifelong Mainer, having graduated from Maine schools, with valuable experience from some of Maine's best companies.</div>
+                                <br>
+                                <br>
+                                <div>I currently live in southern Maine with my wife and our pit mix Lila.</div>
+                            </div>
+                            <div>
+                                <img src="/doog1.jpg">
+                            </div>
+                        </div>
+                        <div>
+                            <img src="/doog1.jpg">
+                        </div>
+                    </div>
+                    <div>
+                        <div>
+                            <div>
+                                <img src="/doog2.jpg">
+                            </div>
+                            <div>When I'm not creating/breaking/fixing code, I'm creating/breaking/fixing something in my house. I guess it's what I like to do.</div>
+                            <br>
+                            <br>
+                            <div>Or maybe I'm in the basement, turning up my VTM 60 and making my tinnitus worse than it already is.</div>
+                            <br>
+                            <br>
+                            <div>But if it's summer, you'll find us at the beach!</div>
+                        </div>
+                        <div>
+                            <img src="/doog2.jpg">
+                        </div>
+                    </div>
+                    <section>
+                        <a href="#">Curious how long I've been computer savvy?...</a>
+                    </section>
+                </div>
+            </div>
+            <div>
+                <div>
+                    <div>
+                        <h4>Connect with me at any time, I look forward to it!</h4>
+                        <div>
+                                <span>
+                                    <a href="mailto:alex@alexdulac.dev" target="_blank" rel="noreferrer"> Email</a>
+                                </span>
+                            <span>
+                                    <a href="https://www.linkedin.com/in/alexdulac" target="_blank" rel="noreferrer"> LinkedIn</a>
+                                </span>
+                            <span>
+                                    <a href="https://github.com/alex-dulac" target="_blank" rel="noreferrer"> Github</a>
+                                </span>
+                        </div>
+                    </div>
+                    <section>
+                        <div>
+                            <form>
+                                <label>Name </label>
+                                <input type="text" name="name">
+                                <br>
+                                <br>
+                                <label>Email </label>
+                                <input type="email" name="email">
+                                <br>
+                                <br>
+                                <label>Message </label>
+                                <br>
+                                <textarea name="message"></textarea>
+                                <br>
+                                <button type="submit"> Send </button>
+                            </form>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<footer>
+    <nav>
+        <div>
+            <h3>
+                <span>ALEX&nbsp;</span>
+                <span>DULAC</span>
+            </h3>
+            <ul>
+                <li>
+                    <a href="mailto:alex@alexdulac.dev">
+                        <svg></svg>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.linkedin.com/in/alexdulac" target="_blank">
+                        <svg></svg>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://github.com/alex-dulac" target="_blank">
+                        <svg></svg>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.last.fm/user/alexdulac" target="_blank">
+                        <svg></svg>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</footer>
+</body>
