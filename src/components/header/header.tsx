@@ -68,17 +68,13 @@ export class Header extends React.Component<{
 									<FontAwesomeIcon icon={faBars}/>
 									<MobileNavMenu id={"mobileNav"}>
 										<MobileList>
-											<a id={"singlePageToggle"} className={"single-page-link mb-2"} href={"#"}
-											   onClick={(event) => {
-												   toggleSinglePage(event);
-											   }}>
+											<a id={"singlePageToggle"} className={"single-page-link mb-2 "}
+											   onClick={(event) => toggleSinglePage(event)}>
 												{isSinglePage ? "Single Page Enabled" : "Toggle Single Page"}
 											</a>
 											{links.map(link =>
 												<MobileNavItem key={link.name} className={'mb-1'}>
-													<NavLink href={"#"} onClick={(event) => {
-														handleHeaderLinkClick(event, link);
-													}}>
+													<NavLink onClick={(event) => handleHeaderLinkClick(event, link)}>
 														{link.name}
 													</NavLink>
 												</MobileNavItem>
@@ -90,9 +86,7 @@ export class Header extends React.Component<{
 							<>
 								<NavMenu>
 									{links.map(link => <NavItem key={link.name}>
-											<NavLink href={"#"} onClick={(event) => {
-												handleHeaderLinkClick(event, link);
-											}}>
+											<NavLink onClick={(event) => handleHeaderLinkClick(event, link)}>
 												{link.name}
 											</NavLink>
 										</NavItem>

@@ -6,6 +6,7 @@ import {
 } from "./home-elements";
 
 export function Home() {
+	console.log("hey how's it going?");
 	return (
 		<>
 			<HomeContainer id={"home"} className={"fade-in scroll-into-margin"}>

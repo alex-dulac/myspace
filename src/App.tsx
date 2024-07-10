@@ -3,7 +3,7 @@ import { HashRouter } from "react-router-dom";
 import { GlobalStyle } from "./styles/global";
 import { defaultTheme } from "./styles/themes/default";
 import { ThemeProvider } from "styled-components";
-import { Router } from "./library/router";
+import { Router } from "./router";
 import './styles/styles.css';
 
 

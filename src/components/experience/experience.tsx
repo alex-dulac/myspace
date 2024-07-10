@@ -10,13 +10,24 @@ export function Experience() {
 				<h1 className={"sub-header mb-2 purple-text"}>Experience</h1>
 				<ExperienceContent className={"navy-text page-content"}>
 					<ExperienceList className={"mb-2"}>
-						<ExperienceListItem>5 years as a professional full-stack developer has given me a strong foundation of application development best practices.</ExperienceListItem>
-						<ExperienceListItem>This time has given me experience writing, testing, and debugging modern code using a variety of programming languages, PHP and Angular with TypeScript in particular.</ExperienceListItem>
-						<ExperienceListItem>I have experience with writing tests using a variety of frameworks including PHPUnit, Cypress, and automated testing utilizing Selenium & Sauce Labs.</ExperienceListItem>
-						<ExperienceListItem>I am comfortable releasing code to production often, using various tools to deploy and monitor such as Amazon Web Services (AWS) and Datadog.</ExperienceListItem>
-						<ExperienceListItem>I understand the importance of translating technical issues into easy-to-understand solutions.</ExperienceListItem>
-						<ExperienceListItem>My experience in data integration quality assurance gave me the tools to be proficient with SQL, relation database development & design, and query optimization.</ExperienceListItem>
-						<ExperienceListItem>I’m not devoted to any particular language, so no matter the project/tech stack, I’m always eager to jump right in to learning and contributing.</ExperienceListItem>
+						<ExperienceListItem>
+							I'm a dynamic software developer with over six years of professional experience, excelling in both backend and frontend development.
+						</ExperienceListItem>
+						<ExperienceListItem>
+							My expertise includes PHP and Python, with a strong focus on Laravel & Symfony, and FastAPI & Django frameworks, respectively.
+						</ExperienceListItem>
+						<ExperienceListItem>
+							On the client side, my skills shine with React, Angular, TypeScript, and state management with Redux/NgRx.
+						</ExperienceListItem>
+						<ExperienceListItem>
+							I adeptly handle deployment and application monitoring using AWS, Datadog, and Sentry.
+                        </ExperienceListItem>
+						<ExperienceListItem>
+							I'm also proficient in working with various databases, such as MySQL, PostgreSQL, and MongoDB.
+                        </ExperienceListItem>
+						<ExperienceListItem>
+							My well-rounded skill set and passion for problem-solving make me an invaluable collaborator in any tech team.
+						</ExperienceListItem>
 					</ExperienceList>
 				</ExperienceContent>
 			</ExperienceListContainer>

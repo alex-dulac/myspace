@@ -4,15 +4,11 @@ export const GeneralContainer = styled.div`
 	width: 100%;
 	color: ${props => props.theme['navy-text']};
 	display: flex;
-	
-	
-	@media screen and (min-width: 0px) and (max-width: 768px) {
-		font-size: 1.2rem;
-	}
- 
- 	@media screen and (min-width: 768px) and (max-width: 3000px) {
- 		font-size: 1.4rem;
- 	}
+    font-size: 1.2rem;
+
+    @media screen and (max-width: 768px) {
+        font-size: 1rem;
+    }
  	
   	h1 {
   		text-align: center;
@@ -36,8 +32,6 @@ export const GeneralDetail = styled.div`
 export const GeneralType = styled.div`
 	text-align: left;
 	text-decoration: underline;
-	
-	
 `;
 
 export const GeneralListItem = styled.span`

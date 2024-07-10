@@ -17,35 +17,38 @@ export function Skills() {
 
 				<GeneralType>Languages </GeneralType>
 				<GeneralDetail className={"flex-center mb-2"}>
+					<GeneralListItem><FontAwesomeIcon icon={faPython}/> Python</GeneralListItem>
 					<GeneralListItem><FontAwesomeIcon icon={faPhp}/> PHP</GeneralListItem>
 					<GeneralListItem><FontAwesomeIcon icon={faJsSquare}/> JavaScript</GeneralListItem>
 					<GeneralListItem><FontAwesomeIcon icon={faCheck}/> TypeScript</GeneralListItem>
 					<GeneralListItem><FontAwesomeIcon icon={faDatabase}/> SQL</GeneralListItem>
 					<GeneralListItem><FontAwesomeIcon icon={faJava}/> Java</GeneralListItem>
-					<GeneralListItem><FontAwesomeIcon icon={faPython}/> Python</GeneralListItem>
 					<GeneralListItem><FontAwesomeIcon icon={faHtml5}/> HTML</GeneralListItem>
 					<GeneralListItem><FontAwesomeIcon icon={faCss3}/> CSS</GeneralListItem>
 				</GeneralDetail>
 
 				<GeneralType>Frameworks etc. </GeneralType>
 				<GeneralDetail className={"flex-center mb-2"}>
-					<GeneralListItem><FontAwesomeIcon icon={faAngular}/> Angular</GeneralListItem>
+					<GeneralListItem><FontAwesomeIcon icon={faCheck}/> FastAPI</GeneralListItem>
+					<GeneralListItem><FontAwesomeIcon icon={faCheck}/> Django</GeneralListItem>
 					<GeneralListItem><FontAwesomeIcon icon={faReact}/> React</GeneralListItem>
+					<GeneralListItem><FontAwesomeIcon icon={faAngular}/> Angular</GeneralListItem>
 					<GeneralListItem><FontAwesomeIcon icon={faNodeJs}/> Node</GeneralListItem>
 					<GeneralListItem><FontAwesomeIcon icon={faSymfony}/> Symfony</GeneralListItem>
 					<GeneralListItem><FontAwesomeIcon icon={faLaravel}/> Laravel</GeneralListItem>
-					<GeneralListItem><FontAwesomeIcon icon={faCheck}/> Doctrine</GeneralListItem>
 				</GeneralDetail>
 
 				<GeneralType>Databases </GeneralType>
 				<GeneralDetail className={"flex-center mb-2"}>
 					<GeneralListItem><FontAwesomeIcon icon={faDatabase}/> MySQL</GeneralListItem>
+					<GeneralListItem><FontAwesomeIcon icon={faDatabase}/> MongoDB</GeneralListItem>
+					<GeneralListItem><FontAwesomeIcon icon={faDatabase}/> PostgreSQL</GeneralListItem>
 					<GeneralListItem><FontAwesomeIcon icon={faDatabase}/> Oracle</GeneralListItem>
 				</GeneralDetail>
 
 				<GeneralType>Knowledge / Experience </GeneralType>
 				<GeneralDetail className={"flex-center mb-2"}>
-					<p>Object-oriented methodologies and class design, API development, state management, relational database design, query optimization, proficient in debugging and troubleshooting, implementation of third-party integrations</p>
+					<p>Object-oriented methodologies and class design, API development (REST, GraphQL), state management (Redux, NgRx), relational database design, query optimization, proficient in debugging and troubleshooting, implementation of third-party integrations</p>
 				</GeneralDetail>
 
 				<GeneralType>Tools: </GeneralType>

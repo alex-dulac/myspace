@@ -17,7 +17,7 @@ export function Interests() {
 						<HomeItem className={"summary"}>
 							I'm a lifelong Mainer, having graduated from Maine schools, with valuable experience from some of Maine's best companies.
 							<br/><br/>
-							I currently live in southern Maine with my wife and our pit mix Lila.
+							I currently live in southern Maine with my wife and our two pit bulls- Lila & Lou.
 						</HomeItem>
 						<ProfileImageContainer>
 							<ProfileImage src="/doog1.jpg"/>
@@ -30,7 +30,7 @@ export function Interests() {
 				<HomeContentContainer>
 					<HomeContent>
 						<ProfileImageContainer>
-							<ProfileImage src="/doog2.jpg"/>
+							<ProfileImage src="/newy.jpg"/>
 						</ProfileImageContainer>
 						<HomeItem className={"summary"}>
 							When I'm not creating/breaking/fixing code, I'm creating/breaking/fixing something in my house. I guess it's what I like to do.
@@ -41,7 +41,7 @@ export function Interests() {
 						</HomeItem>
 					</HomeContent>
 					<MobileProfileImageContainer>
-						<MobileProfileImage src="/doog2.jpg"/>
+						<MobileProfileImage src="/newy.jpg"/>
 					</MobileProfileImageContainer>
 				</HomeContentContainer>
 			</HomeContainer>

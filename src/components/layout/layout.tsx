@@ -1,8 +1,7 @@
 import { Outlet } from "react-router-dom";
 import { Header } from "../header/header";
 import { Footer } from "../footer/footer";
-import { LayoutContainer } from "./layout-elements";
-import { PageContainer, PageContent } from "../../styles/style-elements";
+import { LayoutContainer, PageContainer, PageContent } from "./layout-elements";
 import React, { useEffect, useState } from "react";
 import { Home } from "../home/home";
 import { Experience } from "../experience/experience";
