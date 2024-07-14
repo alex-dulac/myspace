@@ -38,7 +38,7 @@ export function About() {
 					<HomeContent>
 						{!isMobile ?
 						    <ProfileImageContainer>
-                                <ProfileImage src="/doog2.jpg"/>
+                                <ProfileImage src="/newy.jpg"/>
                             </ProfileImageContainer> : null
 						}
 						<HomeItem className={"summary"}>
@@ -51,7 +51,7 @@ export function About() {
 					</HomeContent>
 					{isMobile ?
                         <MobileProfileImageContainer>
-                            <MobileProfileImage src="/doog2.jpg"/>
+                            <MobileProfileImage src="/newy.jpg"/>
                         </MobileProfileImageContainer> : null
                     }
 				</HomeContentContainer>
