@@ -40,9 +40,6 @@ export const NavMenu = styled.ul`
     align-items: center;
     list-style: none;
     text-align: center;
-    @media screen and (max-width: 768px) {
-        display: none;
-    }
 `;
 
 export const NavItem = styled.li`
@@ -68,19 +65,10 @@ export const NavLink = styled.a`
 export const MobileNavMenuIcon = styled.div`
     font-size: 1.75rem;
     padding-top: 20px;
-
-    @media screen and (min-width: 0px) and (max-width: 768px) {
-        display: block;
-    }
- 
-    @media screen and (min-width: 768px) {
-        display: none;
-    }`;
+    display: block;
+`;
 
 export const MobileNavMenu = styled.div`
-    @media screen and (min-width: 768px) {
-        display: none;
-    }
     display: none;
     background-color: #FDF6F6;
     border:1px solid #043b59;
@@ -94,9 +82,6 @@ export const MobileList = styled.ul`
 `;
 
 export const MobileNavItem = styled.li`
-    @media screen and (min-width: 768px) {
-        display: none;
-    }
     height: 1.5em;
     cursor: pointer;
 `;

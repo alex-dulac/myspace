@@ -1,12 +1,16 @@
-import React from "react";
+import React, {useContext} from "react";
 import {
 	HomeContainer, HomeContentContainer, HomeContent, HomeItem,
 	ProfileImageContainer, ProfileImage,
 	MobileProfileImage, MobileProfileImageContainer
 } from "./home-elements";
+import {MobileContext} from "../../MobileContext";
 
 export function Home() {
 	console.log("hey how's it going?");
+
+	const isMobile = useContext(MobileContext);
+
 	return (
 		<>
 			<HomeContainer id={"home"} className={"fade-in scroll-into-margin"}>
@@ -24,13 +28,17 @@ export function Home() {
 							<br/><br/>
 							I'm energized by work that allows me to troubleshoot issues, deliver solutions, and provide a great experience!
 						</HomeItem>
-						<ProfileImageContainer>
-							<ProfileImage src="/profile2.png"/>
-						</ProfileImageContainer>
+						{!isMobile ?
+							<ProfileImageContainer>
+								<ProfileImage src="/profile2.png"/>
+							</ProfileImageContainer> : null
+						}
 					</HomeContent>
-					<MobileProfileImageContainer>
-						<MobileProfileImage src="/profile2.png"/>
-					</MobileProfileImageContainer>
+					{isMobile ?
+						<MobileProfileImageContainer>
+							<MobileProfileImage src="/profile2.png"/>
+						</MobileProfileImageContainer> : null
+                    }
 				</HomeContentContainer>
 			</HomeContainer>
 		</>

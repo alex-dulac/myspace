@@ -10,27 +10,15 @@ export const HomeContentContainer = styled.div`
 `;
 
 export const ProfileImageContainer = styled.div`
-  	@media screen and (min-width: 0px) and (max-width: 768px) {
-		display: none !important;
-	}
- 
- 	@media screen and (min-width: 768px) and (max-width: 3000px) {
- 		justify-content: space-around;
- 		align-items: center;
- 		padding: 20px;
- 	}
+    justify-content: space-around;
+    align-items: center;
+    padding: 20px;
 `;
 
 export const MobileProfileImageContainer = styled.div`
-  	@media screen and (min-width: 0px) and (max-width: 768px) {
-		justify-content: space-around;
- 		align-items: center;
- 		padding: 20px;
-	}
- 
- 	@media screen and (min-width: 768px) and (max-width: 3000px) {
- 		display: none !important;
- 	}
+    justify-content: space-around;
+    align-items: center;
+    padding: 20px;
 `;
 
 export const ProfileImage = styled.img`

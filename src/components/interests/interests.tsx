@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useContext} from "react";
 import {
 	HomeContainer,
 	HomeContent,
@@ -7,8 +7,11 @@ import {
 	ProfileImage,
 	ProfileImageContainer
 } from "../home/home-elements";
+import {MobileContext} from "../../MobileContext";
 
 export function Interests() {
+	const isMobile = useContext(MobileContext);
+
 	return (
 		<>
 			<HomeContainer id={"interests"} className={"fade-in scroll-into-margin"}>
@@ -19,19 +22,25 @@ export function Interests() {
 							<br/><br/>
 							I currently live in southern Maine with my wife and our two pit bulls- Lila & Lou.
 						</HomeItem>
-						<ProfileImageContainer>
-							<ProfileImage src="/doog1.jpg"/>
-						</ProfileImageContainer>
+						{!isMobile ?
+						    <ProfileImageContainer>
+                                <ProfileImage src="/doog1.jpg"/>
+                            </ProfileImageContainer> : null
+						}
 					</HomeContent>
-					<MobileProfileImageContainer>
-						<MobileProfileImage src="/doog1.jpg"/>
-					</MobileProfileImageContainer>
+					{isMobile ?
+					    <MobileProfileImageContainer>
+                            <MobileProfileImage src="/doog1.jpg"/>
+                        </MobileProfileImageContainer> : null
+					}
 				</HomeContentContainer>
 				<HomeContentContainer>
 					<HomeContent>
-						<ProfileImageContainer>
-							<ProfileImage src="/newy.jpg"/>
-						</ProfileImageContainer>
+						{!isMobile ?
+						    <ProfileImageContainer>
+                                <ProfileImage src="/doog2.jpg"/>
+                            </ProfileImageContainer> : null
+						}
 						<HomeItem className={"summary"}>
 							When I'm not creating/breaking/fixing code, I'm creating/breaking/fixing something in my house. I guess it's what I like to do.
 							<br/><br/>
@@ -40,9 +49,11 @@ export function Interests() {
 							But if it's summer, you'll find us at the beach!
 						</HomeItem>
 					</HomeContent>
-					<MobileProfileImageContainer>
-						<MobileProfileImage src="/newy.jpg"/>
-					</MobileProfileImageContainer>
+					{isMobile ?
+                        <MobileProfileImageContainer>
+                            <MobileProfileImage src="/doog2.jpg"/>
+                        </MobileProfileImageContainer> : null
+                    }
 				</HomeContentContainer>
 			</HomeContainer>
 		</>
