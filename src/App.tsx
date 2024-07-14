@@ -3,7 +3,7 @@ import { HashRouter } from "react-router-dom";
 import { GlobalStyle } from "./styles/global";
 import { defaultTheme } from "./styles/themes/default";
 import { ThemeProvider } from "styled-components";
-import { Router } from "./router";
+import { Router } from "./Router";
 import './styles/styles.css';
 import {MobileContext} from "./MobileContext";
 

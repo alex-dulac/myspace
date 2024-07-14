@@ -1,5 +1,5 @@
 import React, {useContext} from "react";
-import { FooterContainer, FooterNav, NavContainer, NavMenu, NavItem, NavLink} from "./footer-elements";
+import { FooterContainer, FooterNav, NavContainer, NavMenu, NavItem, NavLink} from "./FooterElements";
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';

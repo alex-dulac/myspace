@@ -1,7 +1,7 @@
 import React from "react";
 import {
 	ExperienceContainer, ExperienceListContainer, ExperienceContent, ExperienceList, ExperienceListItem
-} from "./experience-elements";
+} from "./ExperienceElements";
 
 export function Experience() {
 	return (

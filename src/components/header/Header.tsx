@@ -6,7 +6,7 @@ import {
 	NavMenu,
 	NavItem,
 	NavLink, MobileNavMenuIcon, MobileNavMenu, MobileNavItem, MobileList
-} from "./header-elements";
+} from "./HeaderElements";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faBars} from "@fortawesome/free-solid-svg-icons";
 import {MobileContext} from "../../MobileContext";

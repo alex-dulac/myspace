@@ -1,13 +1,13 @@
 import { Outlet } from "react-router-dom";
-import { Header } from "../header/header";
-import { Footer } from "../footer/footer";
-import { LayoutContainer, PageContainer, PageContent } from "./layout-elements";
-import React, {useContext, useEffect, useState} from "react";
-import { Home } from "../home/home";
-import { Experience } from "../experience/experience";
-import { Skills } from "../skills/skills";
-import { Contact } from "../contact/contact";
-import { Interests } from "../interests/interests";
+import { Header } from "../header/Header";
+import { Footer } from "../footer/Footer";
+import { LayoutContainer, PageContainer, PageContent } from "./LayoutElements";
+import React, {useState} from "react";
+import { Home } from "../home/Home";
+import { Experience } from "../experience/Experience";
+import { Skills } from "../skills/Skills";
+import { Contact } from "../contact/Contact";
+import { About } from "../about/About";
 
 export function Layout() {
 	const [isSinglePage, setIsSinglePage] = useState(false);
@@ -24,7 +24,7 @@ export function Layout() {
 						<PageContent><Home/></PageContent>
 						<PageContent><Experience/></PageContent>
 						<PageContent><Skills/></PageContent>
-						<PageContent><Interests/></PageContent>
+						<PageContent><About/></PageContent>
 						<PageContent><Contact/></PageContent>
 					</> :
 					<PageContent><Outlet/></PageContent>

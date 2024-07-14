@@ -6,10 +6,10 @@ import {
 	HomeItem, MobileProfileImage, MobileProfileImageContainer,
 	ProfileImage,
 	ProfileImageContainer
-} from "../home/home-elements";
+} from "../home/HomeElements";
 import {MobileContext} from "../../MobileContext";
 
-export function Interests() {
+export function About() {
 	const isMobile = useContext(MobileContext);
 
 	return (

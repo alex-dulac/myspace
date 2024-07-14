@@ -3,7 +3,7 @@ import emailJs from "@emailjs/browser"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import { faLinkedin, faGithub } from '@fortawesome/free-brands-svg-icons';
-import { GeneralListItem, GeneralContainer, GeneralContent, GeneralDetail } from "../general-elements";
+import { GeneralListItem, GeneralContainer, GeneralContent, GeneralDetail } from "../GeneralElements";
 
 export function Contact() {
 	const [submittingForm, setSubmittingForm] = useState(false);

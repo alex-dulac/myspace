@@ -3,7 +3,7 @@ import {
 	HomeContainer, HomeContentContainer, HomeContent, HomeItem,
 	ProfileImageContainer, ProfileImage,
 	MobileProfileImage, MobileProfileImageContainer
-} from "./home-elements";
+} from "./HomeElements";
 import {MobileContext} from "../../MobileContext";
 
 export function Home() {
