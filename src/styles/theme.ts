@@ -1,3 +1,5 @@
+import 'styled-components'
+
 export const defaultTheme = {
 	white: '#fff',
 	blue: '#3294F8',
@@ -16,4 +18,10 @@ export const defaultTheme = {
 	'base-background': '#7B96B2',
 	'panel-background': '#FDF6F6',
 	'navy-text': '#043b59'
-} as const
+} as const;
+
+type ThemeType = typeof defaultTheme
+
+declare module 'styled-components' {
+	export interface DefaultTheme extends ThemeType { }
+}

@@ -14,7 +14,7 @@ export function About() {
 
 	return (
 		<>
-			<HomeContainer id={"interests"} className={"fade-in scroll-into-margin"}>
+			<HomeContainer id={"about"} className={"fade-in scroll-into-margin"}>
 				<HomeContentContainer>
 					<HomeContent>
 						<HomeItem className={"summary"}>

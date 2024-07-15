@@ -1,23 +1,19 @@
 import React, {useEffect, useState} from 'react';
 import { HashRouter } from "react-router-dom";
 import { GlobalStyle } from "./styles/global";
-import { defaultTheme } from "./styles/themes/default";
 import { ThemeProvider } from "styled-components";
 import { Router } from "./Router";
-import './styles/styles.css';
-import {MobileContext} from "./MobileContext";
+import { MobileContext } from "./MobileContext";
+import { defaultTheme } from "./styles/theme";
 
+const MOBILE_WIDTH: number = 786;
 
 function App() {
-	const [isMobile, setIsMobile] = useState(window.innerWidth < 786);
+	const [isMobile, setIsMobile] = useState(window.innerWidth < MOBILE_WIDTH);
 
 	useEffect(() => {
 		const handleResize = () => {
-			if (window.innerWidth < 768) {
-				setIsMobile(true);
-			} else {
-				setIsMobile(false);
-			}
+			window.innerWidth < MOBILE_WIDTH ? setIsMobile(true) : setIsMobile(false);
 		};
 
 		window.addEventListener('resize', handleResize);

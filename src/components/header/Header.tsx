@@ -1,4 +1,4 @@
-import React, {Dispatch, SetStateAction, useContext, useEffect, useState} from "react";
+import React, {Dispatch, SetStateAction, useContext} from "react";
 import {
 	HeaderContainer,
 	HeaderNav,
@@ -20,9 +20,9 @@ export const Header: React.FC<{
 	const homeLink = {link: '/', name: 'Home', divId: 'home'};
 	const experienceLink = {link: '/#/experience', name: 'Experience', divId: 'experience'};
 	const skillsLink = {link: '/#/skills', name: 'Skills', divId: 'skills'};
-	const interestsLink = {link: '/#/interests', name: 'About Me', divId: 'interests'};
+	const aboutLink = {link: '/#/about', name: 'About Me', divId: 'about'};
 	const contactLink = {link: '/#/contact', name: 'Contact', divId: 'contact'};
-	const links = [homeLink, experienceLink, skillsLink, interestsLink, contactLink];
+	const links = [homeLink, experienceLink, skillsLink, aboutLink, contactLink];
 
 	function handleHeaderLinkClick(event: React.MouseEvent<HTMLAnchorElement>, link: { link: string; name?: string; divId: string; }) {
 		event.preventDefault();
@@ -67,7 +67,7 @@ export const Header: React.FC<{
 								<FontAwesomeIcon icon={faBars}/>
 								<MobileNavMenu id={"mobileNav"}>
 									<MobileList>
-										<a id={"singlePageToggle"} className={"single-page-link mb-2 "}
+										<a id={"singlePageToggle"} className={"single-page-link mb-2"} href={"/#"}
 										   onClick={(event) => toggleSinglePage(event)}>
 											{isSinglePage ? "Single Page Enabled" : "Toggle Single Page"}
 										</a>
@@ -91,7 +91,7 @@ export const Header: React.FC<{
 									</NavItem>
 								)}
 							</NavMenu>
-							<a id={"singlePageToggle"} className={"single-page-link"} href={"#"}
+							<a id={"singlePageToggle"} className={"single-page-link"} href={"/#"}
 							   onClick={(event) => {
 								   toggleSinglePage(event);
 							   }}>
