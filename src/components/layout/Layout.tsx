@@ -14,10 +14,7 @@ export function Layout() {
 
 	return (
 		<LayoutContainer>
-			<Header
-				isSinglePage={isSinglePage}
-				setIsSinglePage={setIsSinglePage}
-			/>
+			<Header isSinglePage={isSinglePage} setIsSinglePage={setIsSinglePage}/>
 			<PageContainer>
 				{isSinglePage ?
 					<>
@@ -26,8 +23,8 @@ export function Layout() {
 						<PageContent><Skills/></PageContent>
 						<PageContent><About/></PageContent>
 						<PageContent><Contact/></PageContent>
-					</> :
-					<PageContent><Outlet/></PageContent>
+					</>
+					: <PageContent><Outlet/></PageContent>
 				}
 			</PageContainer>
 			<Footer />
