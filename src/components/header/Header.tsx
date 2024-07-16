@@ -58,7 +58,7 @@ export const Header: React.FC<{
 	}
 
 	return (
-		<HeaderContainer id={"header"}>
+		<HeaderContainer id={"header"} isSinglePage={isSinglePage}>
 			<HeaderNav>
 				<NavContainer>
 					{isMobile ?

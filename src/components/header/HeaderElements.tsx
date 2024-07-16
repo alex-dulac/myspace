@@ -1,11 +1,24 @@
 import styled from "styled-components";
 
-export const HeaderContainer = styled.div`
+interface HeaderContainerProps {
+    isSinglePage: boolean;
+}
+
+export const HeaderContainer = styled.header<HeaderContainerProps>`
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     max-width: 100vw;
+    z-index: 100;
+
+  ${({ isSinglePage }) =>
+    isSinglePage &&
+    `
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+  `}
 `;
 
 export const HeaderNav = styled.nav`
@@ -14,13 +27,12 @@ export const HeaderNav = styled.nav`
     display: flex;
     justify-content: center;
     align-items: center;
-    position: sticky;
     width: 100%;
     max-width: 1100px;
     top: 0;
     font-size: 1.2em;
-    z-index: 999;
-    box-shadow: 0px 2px 28px rgba(0, 0, 0, 0.2);
+    z-index: 99;
+    box-shadow: 0 2px 28px rgba(0, 0, 0, 0.2);
     @media screen and (max-width: 960px) {
         transition: 1.7s all ease;
     }
