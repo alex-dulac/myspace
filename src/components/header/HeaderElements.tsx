@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 interface HeaderContainerProps {
     isSinglePage: boolean;
+    isScrollingDown: boolean;
 }
 
 export const HeaderContainer = styled.header<HeaderContainerProps>`
@@ -11,6 +12,7 @@ export const HeaderContainer = styled.header<HeaderContainerProps>`
     justify-content: center;
     max-width: 100vw;
     z-index: 100;
+    transition: top 0.3s;
 
   ${({ isSinglePage }) =>
     isSinglePage &&
@@ -19,6 +21,12 @@ export const HeaderContainer = styled.header<HeaderContainerProps>`
     position: sticky;
     top: 0;
   `}
+
+  ${({ isScrollingDown }) => 
+    isScrollingDown &&
+    `
+    top: -5rem;
+  `} 
 `;
 
 export const HeaderNav = styled.nav`

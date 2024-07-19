@@ -1,4 +1,4 @@
-import React, {Dispatch, SetStateAction, useContext} from "react";
+import React, {Dispatch, SetStateAction, useContext, useEffect, useState} from "react";
 import {
 	HeaderContainer,
 	HeaderNav,
@@ -16,6 +16,8 @@ export const Header: React.FC<{
 	setIsSinglePage: Dispatch<SetStateAction<any>>;
 }> = ({ isSinglePage, setIsSinglePage }) => {
 	const isMobile = useContext(MobileContext);
+	const [isScrollingDown, setIsScrollingDown] = useState(false);
+	const [lastScrollTop, setLastScrollTop] = useState(0);
 
 	const homeLink = {link: '/', name: 'Home', divId: 'home'};
 	const experienceLink = {link: '/#/experience', name: 'Experience', divId: 'experience'};
@@ -23,6 +25,22 @@ export const Header: React.FC<{
 	const aboutLink = {link: '/#/about', name: 'About Me', divId: 'about'};
 	const contactLink = {link: '/#/contact', name: 'Contact', divId: 'contact'};
 	const links = [homeLink, experienceLink, skillsLink, aboutLink, contactLink];
+
+	useEffect(() => {
+		const handleScroll = () => {
+			const scrollTop = document.documentElement.scrollTop;
+			if (scrollTop > lastScrollTop) {
+				setIsScrollingDown(true);
+			} else {
+				setIsScrollingDown(false);
+			}
+			setLastScrollTop(scrollTop <= 0 ? 0 : scrollTop);
+
+		};
+
+		window.addEventListener('scroll', handleScroll);
+		return () => window.removeEventListener('scroll', handleScroll);
+	}, [lastScrollTop]);
 
 	function handleHeaderLinkClick(event: React.MouseEvent<HTMLAnchorElement>, link: { link: string; name?: string; divId: string; }) {
 		event.preventDefault();
@@ -58,7 +76,7 @@ export const Header: React.FC<{
 	}
 
 	return (
-		<HeaderContainer id={"header"} isSinglePage={isSinglePage}>
+		<HeaderContainer id={"header"} isSinglePage={isSinglePage} isScrollingDown={isScrollingDown}>
 			<HeaderNav>
 				<NavContainer>
 					{isMobile ?
