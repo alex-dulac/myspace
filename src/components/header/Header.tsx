@@ -10,6 +10,7 @@ import {
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faBars} from "@fortawesome/free-solid-svg-icons";
 import {MobileContext} from "../../MobileContext";
+import { EventParams, logEvent } from "../../Analytics";
 
 export const Header: React.FC<{
 	isSinglePage: boolean;
@@ -35,7 +36,6 @@ export const Header: React.FC<{
 				setIsScrollingDown(false);
 			}
 			setLastScrollTop(scrollTop <= 0 ? 0 : scrollTop);
-
 		};
 
 		window.addEventListener('scroll', handleScroll);
@@ -64,6 +64,13 @@ export const Header: React.FC<{
 			toggle.className = "single-page-link mb-2 italic";
 			window.location.hash = "";
 		}
+
+		const gaEvent: EventParams = {
+			category: "User Interaction",
+			action: "Toggle Single Page",
+			label: isSinglePage ? "Single Page Enabled" : "Single Page Disabled"
+		};
+		logEvent(gaEvent);
 	}
 
 	function handleMobileMenu() {
