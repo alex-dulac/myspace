@@ -7,9 +7,9 @@ import {
 	NavItem,
 	NavLink, MobileNavMenuIcon, MobileNavMenu, MobileNavItem, MobileList
 } from "./HeaderElements";
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faBars} from "@fortawesome/free-solid-svg-icons";
-import {MobileContext} from "../../MobileContext";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBars, faCopy, faFile } from "@fortawesome/free-solid-svg-icons";
+import { MobileContext } from "../../MobileContext";
 import { EventParams, logEvent } from "../../GA";
 
 export const Header: React.FC<{
@@ -92,9 +92,16 @@ export const Header: React.FC<{
 								<FontAwesomeIcon icon={faBars}/>
 								<MobileNavMenu id={"mobileNav"}>
 									<MobileList>
-										<a id={"singlePageToggle"} className={"single-page-link mb-2"} href={"/#"}
-										   onClick={(event) => toggleSinglePage(event)}>
-											{isSinglePage ? "Single Page Enabled" : "Toggle Single Page"}
+										<a
+											id={"singlePageToggle"}
+											className={"single-page-link mb-2"}
+											href={"/#"}
+											onClick={(event) => toggleSinglePage(event)}
+										>
+											{isSinglePage ?
+												<FontAwesomeIcon icon={faFile} size={"lg"} title={"Single Page Enabled"}/> :
+												<FontAwesomeIcon icon={faCopy} size={"lg"} title={"Single Page Disabled"}/>
+											}
 										</a>
 										{links.map(link =>
 											<MobileNavItem key={link.name} className={'mb-1'}>
@@ -116,11 +123,16 @@ export const Header: React.FC<{
 									</NavItem>
 								)}
 							</NavMenu>
-							<a id={"singlePageToggle"} className={"single-page-link"} href={"/#"}
-							   onClick={(event) => {
-								   toggleSinglePage(event);
-							   }}>
-								{isSinglePage ? "Single Page Enabled" : "Toggle Single Page"}
+							<a
+								id={"singlePageToggle"}
+								className={"single-page-link"}
+								href={"/#"}
+								onClick={(event) => {toggleSinglePage(event);}}
+							>
+								{isSinglePage ?
+									<FontAwesomeIcon icon={faFile} size={"lg"} title={"Single Page Enabled"}/> :
+									<FontAwesomeIcon icon={faCopy} size={"lg"} title={"Single Page Disabled"}/>
+								}
 							</a>
 						</>
 					}

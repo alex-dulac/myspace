@@ -152,11 +152,11 @@ export const GlobalStyle = createGlobalStyle`
 
   .email-text-box {
       height: 150px;
-      border: ${props => props.theme['text']};
   }
 
-  .border-rounded {
+  .contact-input {
       border-radius: 15px;
+      border-color: ${props => props.theme['text']};
   }
 
   @media (max-width: 680px) {

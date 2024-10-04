@@ -44,7 +44,7 @@ export function Contact() {
 	return (
 		<GeneralContainer id={"contact"} className={"fade-in scroll-into-margin"}>
 			<GeneralContent className={"section"}>
-				<h4 className={"mb-2 flex-center"}>Connect with me at any time, I look forward to it!</h4>
+				<h3 className={"mb-2 flex-center"}> I look forward to connecting! </h3>
 				<GeneralDetail className={"flex-center mb-2"}>
 					<GeneralListItem>
 						<a href="mailto:alex@alexdulac.dev" target="_blank" rel="noreferrer">
@@ -80,16 +80,16 @@ export function Contact() {
 					<div className="email-form-container">
 						<form ref={contactForm} id="contact-form" onSubmit={sendEmail}>
 							<label>Name </label>
-							<input className={"border-rounded"} type="text" name="name"/>
+							<input className={"contact-input"} type="text" name="name"/>
 
 							<br/><br/>
 							<label>Email </label>
-							<input className={"border-rounded"} type="email" name="email" />
+							<input className={"contact-input"} type="email" name="email" />
 
 							<br/><br/>
 							<label>Message </label>
 							<br/>
-							<textarea name="message" className={"email-text-box border-rounded"} />
+							<textarea name="message" className={"email-text-box contact-input"} />
 
 							<br/>
 							{submittingForm ?
