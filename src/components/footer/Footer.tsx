@@ -14,8 +14,7 @@ export function Footer() {
 			<FooterNav>
 				<NavContainer>
 					<h3 className={"footer-name"}>
-						<span className={"purple-text"}>ALEX&nbsp;</span>
-						<span className={"teal-text"}>DULAC</span>
+						<span className={"text"}>ALEX DULAC</span>
 					</h3>
 
 					{!isMobile ?

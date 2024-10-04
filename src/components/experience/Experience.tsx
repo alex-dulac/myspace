@@ -7,8 +7,8 @@ export function Experience() {
 	return (
 		<ExperienceContainer id={"experience"} className={"fade-in scroll-into-margin"}>
 			<ExperienceListContainer>
-				<h1 className={"sub-header mb-2 purple-text"}>Experience</h1>
-				<ExperienceContent className={"navy-text page-content"}>
+				<h1 className={"sub-header mb-2 text"}>Experience</h1>
+				<ExperienceContent className={"page-content"}>
 					<ExperienceList className={"mb-2"}>
 						<ExperienceListItem>
 							I'm a dynamic software developer with over six years of professional experience, excelling in both backend and frontend development.

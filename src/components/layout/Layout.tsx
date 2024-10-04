@@ -8,55 +8,46 @@ import { Experience } from "../experience/Experience";
 import { Skills } from "../skills/Skills";
 import { Contact } from "../contact/Contact";
 import { About } from "../about/About";
-import { initGA, logPageView } from "../../Analytics";
+import { getPageTitle, logPageView } from "../../GA";
 
 export function Layout() {
 	const [isSinglePage, setIsSinglePage] = useState(false);
-
-	useEffect(() => {
-		initGA();
-	}, []);
-
 	const location = useLocation();
 
 	useEffect(() => {
-		let title;
-		switch (location.pathname) {
-			case '/':
-        title = "Home";
-        break;
-      case '/experience':
-        title = "Experience";
-        break;
-      case '/skills':
-        title = "Skills";
-        break;
-      case '/about':
-        title = "About Me";
-        break;
-      case '/contact':
-        title = "Contact";
-        break;
-      default:
-        title = "Home";
-        break;
-		}
+		const title = getPageTitle(location.pathname);
 		logPageView(location.pathname, title);
 	}, [location.pathname]);
 
 	return (
 		<LayoutContainer>
-			<Header isSinglePage={isSinglePage} setIsSinglePage={setIsSinglePage}/>
+			<Header
+				isSinglePage={isSinglePage}
+				setIsSinglePage={setIsSinglePage}
+			/>
 			<PageContainer>
 				{isSinglePage ?
 					<>
-						<PageContent><Home/></PageContent>
-						<PageContent><Experience/></PageContent>
-						<PageContent><Skills/></PageContent>
-						<PageContent><About/></PageContent>
-						<PageContent><Contact/></PageContent>
+						<PageContent>
+							<Home/>
+						</PageContent>
+						<PageContent>
+							<Experience/>
+						</PageContent>
+						<PageContent>
+							<Skills/>
+						</PageContent>
+						<PageContent>
+							<About/>
+						</PageContent>
+						<PageContent>
+							<Contact/>
+						</PageContent>
 					</>
-					: <PageContent><Outlet/></PageContent>
+					:
+					<PageContent>
+						<Outlet/>
+					</PageContent>
 				}
 			</PageContainer>
 			<Footer />

@@ -8,29 +8,17 @@ export const GlobalStyle = createGlobalStyle`
   }
   
   body {
-    background: ${props => props.theme['panel-background']};
-    color: ${props => props.theme['navy-text']};
+    background: ${props => props.theme['tertiary']};
+    color: ${props => props.theme['tertiary']};
     font-family: "Open Sans", sans-serif;
   }
+
+  img {
+      border-radius: 10px;
+  }
   
-  :root {
-      --main-text-color: #043b59;
-  }
-
-  .purple-text {
-      color: #47267a;
-  }
-
-  .magenta-text {
-      color: #ee0a71;
-  }
-
-  .teal-text {
-      color: #43bfa7;
-  }
-
-  .navy-text {
-      color: #043b59;
+  .text {
+      color: #1F2421;
   }
 
   .page-header {
@@ -79,7 +67,7 @@ export const GlobalStyle = createGlobalStyle`
       font-size: 0.9rem;
       cursor: pointer;
       text-decoration: none;
-      color: var(--main-text-color);
+      color: ${props => props.theme['text']};
   }
 
   .footer-name {
@@ -164,7 +152,7 @@ export const GlobalStyle = createGlobalStyle`
 
   .email-text-box {
       height: 150px;
-      border: 1px solid var(--main-text-color);
+      border: ${props => props.theme['text']};
   }
 
   .border-rounded {
@@ -182,14 +170,14 @@ export const GlobalStyle = createGlobalStyle`
 
   .btn-submit {
       background: none;
-      color: var(--main-text-color);
+      color: ${props => props.theme['text']};
       font-size: 1.25rem;
       border: 0;
       cursor: pointer;
       transition: all 0.3s ease;
   }
 
-  .btn-submit:hover { color: var(--main-text-color); }
+  .btn-submit:hover { color: ${props => props.theme['text']}; }
 
   textarea, input {
       font-family: "Open Sans", sans-serif !important;

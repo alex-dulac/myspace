@@ -9,14 +9,16 @@ export const FooterContainer = styled.footer`
 `;
 
 export const FooterNav = styled.nav`
-  background: ${props => props.theme['panel-background']};
+  background: ${props => props.theme['primary']};
   height: 5rem;
   display: flex;
   justify-content: center;
   align-items: center;
   position: sticky;
   width: 100%;
-  max-width: 1100px;
+  max-width: 1200px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
   top: 0;
   font-size: 1.2em;
   z-index: 999;
@@ -47,7 +49,7 @@ export const NavItem = styled.li`
 `;
 
 export const NavLink = styled.a`
-  color: ${props => props.theme['navy-text']};
+  color: ${props => props.theme['text']};
   display: flex;
   align-items: center;
   text-decoration: none;

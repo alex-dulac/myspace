@@ -5,6 +5,7 @@ import { ThemeProvider } from "styled-components";
 import { Router } from "./Router";
 import { MobileContext } from "./MobileContext";
 import { defaultTheme } from "./styles/theme";
+import { initGA } from "./GA";
 
 const MOBILE_WIDTH: number = 786;
 
@@ -18,6 +19,10 @@ function App() {
 
 		window.addEventListener('resize', handleResize);
 		return () => window.removeEventListener('resize', handleResize);
+	}, []);
+
+	useEffect(() => {
+		initGA();
 	}, []);
 
 	return (

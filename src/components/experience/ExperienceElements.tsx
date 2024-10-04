@@ -12,7 +12,7 @@ export const ExperienceListContainer = styled.div`
 `;
 
 export const ExperienceContent = styled.div`
-	color: ${props => props.theme['navy-text']};;
+	color: ${props => props.theme['text']};;
 	font-size: 1.5rem;
 `;
 

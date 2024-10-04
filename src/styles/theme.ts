@@ -1,4 +1,4 @@
-import 'styled-components'
+import 'styled-components';
 
 export const defaultTheme = {
 	white: '#fff',
@@ -11,16 +11,27 @@ export const defaultTheme = {
 	'base-border': '#1C2F41',
 	'base-post': '#112131',
 	'base-profile': '#0B1B2B',
-	'base-background2': '#071422',
+	'base-background': '#071422',
 	'base-input': '#040F1A',
 
-	'base-background3': '#f5f0f2',
-	'base-background': '#7B96B2',
 	'panel-background': '#FDF6F6',
-	'navy-text': '#043b59'
+	'navy-text': '#043b59',
+
+	// old
+	//'primary': '#DCE1DE',
+	//'secondary': '#9CC5A1',
+	//'tertiary': '#49A078',
+	//'text': '#1F2421',
+
+	'primary': '#4E8098',
+	'secondary': '#9CC5A1',
+	'tertiary': '#90C2E7',
+	'text': '#1F2421',
+
+
 } as const;
 
-type ThemeType = typeof defaultTheme
+type ThemeType = typeof defaultTheme;
 
 declare module 'styled-components' {
 	export interface DefaultTheme extends ThemeType { }

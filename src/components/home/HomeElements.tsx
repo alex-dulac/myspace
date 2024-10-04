@@ -32,7 +32,7 @@ export const MobileProfileImage = styled.img`
 `;
 
 export const HomeContent = styled.div`
-	color: ${props => props.theme['navy-text']};
+	color: ${props => props.theme['text']};
 	font-size: 1.6rem;
 	flex-direction: row !important;
 	justify-content: space-between;

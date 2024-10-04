@@ -1,6 +1,6 @@
 import ReactGA from 'react-ga4';
 
-const GA_TRACKING_ID = process.env.REACT_APP_ANALYTICS_KEY as string;
+const GA_TRACKING_ID = process.env.REACT_APP_GA_KEY as string;
 
 export const initGA = () => {
   ReactGA.initialize(GA_TRACKING_ID);
@@ -27,3 +27,20 @@ export const logEvent = ({ category, action, label }: EventParams) => {
     label,
   });
 };
+
+export const getPageTitle = (pathname: string): string => {
+  switch (pathname) {
+    case '/' || '/home':
+      return 'Home';
+    case '/experience':
+      return 'Experience';
+    case '/skills':
+      return 'Skills';
+    case '/about':
+      return 'About Me';
+    case '/contact':
+      return 'Contact';
+    default:
+      return 'Page Not Found';
+  }
+}

@@ -12,7 +12,7 @@ import {
 export function Skills() {
 	return (
 		<GeneralContainer id={"skills"} className={"fade-in scroll-into-margin"}>
-			<h1 className={"sub-header mb-2 purple-text"}>Skills</h1>
+			<h1 className={"sub-header mb-2 text"}>Skills</h1>
 			<GeneralContent className={"section"}>
 
 				<GeneralType>Languages </GeneralType>

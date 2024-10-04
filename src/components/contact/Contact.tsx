@@ -69,7 +69,7 @@ export function Contact() {
 			{formSubmitted ?
 				<>
 					<div className={"email sent"}>
-						<div className={"email-form-container navy-text"}>
+						<div className={"email-form-container"}>
 							<h2> Thank you for your message! </h2>
 							<p> I have received it and will be in touch as soon as possible. </p>
 							<p className={"italic"}> --Alex </p>
@@ -77,7 +77,7 @@ export function Contact() {
 					</div>
 				</> :
 				<section className="email">
-					<div className="email-form-container navy-text">
+					<div className="email-form-container">
 						<form ref={contactForm} id="contact-form" onSubmit={sendEmail}>
 							<label>Name </label>
 							<input className={"border-rounded"} type="text" name="name"/>

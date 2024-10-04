@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const GeneralContainer = styled.div`
 	width: 100%;
-	color: ${props => props.theme['navy-text']};
+	color: ${props => props.theme['text']};
 	display: flex;
     font-size: 1.2rem;
 
@@ -37,7 +37,7 @@ export const GeneralType = styled.div`
 export const GeneralListItem = styled.span`
 	padding: 10px;
 	a {
-		color: ${props => props.theme['navy-text']};
+		color: ${props => props.theme['text']};
   		text-decoration: none;
   	}
 `;

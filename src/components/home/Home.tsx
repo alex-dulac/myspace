@@ -7,8 +7,6 @@ import {
 import {MobileContext} from "../../MobileContext";
 
 export function Home() {
-	console.log("hey how's it going?");
-
 	const isMobile = useContext(MobileContext);
 
 	return (
@@ -16,12 +14,10 @@ export function Home() {
 			<HomeContainer id={"home"} className={"fade-in scroll-into-margin"}>
 				<HomeContentContainer>
 					<h1 className={"page-header mb-minus mobile"}>
-						<span className={"purple-text"}>ALEX </span>
-						<span className={"teal-text"}>DULAC</span>
+						<span className={"text"}>ALEX DULAC</span>
 					</h1>
 					<span className={"italic page-content"}>Full-Stack Developer</span>
 					<br/><br/>
-					<span className={"hello magenta-text mb-1"}>Hello!</span>
 					<HomeContent>
 						<HomeItem className={"summary"}>
 							I am full-stack developer who is constantly seeking to improve myself and learn new technologies.
