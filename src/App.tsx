@@ -1,11 +1,10 @@
 import React, {useEffect, useState} from 'react';
-import { HashRouter } from "react-router-dom";
 import { GlobalStyle } from "./styles/global";
 import { ThemeProvider } from "styled-components";
-import { Router } from "./Router";
 import { MobileContext } from "./MobileContext";
 import { defaultTheme } from "./styles/theme";
 import { initGA } from "./GA";
+import { Layout } from "./components/layout/Layout";
 
 const MOBILE_WIDTH: number = 786;
 
@@ -27,11 +26,9 @@ function App() {
 
 	return (
 		<ThemeProvider theme={defaultTheme}>
-			<HashRouter>
-				<MobileContext.Provider value={isMobile}>
-					<Router/>
-				</MobileContext.Provider>
-			</HashRouter>
+			<MobileContext.Provider value={isMobile}>
+				<Layout />
+			</MobileContext.Provider>
 			<GlobalStyle/>
 		</ThemeProvider>
 	);

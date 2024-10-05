@@ -12,20 +12,34 @@ import { faBars, faCopy, faFile } from "@fortawesome/free-solid-svg-icons";
 import { MobileContext } from "../../MobileContext";
 import { EventParams, logEvent } from "../../GA";
 
+interface Link {
+	link: string;
+  name: string;
+  divId: string;
+}
+
 export const Header: React.FC<{
 	isSinglePage: boolean;
 	setIsSinglePage: Dispatch<SetStateAction<any>>;
-}> = ({ isSinglePage, setIsSinglePage }) => {
+	setActivePage: Dispatch<SetStateAction<any>>;
+}> = ({ isSinglePage, setIsSinglePage, setActivePage }) => {
 	const isMobile = useContext(MobileContext);
 	const [isScrollingDown, setIsScrollingDown] = useState(false);
 	const [lastScrollTop, setLastScrollTop] = useState(0);
 
-	const homeLink = {link: '/', name: 'Home', divId: 'home'};
-	const experienceLink = {link: '/#/experience', name: 'Experience', divId: 'experience'};
-	const skillsLink = {link: '/#/skills', name: 'Skills', divId: 'skills'};
-	const aboutLink = {link: '/#/about', name: 'About Me', divId: 'about'};
-	const contactLink = {link: '/#/contact', name: 'Contact', divId: 'contact'};
-	const links = [homeLink, experienceLink, skillsLink, aboutLink, contactLink];
+	const homeLink: Link = { link: '/', name: 'Home', divId: 'home' };
+	const experienceLink: Link = { link: '/#/experience', name: 'Experience', divId: 'experience' };
+	const skillsLink: Link = { link: '/#/skills', name: 'Skills', divId: 'skills' };
+	const aboutLink: Link = { link: '/#/about', name: 'About Me', divId: 'about' };
+	const contactLink: Link = { link: '/#/contact', name: 'Contact', divId: 'contact' };
+
+	const links: Link[] = [
+		homeLink,
+		experienceLink,
+		skillsLink,
+		aboutLink,
+		contactLink
+	];
 
 	useEffect(() => {
 		const handleScroll = () => {
@@ -42,13 +56,13 @@ export const Header: React.FC<{
 		return () => window.removeEventListener('scroll', handleScroll);
 	}, [lastScrollTop]);
 
-	function handleHeaderLinkClick(event: React.MouseEvent<HTMLAnchorElement>, link: { link: string; name?: string; divId: string; }) {
+	function handleHeaderLinkClick(event: React.MouseEvent<HTMLAnchorElement>, link: Link) {
 		event.preventDefault();
 
 		if (isSinglePage) {
 			document.getElementById(link.divId)?.scrollIntoView({block: "start", behavior: "smooth"});
 		} else {
-			window.location.href = link.link;
+			setActivePage(link.name);
 		}
 	}
 
@@ -130,8 +144,8 @@ export const Header: React.FC<{
 								onClick={(event) => {toggleSinglePage(event);}}
 							>
 								{isSinglePage ?
-									<FontAwesomeIcon icon={faFile} size={"lg"} title={"Single Page Enabled"}/> :
-									<FontAwesomeIcon icon={faCopy} size={"lg"} title={"Single Page Disabled"}/>
+									<FontAwesomeIcon icon={faFile} size={"2x"} title={"Single Page Enabled"}/> :
+									<FontAwesomeIcon icon={faCopy} size={"2x"} title={"Single Page Disabled"}/>
 								}
 							</a>
 						</>

@@ -8,6 +8,7 @@ import { About } from "./components/about/About";
 import { Contact } from "./components/contact/Contact";
 
 export function Router() {
+	// Depreciated in favor of using activePage state
 	return (
 		<Routes>
 			<Route path="/" element={<Layout/>}>

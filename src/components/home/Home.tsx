@@ -34,7 +34,7 @@ export function Home() {
 						<MobileProfileImageContainer>
 							<MobileProfileImage src="/profile2.png"/>
 						</MobileProfileImageContainer> : null
-                    }
+					}
 				</HomeContentContainer>
 			</HomeContainer>
 		</>

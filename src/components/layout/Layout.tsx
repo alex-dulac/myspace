@@ -1,4 +1,3 @@
-import { Outlet, useLocation } from "react-router-dom";
 import { Header } from "../header/Header";
 import { Footer } from "../footer/Footer";
 import { LayoutContainer, PageContainer, PageContent } from "./LayoutElements";
@@ -8,22 +7,22 @@ import { Experience } from "../experience/Experience";
 import { Skills } from "../skills/Skills";
 import { Contact } from "../contact/Contact";
 import { About } from "../about/About";
-import { getPageTitle, logPageView } from "../../GA";
+import { logPageView } from "../../GA";
 
 export function Layout() {
 	const [isSinglePage, setIsSinglePage] = useState(false);
-	const location = useLocation();
+	const [activePage, setActivePage] = useState('Home');
 
 	useEffect(() => {
-		const title = getPageTitle(location.pathname);
-		logPageView(location.pathname, title);
-	}, [location.pathname]);
+		logPageView('', activePage);
+	}, [activePage]);
 
 	return (
 		<LayoutContainer>
 			<Header
 				isSinglePage={isSinglePage}
 				setIsSinglePage={setIsSinglePage}
+				setActivePage={setActivePage}
 			/>
 			<PageContainer>
 				{isSinglePage ?
@@ -46,7 +45,11 @@ export function Layout() {
 					</>
 					:
 					<PageContent>
-						<Outlet/>
+						{activePage == 'Home' && <Home/>}
+						{activePage == 'Experience' && <Experience/>}
+						{activePage == 'Skills' && <Skills/>}
+						{activePage == 'About Me' && <About/>}
+						{activePage == 'Contact' && <Contact/>}
 					</PageContent>
 				}
 			</PageContainer>
