@@ -45,11 +45,11 @@ export function Layout() {
 					</>
 					:
 					<PageContent>
-						{activePage == 'Home' && <Home/>}
-						{activePage == 'Experience' && <Experience/>}
-						{activePage == 'Skills' && <Skills/>}
-						{activePage == 'About Me' && <About/>}
-						{activePage == 'Contact' && <Contact/>}
+						{activePage === 'Home' && <Home/>}
+						{activePage === 'Experience' && <Experience/>}
+						{activePage === 'Skills' && <Skills/>}
+						{activePage === 'About Me' && <About/>}
+						{activePage === 'Contact' && <Contact/>}
 					</PageContent>
 				}
 			</PageContainer>
