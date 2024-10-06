@@ -23,9 +23,9 @@ export const defaultTheme = {
 	//'tertiary': '#49A078',
 	//'text': '#1F2421',
 
-	'primary': '#4E8098',
+	'tertiary': '#4E8098',
 	'secondary': '#9CC5A1',
-	'tertiary': '#90C2E7',
+	'primary': '#90C2E7',
 	'text': '#1F2421',
 
 

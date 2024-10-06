@@ -17,6 +17,14 @@ export function Layout() {
 		logPageView('', activePage);
 	}, [activePage]);
 
+	const pages = [
+		{ name: 'Home', component: <Home /> },
+		{ name: 'Experience', component: <Experience /> },
+		{ name: 'Skills', component: <Skills /> },
+		{ name: 'About Me', component: <About /> },
+		{ name: 'Contact', component: <Contact /> },
+	];
+
 	return (
 		<LayoutContainer>
 			<Header
@@ -26,30 +34,14 @@ export function Layout() {
 			/>
 			<PageContainer>
 				{isSinglePage ?
-					<>
-						<PageContent>
-							<Home/>
+					pages.map((page, index) => (
+						<PageContent key={index}>
+							{page.component}
 						</PageContent>
-						<PageContent>
-							<Experience/>
-						</PageContent>
-						<PageContent>
-							<Skills/>
-						</PageContent>
-						<PageContent>
-							<About/>
-						</PageContent>
-						<PageContent>
-							<Contact/>
-						</PageContent>
-					</>
+					))
 					:
 					<PageContent>
-						{activePage === 'Home' && <Home/>}
-						{activePage === 'Experience' && <Experience/>}
-						{activePage === 'Skills' && <Skills/>}
-						{activePage === 'About Me' && <About/>}
-						{activePage === 'Contact' && <Contact/>}
+						{pages.find(page => page.name === activePage)?.component}
 					</PageContent>
 				}
 			</PageContainer>

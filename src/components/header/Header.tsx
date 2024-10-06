@@ -8,7 +8,7 @@ import {
 	NavLink, MobileNavMenuIcon, MobileNavMenu, MobileNavItem, MobileList
 } from "./HeaderElements";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars, faCopy, faFile } from "@fortawesome/free-solid-svg-icons";
+import { faBars, faFile, faLayerGroup } from "@fortawesome/free-solid-svg-icons";
 import { MobileContext } from "../../MobileContext";
 import { EventParams, logEvent } from "../../GA";
 
@@ -114,7 +114,7 @@ export const Header: React.FC<{
 										>
 											{isSinglePage ?
 												<FontAwesomeIcon icon={faFile} size={"lg"} title={"Single Page Enabled"}/> :
-												<FontAwesomeIcon icon={faCopy} size={"lg"} title={"Single Page Disabled"}/>
+												<FontAwesomeIcon icon={faLayerGroup} size={"lg"} title={"Single Page Disabled"}/>
 											}
 										</a>
 										{links.map(link =>
@@ -130,7 +130,8 @@ export const Header: React.FC<{
 						</> :
 						<>
 							<NavMenu>
-								{links.map(link => <NavItem key={link.name}>
+								{links.map(link =>
+									<NavItem key={link.name}>
 										<NavLink onClick={(event) => handleHeaderLinkClick(event, link)}>
 											{link.name}
 										</NavLink>
@@ -140,12 +141,12 @@ export const Header: React.FC<{
 							<a
 								id={"singlePageToggle"}
 								className={"single-page-link"}
-								href={"/#"}
+								href={"/"}
 								onClick={(event) => {toggleSinglePage(event);}}
 							>
 								{isSinglePage ?
 									<FontAwesomeIcon icon={faFile} size={"2x"} title={"Single Page Enabled"}/> :
-									<FontAwesomeIcon icon={faCopy} size={"2x"} title={"Single Page Disabled"}/>
+									<FontAwesomeIcon icon={faLayerGroup} size={"2x"} title={"Single Page Disabled"}/>
 								}
 							</a>
 						</>

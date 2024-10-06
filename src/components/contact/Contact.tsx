@@ -1,11 +1,13 @@
-import React, {useRef, useState} from "react";
+import React, {useContext, useRef, useState} from "react";
 import emailJs from "@emailjs/browser"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import { faLinkedin, faGithub } from '@fortawesome/free-brands-svg-icons';
-import { GeneralListItem, GeneralContainer, GeneralContent, GeneralDetail } from "../GeneralElements";
+import { GeneralListItem, Container, Content, GeneralDetail } from "../GeneralElements";
+import {MobileContext} from "../../MobileContext";
 
 export function Contact() {
+	const isMobile = useContext(MobileContext);
 	const [submittingForm, setSubmittingForm] = useState(false);
 	const [formSubmitted, setFormSubmitted] = useState(false);
 
@@ -42,9 +44,9 @@ export function Contact() {
 	}
 
 	return (
-		<GeneralContainer id={"contact"} className={"fade-in scroll-into-margin"}>
-			<GeneralContent className={"section"}>
-				<h3 className={"mb-2 flex-center"}> I look forward to connecting! </h3>
+		<Container isMobile={isMobile} id={"contact"} className={"fade-in scroll-into-margin"}>
+			<Content className={"section"}>
+				<h3 className={"mb-2 flex-center"}> I look forward to connecting with you! </h3>
 				<GeneralDetail className={"flex-center mb-2"}>
 					<GeneralListItem>
 						<a href="mailto:alex@alexdulac.dev" target="_blank" rel="noreferrer">
@@ -65,41 +67,41 @@ export function Contact() {
 						<a href="https://github.com/alex-dulac" target="_blank" rel="noreferrer"> Github</a>
 					</GeneralListItem>
 				</GeneralDetail>
-			</GeneralContent>
-			{formSubmitted ?
-				<>
-					<div className={"email sent"}>
-						<div className={"email-form-container"}>
-							<h2> Thank you for your message! </h2>
-							<p> I have received it and will be in touch as soon as possible. </p>
-							<p className={"italic"}> --Alex </p>
+				{formSubmitted ?
+					<>
+						<div className={"email sent"}>
+							<div className={"email-form-container"}>
+								<h2> Thank you for your message! </h2>
+								<p> I have received it and will be in touch as soon as possible. </p>
+								<p className={"italic"}> --Alex </p>
+							</div>
 						</div>
-					</div>
-				</> :
-				<section className="email">
-					<div className="email-form-container">
-						<form ref={contactForm} id="contact-form" onSubmit={sendEmail}>
-							<label>Name </label>
-							<input className={"contact-input"} type="text" name="name"/>
+					</> :
+					<section className="email">
+						<div className="email-form-container">
+							<form ref={contactForm} id="contact-form" onSubmit={sendEmail}>
+								<label>Name </label>
+								<input className={"contact-input"} type="text" name="name"/>
 
-							<br/><br/>
-							<label>Email </label>
-							<input className={"contact-input"} type="email" name="email" />
+								<br/><br/>
+								<label>Email </label>
+								<input className={"contact-input"} type="email" name="email" />
 
-							<br/><br/>
-							<label>Message </label>
-							<br/>
-							<textarea name="message" className={"email-text-box contact-input"} />
+								<br/><br/>
+								<label>Message </label>
+								<br/>
+								<textarea name="message" className={"email-text-box contact-input"} />
 
-							<br/>
-							{submittingForm ?
-								<button disabled={true} className={"right btn-submit"}> Sending... </button> :
-								<button type="submit" className={"right btn-submit"}> Send </button>
-							}
-						</form>
-					</div>
-				</section>
-			}
-		</GeneralContainer>
+								<br/>
+								{submittingForm ?
+									<button disabled={true} className={"right btn-submit"}> Sending... </button> :
+									<button type="submit" className={"right btn-submit"}> Send </button>
+								}
+							</form>
+						</div>
+					</section>
+				}
+			</Content>
+		</Container>
 	);
 }

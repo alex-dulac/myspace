@@ -13,6 +13,7 @@ export const HeaderContainer = styled.header<HeaderContainerProps>`
     max-width: 100vw;
     z-index: 100;
     transition: top 0.3s;
+    margin-bottom: 3rem;
 
   ${({ isSinglePage }) =>
     isSinglePage &&

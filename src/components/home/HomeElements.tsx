@@ -1,14 +1,5 @@
 import styled from "styled-components";
 
-export const HomeContainer = styled.div`
-  	width: 1100px;
-`;
-
-export const HomeContentContainer = styled.div`
-  	text-align: center;
-  	justify-content: center;
-`;
-
 export const ProfileImageContainer = styled.div`
     justify-content: space-around;
     align-items: center;
@@ -32,12 +23,7 @@ export const MobileProfileImage = styled.img`
 `;
 
 export const HomeContent = styled.div`
-	color: ${props => props.theme['text']};
 	font-size: 1.6rem;
-	flex-direction: row !important;
-	justify-content: space-between;
-	margin-bottom: 2rem;
-	align-items: center;
 `;
 
 export const HomeItem = styled.div`

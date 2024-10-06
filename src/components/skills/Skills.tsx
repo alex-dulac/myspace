@@ -1,6 +1,6 @@
-import React from "react";
+import React, {useContext} from "react";
 import {
-	GeneralContainer, GeneralListItem, GeneralContent, GeneralType, GeneralDetail,
+	Container, GeneralListItem, Content, GeneralType, GeneralDetail,
 } from "../GeneralElements";
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -8,12 +8,15 @@ import { faCheck, faDatabase } from '@fortawesome/free-solid-svg-icons';
 import {
 	faPhp, faJsSquare, faAngular, faReact, faPython, faHtml5, faCss3, faJava, faNodeJs, faLaravel, faSymfony,
 } from '@fortawesome/free-brands-svg-icons';
+import {MobileContext} from "../../MobileContext";
 
 export function Skills() {
+	const isMobile = useContext(MobileContext);
+
 	return (
-		<GeneralContainer id={"skills"} className={"fade-in scroll-into-margin"}>
-			<h1 className={"sub-header mb-2 text"}>Skills</h1>
-			<GeneralContent className={"section"}>
+		<Container isMobile={isMobile} id={"skills"} className={"fade-in scroll-into-margin"}>
+			<Content className={"section"}>
+				<h1 className={"sub-header mb-2 text"}>Skills</h1>
 
 				<GeneralType>Languages </GeneralType>
 				<GeneralDetail className={"flex-center mb-2"}>
@@ -48,15 +51,18 @@ export function Skills() {
 
 				<GeneralType>Knowledge / Experience </GeneralType>
 				<GeneralDetail className={"flex-center mb-2"}>
-					<p>Object-oriented methodologies and class design, API development (REST, GraphQL), state management (Redux, NgRx), relational database design, query optimization, proficient in debugging and troubleshooting, implementation of third-party integrations</p>
+					<p>Object-oriented methodologies and class design, API development (REST, GraphQL), state management (Redux,
+						NgRx), relational database design, query optimization, proficient in debugging and troubleshooting,
+						implementation of third-party integrations</p>
 				</GeneralDetail>
 
 				<GeneralType>Tools: </GeneralType>
 				<GeneralDetail className={"flex-center mb-2"}>
-					<p>Docker, AWS (<span className={"italic"}>S3, RDS, ECS, EC2, SQS, Lambda</span>), DataDog, Sentry, Github, Postman, PHPUnit, Selenium, Jenkins, Jira, Excel</p>
+					<p>Docker, AWS (<span className={"italic"}>S3, RDS, ECS, EC2, SQS, Lambda</span>), DataDog, Sentry, Github,
+						Postman, PHPUnit, Selenium, Jenkins, Jira, Excel</p>
 				</GeneralDetail>
 
-			</GeneralContent>
-		</GeneralContainer>
+			</Content>
+		</Container>
 	);
 }

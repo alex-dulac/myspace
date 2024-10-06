@@ -1,22 +1,24 @@
 import styled from "styled-components";
 
-export const GeneralContainer = styled.div`
+interface ContainerProps {
+  isMobile: boolean;
+}
+
+export const Container = styled.div<ContainerProps>`
 	width: 100%;
 	color: ${props => props.theme['text']};
 	display: flex;
-    font-size: 1.2rem;
-
-    @media screen and (max-width: 768px) {
-        font-size: 1rem;
-    }
+  font-size: ${props => (props.isMobile ? '1rem' : '1.2rem')};
  	
-  	h1 {
-  		text-align: center;
-  	}
+  h1 {
+    text-align: center;
+  }
 `;
 
-export const GeneralContent = styled.div`
+export const Content = styled.div`
 	margin-bottom: 2rem;
+  text-align: center;
+  justify-content: center;
 `;
 
 export const GeneralDetail = styled.div`
