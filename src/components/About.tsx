@@ -1,6 +1,6 @@
 import React, {useContext} from "react";
 import {MobileContext} from "../MobileContext";
-import {Container, Content, Image, ImageContainer} from "../elements/Elements";
+import {Container, Content, Image, ImageContainer} from "@elements/Elements";
 
 export function About() {
 	const isMobile = useContext(MobileContext);
@@ -19,7 +19,7 @@ export function About() {
 				<ImageContainer>
 					<Image
 						isMobile={isMobile}
-						src="/doog1.jpg"
+						src="/images/doog1.jpg"
 					/>
 				</ImageContainer>
 			</Content>
@@ -28,7 +28,7 @@ export function About() {
 				<ImageContainer>
 					<Image
 						isMobile={isMobile}
-						src="/newy.jpg"
+						src="/images/newy.jpg"
 					/>
 				</ImageContainer>
 				When I'm not creating/breaking/fixing code, I'm creating/breaking/fixing something in my house. I guess it's what I like to do.

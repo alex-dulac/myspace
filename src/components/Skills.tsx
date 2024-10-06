@@ -1,7 +1,7 @@
 import React, {useContext} from "react";
 import {
 	Container, GeneralListItem, Content, GeneralType, GeneralDetail,
-} from "../elements/Elements";
+} from "@elements/Elements";
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck, faDatabase } from '@fortawesome/free-solid-svg-icons';

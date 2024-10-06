@@ -1,6 +1,6 @@
 import React, {useContext} from "react";
 import {MobileContext} from "../MobileContext";
-import {Container, Content, H1, Image, ImageContainer} from "../elements/Elements";
+import {Container, Content, H1, Image, ImageContainer} from "@elements/Elements";
 
 export function Home() {
 	const isMobile = useContext(MobileContext);
@@ -21,7 +21,7 @@ export function Home() {
 				<ImageContainer>
 					<Image
 						isMobile={isMobile}
-						src="/profile2.png"
+						src="/images/profile2.png"
 					/>
 				</ImageContainer>
 			</Content>

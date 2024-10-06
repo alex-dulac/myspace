@@ -1,13 +1,13 @@
-import { Header } from "./header/Header";
-import { Footer } from "./footer/Footer";
-import { LayoutContainer, PageContainer, PageContent } from "../elements/LayoutElements";
 import React, { useEffect, useState } from "react";
-import { Home } from "./Home";
-import { Experience } from "./experience/Experience";
-import { Skills } from "./Skills";
-import { Contact } from "./Contact";
-import { About } from "./About";
+import { Header } from "@components/header/Header";
+import { Footer } from "@components/footer/Footer";
+import { Home } from "@components/Home";
+import { Experience } from "@components/experience/Experience";
+import { Skills } from "@components/Skills";
+import { Contact } from "@components/Contact";
 import { logPageView } from "../GA";
+import {LayoutContainer, PageContainer, PageContent} from "@elements/LayoutElements";
+import {About} from "@components/About";
 
 export function Layout() {
 	const [isSinglePage, setIsSinglePage] = useState(false);
