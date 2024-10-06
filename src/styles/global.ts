@@ -16,14 +16,6 @@ export const GlobalStyle = createGlobalStyle`
   img {
       border-radius: 10px;
   }
-  
-  .text {
-      color: #1F2421;
-  }
-
-  .page-header {
-      font-size: 4rem;
-  }
 
   .sub-header {
       font-size: 3rem;
@@ -36,10 +28,6 @@ export const GlobalStyle = createGlobalStyle`
 
   .page-content {
       font-size: 1.5rem;
-  }
-
-  .mb-minus {
-      margin-bottom: -1rem;
   }
 
   .mb-1 {
@@ -182,7 +170,6 @@ export const GlobalStyle = createGlobalStyle`
   textarea, input {
       font-family: "Open Sans", sans-serif !important;
       font-size: 1.25rem;
-      display: block;
       background: transparent !important;
       width: 100%;
       padding: 5px;

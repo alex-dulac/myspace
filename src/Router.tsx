@@ -1,11 +1,11 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
-import { Layout } from "./components/layout/Layout";
-import { Home } from "./components/home/Home";
+import { Layout } from "./components/Layout";
+import { Home } from "./components/Home";
 import { Experience } from "./components/experience/Experience";
-import { Skills } from "./components/skills/Skills";
-import { About } from "./components/about/About";
-import { Contact } from "./components/contact/Contact";
+import { Skills } from "./components/Skills";
+import { About } from "./components/About";
+import { Contact } from "./components/Contact";
 
 export function Router() {
 	// Depreciated in favor of using activePage state

@@ -1,10 +1,10 @@
 import styled from "styled-components";
 
-interface ContainerProps {
+interface IProps {
   isMobile: boolean;
 }
 
-export const Container = styled.div<ContainerProps>`
+export const Container = styled.div<IProps>`
 	width: 100%;
 	color: ${props => props.theme['text']};
 	display: flex;
@@ -16,9 +16,14 @@ export const Container = styled.div<ContainerProps>`
 `;
 
 export const Content = styled.div`
-	margin-bottom: 2rem;
+  display: flex;
   text-align: center;
   justify-content: center;
+  gap: 1rem;
+`;
+
+export const H1 = styled.h1`
+  font-size: 4rem;
 `;
 
 export const GeneralDetail = styled.div`
@@ -42,4 +47,15 @@ export const GeneralListItem = styled.span`
 		color: ${props => props.theme['text']};
   		text-decoration: none;
   	}
+`;
+
+export const ImageContainer = styled.div`
+    justify-content: space-around;
+    align-items: center;
+    padding: 20px;
+`;
+
+export const Image = styled.img<IProps>`
+    max-width: ${props => (props.isMobile ? '13rem' : '25rem')};
+    max-height: ${props => (props.isMobile ? '13rem' : '25rem')};
 `;

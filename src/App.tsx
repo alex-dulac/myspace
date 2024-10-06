@@ -4,7 +4,7 @@ import { ThemeProvider } from "styled-components";
 import { MobileContext } from "./MobileContext";
 import { defaultTheme } from "./styles/theme";
 import { initGA } from "./GA";
-import { Layout } from "./components/layout/Layout";
+import { Layout } from "./components/Layout";
 
 const MOBILE_WIDTH: number = 786;
 

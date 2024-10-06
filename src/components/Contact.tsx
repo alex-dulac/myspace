@@ -3,8 +3,8 @@ import emailJs from "@emailjs/browser"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import { faLinkedin, faGithub } from '@fortawesome/free-brands-svg-icons';
-import { GeneralListItem, Container, Content, GeneralDetail } from "../GeneralElements";
-import {MobileContext} from "../../MobileContext";
+import { GeneralListItem, Container, Content, GeneralDetail } from "../elements/Elements";
+import {MobileContext} from "../MobileContext";
 
 export function Contact() {
 	const isMobile = useContext(MobileContext);

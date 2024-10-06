@@ -1,14 +1,14 @@
 import React, {useContext} from "react";
 import {
 	Container, GeneralListItem, Content, GeneralType, GeneralDetail,
-} from "../GeneralElements";
+} from "../elements/Elements";
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck, faDatabase } from '@fortawesome/free-solid-svg-icons';
 import {
 	faPhp, faJsSquare, faAngular, faReact, faPython, faHtml5, faCss3, faJava, faNodeJs, faLaravel, faSymfony,
 } from '@fortawesome/free-brands-svg-icons';
-import {MobileContext} from "../../MobileContext";
+import {MobileContext} from "../MobileContext";
 
 export function Skills() {
 	const isMobile = useContext(MobileContext);
