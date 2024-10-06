@@ -44,9 +44,6 @@ export const HeaderNav = styled.nav`
     font-size: 1.2em;
     z-index: 99;
     box-shadow: 0 2px 28px rgba(0, 0, 0, 0.2);
-    @media screen and (max-width: 960px) {
-        transition: 1.7s all ease;
-    }
 `;
 
 export const NavContainer = styled.div`

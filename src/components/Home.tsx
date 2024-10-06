@@ -1,29 +1,26 @@
-import React, {useContext} from "react";
-import {MobileContext} from "../MobileContext";
-import {Container, Content, H1, Image, ImageContainer} from "@elements/Elements";
+import React from "react";
+import { Container, Content, H1, Image, ImageContainer, SideBySideContainer } from "@elements/Elements";
 
 export function Home() {
-	const isMobile = useContext(MobileContext);
-
 	return (
-		<Container
-			id={"home"}
-			isMobile={isMobile}
-			className={"fade-in scroll-into-margin"}
-		>
+		<Container id={"home"} className={"fade-in scroll-into-margin"}>
 			<Content>
 				<H1 className={"mobile"}>ALEX DULAC</H1>
-				<span className={"italic page-content"}>Full-Stack Developer</span>
-				I am full-stack developer who is constantly seeking to improve myself and learn new technologies.
-				<br/>
-				<br/>
-				I'm energized by work that allows me to troubleshoot issues, deliver solutions, and provide a great experience!
-				<ImageContainer>
-					<Image
-						isMobile={isMobile}
-						src="/images/profile2.png"
-					/>
-				</ImageContainer>
+				<span className={"italic"}>Full-Stack Developer</span>
+
+				<SideBySideContainer>
+					<div>
+						I am full-stack developer who is constantly seeking to improve myself and learn new technologies.
+						<br/>
+						<br/>
+						I'm energized by work that allows me to troubleshoot issues, deliver solutions, and provide a great
+						experience!
+					</div>
+
+					<ImageContainer>
+						<Image src="/images/profile2.png"/>
+					</ImageContainer>
+				</SideBySideContainer>
 			</Content>
 		</Container>
 	);

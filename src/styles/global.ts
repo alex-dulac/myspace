@@ -26,10 +26,6 @@ export const GlobalStyle = createGlobalStyle`
       font-weight: bolder;
   }
 
-  .page-content {
-      font-size: 1.5rem;
-  }
-
   .mb-1 {
       margin-bottom: 1rem;
   }

@@ -1,13 +1,10 @@
-import React, {useContext, useRef, useState} from "react";
+import React, {useRef, useState} from "react";
 import emailJs from "@emailjs/browser"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
-import { faLinkedin, faGithub } from '@fortawesome/free-brands-svg-icons';
 import { GeneralListItem, Container, Content, GeneralDetail } from "@elements/Elements";
-import {MobileContext} from "../MobileContext";
+import { email, github, linkedIn } from "@utils/links";
 
 export function Contact() {
-	const isMobile = useContext(MobileContext);
 	const [submittingForm, setSubmittingForm] = useState(false);
 	const [formSubmitted, setFormSubmitted] = useState(false);
 
@@ -44,27 +41,27 @@ export function Contact() {
 	}
 
 	return (
-		<Container isMobile={isMobile} id={"contact"} className={"fade-in scroll-into-margin"}>
+		<Container id={"contact"} className={"fade-in scroll-into-margin"}>
 			<Content className={"section"}>
 				<h3 className={"mb-2 flex-center"}> I look forward to connecting with you! </h3>
 				<GeneralDetail className={"flex-center mb-2"}>
 					<GeneralListItem>
-						<a href="mailto:alex@alexdulac.dev" target="_blank" rel="noreferrer">
-							<FontAwesomeIcon icon={faEnvelope}/>
+						<a href={email.url} target="_blank" rel="noreferrer">
+							<FontAwesomeIcon icon={email.icon}/>
 						</a>
-						<a href="mailto:alex@alexdulac.dev" target="_blank" rel="noreferrer"> Email</a>
+						<a href={email.url} target="_blank" rel="noreferrer"> Email</a>
 					</GeneralListItem>
 					<GeneralListItem>
-						<a href="https://www.linkedin.com/in/alexdulac" target="_blank" rel="noreferrer">
-							<FontAwesomeIcon icon={faLinkedin}/>
+						<a href={linkedIn.url} target="_blank" rel="noreferrer">
+							<FontAwesomeIcon icon={linkedIn.icon}/>
 						</a>
-						<a href="https://www.linkedin.com/in/alexdulac" target="_blank" rel="noreferrer"> LinkedIn</a>
+						<a href={linkedIn.url} target="_blank" rel="noreferrer"> LinkedIn</a>
 					</GeneralListItem>
 					<GeneralListItem>
-						<a href="https://github.com/alex-dulac" target="_blank" rel="noreferrer">
-							<FontAwesomeIcon icon={faGithub}/>
+						<a href={github.url} target="_blank" rel="noreferrer">
+							<FontAwesomeIcon icon={github.icon}/>
 						</a>
-						<a href="https://github.com/alex-dulac" target="_blank" rel="noreferrer"> Github</a>
+						<a href={github.url} target="_blank" rel="noreferrer"> Github</a>
 					</GeneralListItem>
 				</GeneralDetail>
 				{formSubmitted ?

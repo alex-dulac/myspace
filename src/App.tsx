@@ -1,10 +1,10 @@
-import React, {useEffect, useState} from 'react';
-import { GlobalStyle } from "./styles/global";
+import React, { useEffect, useState } from 'react';
+import { GlobalStyle } from "@styles/global";
 import { ThemeProvider } from "styled-components";
-import { MobileContext } from "./MobileContext";
-import { defaultTheme } from "./styles/theme";
-import { initGA } from "./GA";
-import { Layout } from "./components/Layout";
+import { MobileContext } from "@utils/MobileContext";
+import { defaultTheme } from "@styles/theme";
+import { initGA } from "@utils/ga";
+import { Layout } from "@components/Layout";
 
 const MOBILE_WIDTH: number = 786;
 

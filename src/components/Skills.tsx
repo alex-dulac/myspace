@@ -1,4 +1,4 @@
-import React, {useContext} from "react";
+import React from "react";
 import {
 	Container, GeneralListItem, Content, GeneralType, GeneralDetail,
 } from "@elements/Elements";
@@ -8,13 +8,10 @@ import { faCheck, faDatabase } from '@fortawesome/free-solid-svg-icons';
 import {
 	faPhp, faJsSquare, faAngular, faReact, faPython, faHtml5, faCss3, faJava, faNodeJs, faLaravel, faSymfony,
 } from '@fortawesome/free-brands-svg-icons';
-import {MobileContext} from "../MobileContext";
 
 export function Skills() {
-	const isMobile = useContext(MobileContext);
-
 	return (
-		<Container isMobile={isMobile} id={"skills"} className={"fade-in scroll-into-margin"}>
+		<Container id={"skills"} className={"fade-in scroll-into-margin"}>
 			<Content className={"section"}>
 				<h1 className={"sub-header mb-2 text"}>Skills</h1>
 

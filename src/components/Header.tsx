@@ -1,4 +1,4 @@
-import React, {Dispatch, SetStateAction, useContext, useEffect, useState} from "react";
+import React, { Dispatch, SetStateAction, useContext, useEffect, useState } from "react";
 import {
 	HeaderContainer,
 	HeaderNav,
@@ -6,13 +6,13 @@ import {
 	NavMenu,
 	NavItem,
 	NavLink, MobileNavMenuIcon, MobileNavMenu, MobileNavItem, MobileList
-} from "./HeaderElements";
+} from "@elements/HeaderElements";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faFile, faLayerGroup } from "@fortawesome/free-solid-svg-icons";
-import { MobileContext } from "../../MobileContext";
-import { EventParams, logEvent } from "../../GA";
+import { MobileContext } from "@utils/MobileContext";
+import { EventParams, logEvent } from "@utils/ga";
 
-interface Link {
+interface HeaderLink {
 	link: string;
   name: string;
   divId: string;
@@ -27,13 +27,13 @@ export const Header: React.FC<{
 	const [isScrollingDown, setIsScrollingDown] = useState(false);
 	const [lastScrollTop, setLastScrollTop] = useState(0);
 
-	const homeLink: Link = { link: '/', name: 'Home', divId: 'home' };
-	const experienceLink: Link = { link: '/#/experience', name: 'Experience', divId: 'experience' };
-	const skillsLink: Link = { link: '/#/skills', name: 'Skills', divId: 'skills' };
-	const aboutLink: Link = { link: '/#/about', name: 'About Me', divId: 'about' };
-	const contactLink: Link = { link: '/#/contact', name: 'Contact', divId: 'contact' };
+	const homeLink: HeaderLink = { link: '/', name: 'Home', divId: 'home' };
+	const experienceLink: HeaderLink = { link: '/#/experience', name: 'Experience', divId: 'experience' };
+	const skillsLink: HeaderLink = { link: '/#/skills', name: 'Skills', divId: 'skills' };
+	const aboutLink: HeaderLink = { link: '/#/about', name: 'About Me', divId: 'about' };
+	const contactLink: HeaderLink = { link: '/#/contact', name: 'Contact', divId: 'contact' };
 
-	const links: Link[] = [
+	const headerLinks: HeaderLink[] = [
 		homeLink,
 		experienceLink,
 		skillsLink,
@@ -56,7 +56,7 @@ export const Header: React.FC<{
 		return () => window.removeEventListener('scroll', handleScroll);
 	}, [lastScrollTop]);
 
-	function handleHeaderLinkClick(event: React.MouseEvent<HTMLAnchorElement>, link: Link) {
+	function handleHeaderLinkClick(event: React.MouseEvent<HTMLAnchorElement>, link: HeaderLink) {
 		event.preventDefault();
 
 		if (isSinglePage) {
@@ -117,7 +117,7 @@ export const Header: React.FC<{
 												<FontAwesomeIcon icon={faLayerGroup} size={"lg"} title={"Single Page Disabled"}/>
 											}
 										</a>
-										{links.map(link =>
+										{headerLinks.map(link =>
 											<MobileNavItem key={link.name} className={'mb-1'}>
 												<NavLink onClick={(event) => handleHeaderLinkClick(event, link)}>
 													{link.name}
@@ -130,7 +130,7 @@ export const Header: React.FC<{
 						</> :
 						<>
 							<NavMenu>
-								{links.map(link =>
+								{headerLinks.map(link =>
 									<NavItem key={link.name}>
 										<NavLink onClick={(event) => handleHeaderLinkClick(event, link)}>
 											{link.name}
