@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { GlobalStyle } from "@styles/global";
 import { ThemeProvider } from "styled-components";
-import { MobileContext } from "@utils/MobileContext";
+import { MobileContext } from "@library/MobileContext";
 import { defaultTheme } from "@styles/theme";
-import { initGA } from "@utils/ga";
+import { initGA } from "@library/ga";
 import { Layout } from "@components/Layout";
 
 const MOBILE_WIDTH: number = 786;

@@ -1,6 +1,6 @@
 import ReactGA from 'react-ga4';
 
-const GA_TRACKING_ID = process.env.REACT_APP_GA_KEY as string;
+const GA_TRACKING_ID = String(process.env.REACT_APP_GA_KEY);
 
 export const initGA = () => {
   ReactGA.initialize(GA_TRACKING_ID);
@@ -20,12 +20,8 @@ export interface EventParams {
   label?: string;
 }
 
-export const logEvent = ({ category, action, label }: EventParams) => {
-  ReactGA.event({
-    category,
-    action,
-    label,
-  });
+export const logGAEvent = (params: EventParams) => {
+  ReactGA.event(params);
 };
 
 export const getPageTitle = (pathname: string): string => {

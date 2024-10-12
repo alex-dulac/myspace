@@ -8,77 +8,49 @@ export const GlobalStyle = createGlobalStyle`
   }
   
   body {
-    background: ${props => props.theme['tertiary']};
-    color: ${props => props.theme['tertiary']};
+    background: ${props => props.theme['color-b']};
+    color: ${props => props.theme['color-b']};
     font-family: "Open Sans", sans-serif;
   }
+	
+	p {
+		margin-bottom: 1rem;
+	}
 
   img {
       border-radius: 10px;
   }
-
-  .sub-header {
-      font-size: 3rem;
+  
+  a {
+    cursor: pointer;
+    text-decoration: none;
+    color: ${props => props.theme['color-e']}; 
+		&:hover {
+      color: ${props => props.theme['color-b']};
+    }
   }
+	
+	button {
+		&:hover {
+				color: ${props => props.theme['color-b']};
+		}
+	}
+	
+	ul {
+		list-style: none;
+    text-decoration: none;
+	}
 
-  .hello {
-      font-size: 2.5rem;
-      font-weight: bolder;
+  *:focus {
+      outline: none;
   }
 
   .mb-1 {
       margin-bottom: 1rem;
   }
 
-  .mb-2 {
-      margin-bottom: 2rem;
-  }
-
-  .rounded-circle {
-      border-radius: 50% !important;
-  }
-
-  .profile-image {
-      max-width: 30rem;
-      max-height: 30rem;
-  }
-
-  .single-page-link {
-      display: flex;
-      align-items: center;
-      height: 100%;
-      padding: 0 1rem;
-      font-size: 0.9rem;
-      cursor: pointer;
-      text-decoration: none;
-      color: ${props => props.theme['text']};
-  }
-
-  .footer-name {
-      display: flex;
-      align-items: center;
-      height: 100%;
-      padding: 0 1rem;
-  }
-
-  .fade-in {
-      animation: fade 0.9s ease-in;
-  }
-
-  .bold {
-      font-weight: bolder;
-  }
-
   .italic {
       font-style: italic;
-  }
-
-  .text-left {
-      text-align: left;
-  }
-
-  .text-right {
-      text-align: right;
   }
 
   @keyframes fade {
@@ -86,83 +58,7 @@ export const GlobalStyle = createGlobalStyle`
           opacity: 0;
       }
   }
-
-  *:focus {
-      outline: none;
-  }
-
-  @media (max-width: 680px) {
-      .section {
-          flex-direction: column;
-      }
-      .mobile {
-          font-size: 50px;
-          text-align: center;
-      }
-      .summary {
-          font-size: 19px;
-          text-align: center;
-      }
-  }
-
-  .flex-center {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-  }
-
-  .section > div {
-      flex: 1 1;
-  }
-
-  .email {
-      display: flex;
-      justify-content: center;
-      padding: 20px;
-  }
-
-  .sent {
-      text-align: center;
-  }
-
-  .scroll-into-margin {
-      scroll-margin-top: 100px;
-  }
-
-  .email-form-container {
-      width: 100%;
-  }
-
-  .email-text-box {
-      height: 150px;
-  }
-
-  .contact-input {
-      border-radius: 15px;
-      border-color: ${props => props.theme['text']};
-  }
-
-  @media (max-width: 680px) {
-      .email { flex-direction: column; }
-      .email-form-container {
-          margin-bottom: 20px;
-      }
-  }
-
-  .right { margin-right: 0; margin-left: auto; }
-
-  .btn-submit {
-      background: none;
-      color: ${props => props.theme['text']};
-      font-size: 1.25rem;
-      border: 0;
-      cursor: pointer;
-      transition: all 0.3s ease;
-  }
-
-  .btn-submit:hover { color: ${props => props.theme['text']}; }
-
+	
   textarea, input {
       font-family: "Open Sans", sans-serif !important;
       font-size: 1.25rem;
@@ -170,5 +66,4 @@ export const GlobalStyle = createGlobalStyle`
       width: 100%;
       padding: 5px;
   }
-
 `;

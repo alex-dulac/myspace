@@ -1,26 +1,26 @@
 import React from "react";
-import { Container, Content, Image, ImageContainer, SideBySideContainer } from "@elements/Elements";
+import { Container, Content, Image, ImageContainer, RowColumnFlex } from "@library/elements";
 
 export function About() {
 	return (
-		<Container id={"about"} className={"fade-in scroll-into-margin"}>
+		<Container id={"about"}>
 			<Content>
-				<SideBySideContainer>
+				<RowColumnFlex>
 					<div>
 						I'm a lifelong Mainer, having graduated from Maine schools, with valuable experience from some of Maine's
 						best companies.
 						<br/>
 						<br/>
-						I currently live in southern Maine with my wife and our two pit bulls- Lila & Lou.
+						I currently live in southern Maine with my wife and our two pitbulls- Lila & Lou.
 					</div>
 					<ImageContainer>
 						<Image src="/images/doog1.jpg"/>
 					</ImageContainer>
-				</SideBySideContainer>
+				</RowColumnFlex>
 			</Content>
 
 			<Content>
-				<SideBySideContainer>
+				<RowColumnFlex>
 					<ImageContainer>
 						<Image src="/images/newy.jpg"/>
 					</ImageContainer>
@@ -34,7 +34,7 @@ export function About() {
 						<br/>
 						But if it's summer, you'll find us at the beach!
 					</div>
-				</SideBySideContainer>
+				</RowColumnFlex>
 			</Content>
 		</Container>
 	);

@@ -1,11 +1,11 @@
 import React from "react";
 
-import { Container, Content, ListItem, UnorderedList } from "@elements/Elements";
+import {Container, Content, ListItem, PageSubheaderCenter, UnorderedList} from "@library/elements";
 
 export function Experience() {
 	const experiences = [
-		"I'm a dynamic software developer with over six years of professional experience, excelling in both backend and frontend development.",
-		"My expertise includes PHP and Python, with a strong focus on Laravel & Symfony, and FastAPI & Django frameworks, respectively.",
+		"I'm a dynamic software developer with over six years of professional experience, excelling in both backend and frontend cloud application development.",
+		"My expertise includes Python, with a strong focus on FastAPI & Django frameworks, and PHP, primarily utilizing Laravel and Symfony.",
 		"On the client side, my skills shine with React, Angular, TypeScript, and state management with Redux/NgRx.",
 		"I adeptly handle deployment and application monitoring using AWS, Datadog, and Sentry.",
 		"I'm also proficient in working with various databases, such as MySQL, PostgreSQL, and MongoDB.",
@@ -13,10 +13,10 @@ export function Experience() {
 	];
 
 	return (
-		<Container id={"experience"} className={"fade-in scroll-into-margin"}>
+		<Container id={"experience"}>
 			<Content>
-				<h1 className={"sub-header mb-2 text"}>Experience</h1>
-				<UnorderedList className={"mb-2"}>
+				<PageSubheaderCenter>Experience</PageSubheaderCenter>
+				<UnorderedList>
 					{experiences.map((experience, index) => (
 						<ListItem key={index}>{experience}</ListItem>
 					))}

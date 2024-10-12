@@ -1,10 +1,9 @@
 import React, {useContext} from "react";
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { MobileContext } from "@utils/MobileContext";
-import { NavContainer, NavItem, NavLink, NavMenu } from "@elements/HeaderElements";
-import { FooterContainer, FooterNav } from "@elements/Elements";
-import { links } from "@utils/links";
+import { MobileContext } from "@library/MobileContext";
+import { FooterContainer, FooterNav, FooterText, NavContainer, NavLink, NavUnorderedList } from "@library/elements";
+import { links } from "@library/links";
 
 export function Footer() {
 	const isMobile = useContext(MobileContext);
@@ -13,21 +12,20 @@ export function Footer() {
 		<FooterContainer>
 			<FooterNav>
 				<NavContainer>
-					<h3 className={"footer-name"}>
-						<span className={"text"}>ALEX DULAC</span>
-					</h3>
+					<FooterText>
+						ALEX DULAC
+					</FooterText>
 
-					{!isMobile ?
-						<NavMenu>
+					{!isMobile ? (
+						<NavUnorderedList>
 							{links.map((link, index) => (
-                <NavItem key={index}>
-									<NavLink href={link.url}>
-										<FontAwesomeIcon icon={link.icon}/>
-									</NavLink>
-								</NavItem>
+								<NavLink href={link.url} target="_blank" key={index}>
+									<FontAwesomeIcon icon={link.icon}/>
+								</NavLink>
 							))}
-						</NavMenu> : null
-					}
+						</NavUnorderedList>
+					) : null}
+
 				</NavContainer>
 			</FooterNav>
 		</FooterContainer>

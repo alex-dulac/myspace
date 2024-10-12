@@ -5,9 +5,9 @@ import { Home } from "@components/Home";
 import { Experience } from "@components/Experience";
 import { Skills } from "@components/Skills";
 import { Contact } from "@components/Contact";
-import { logPageView } from "@utils/ga";
+import { logPageView } from "@library/ga";
 import { About } from "@components/About";
-import { LayoutContainer, PageContainer, PageContent } from "@elements/Elements";
+import { LayoutContainer, PageContainer, PageContent } from "@library/elements";
 
 export function Layout() {
 	const [isSinglePage, setIsSinglePage] = useState(false);
@@ -27,25 +27,29 @@ export function Layout() {
 
 	return (
 		<LayoutContainer>
+
 			<Header
 				isSinglePage={isSinglePage}
 				setIsSinglePage={setIsSinglePage}
 				setActivePage={setActivePage}
 			/>
+
 			<PageContainer>
 				{isSinglePage ?
 					pages.map((page, index) => (
 						<PageContent key={index}>
 							{page.component}
 						</PageContent>
-					))
-					:
-					<PageContent>
-						{pages.find(page => page.name === activePage)?.component}
-					</PageContent>
+					)) : (
+						<PageContent>
+							{pages.find(page => page.name === activePage)?.component}
+						</PageContent>
+					)
 				}
 			</PageContainer>
+
 			<Footer />
+
 		</LayoutContainer>
 	);
 }

@@ -23,11 +23,11 @@ export const lastFm = {
   name: 'Last.fm',
   url: 'https://www.last.fm/user/alexdulac',
   icon: faLastfmSquare
-}
+};
 
 export const links = [
   email,
   linkedIn,
   github,
   lastFm
-]
+];

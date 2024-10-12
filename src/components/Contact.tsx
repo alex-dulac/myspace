@@ -1,31 +1,38 @@
 import React, {useRef, useState} from "react";
 import emailJs from "@emailjs/browser"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { GeneralListItem, Container, Content, GeneralDetail } from "@elements/Elements";
-import { email, github, linkedIn } from "@utils/links";
+import {
+	Span,
+	Container,
+	Content,
+	RowColumnFlex,
+	PageSubheaderCenter,
+	Link,
+	EmailSection,
+	EmailForm, EmailReceived, ContactInput, ContactSubmit, ContactTextarea
+} from "@library/elements";
+import { email, github, linkedIn } from "@library/links";
 
 export function Contact() {
 	const [submittingForm, setSubmittingForm] = useState(false);
 	const [formSubmitted, setFormSubmitted] = useState(false);
 
-	const contactForm = useRef<HTMLFormElement>(null);
+	const contactFormRefObject = useRef<HTMLFormElement>(null);
+
 	const sendEmail = (e: any) => {
 		e.preventDefault();
 
-		if (contactForm.current
-			&& contactForm.current.name !== ''
-			&& contactForm.current.email.value !== ''
-			&& contactForm.current.message.value !== ''
-		) {
+		const form = contactFormRefObject?.current;
+		if (form && form.name !== '' && form.email.value !== '' && form.message.value !== '') {
 			setSubmittingForm(true);
-			const formElements = Array.from(contactForm.current.elements);
+			const formElements = Array.from(form.elements);
 			formElements.forEach(element => element.setAttribute('readonly', 'true'));
 
 			emailJs.sendForm(
-				process.env.REACT_APP_EMAILJS_SERVICE_ID as string,
-				process.env.REACT_APP_EMAILJS_TEMPLATE_ID as string,
-				contactForm.current,
-				process.env.REACT_APP_EMAILJS_PUBLIC_KEY as string
+				String(process.env.REACT_APP_EMAILJS_SERVICE_ID),
+				String(process.env.REACT_APP_EMAILJS_TEMPLATE_ID),
+				form,
+				String(process.env.REACT_APP_EMAILJS_PUBLIC_KEY)
 			).then(r => {
 					setSubmittingForm(false);
 					setFormSubmitted(true);
@@ -41,63 +48,54 @@ export function Contact() {
 	}
 
 	return (
-		<Container id={"contact"} className={"fade-in scroll-into-margin"}>
-			<Content className={"section"}>
-				<h3 className={"mb-2 flex-center"}> I look forward to connecting with you! </h3>
-				<GeneralDetail className={"flex-center mb-2"}>
-					<GeneralListItem>
-						<a href={email.url} target="_blank" rel="noreferrer">
-							<FontAwesomeIcon icon={email.icon}/>
-						</a>
-						<a href={email.url} target="_blank" rel="noreferrer"> Email</a>
-					</GeneralListItem>
-					<GeneralListItem>
-						<a href={linkedIn.url} target="_blank" rel="noreferrer">
-							<FontAwesomeIcon icon={linkedIn.icon}/>
-						</a>
-						<a href={linkedIn.url} target="_blank" rel="noreferrer"> LinkedIn</a>
-					</GeneralListItem>
-					<GeneralListItem>
-						<a href={github.url} target="_blank" rel="noreferrer">
-							<FontAwesomeIcon icon={github.icon}/>
-						</a>
-						<a href={github.url} target="_blank" rel="noreferrer"> Github</a>
-					</GeneralListItem>
-				</GeneralDetail>
-				{formSubmitted ?
-					<>
-						<div className={"email sent"}>
-							<div className={"email-form-container"}>
-								<h2> Thank you for your message! </h2>
-								<p> I have received it and will be in touch as soon as possible. </p>
-								<p className={"italic"}> --Alex </p>
-							</div>
-						</div>
-					</> :
-					<section className="email">
-						<div className="email-form-container">
-							<form ref={contactForm} id="contact-form" onSubmit={sendEmail}>
-								<label>Name </label>
-								<input className={"contact-input"} type="text" name="name"/>
+		<Container id={"contact"}>
+			<Content>
+				<PageSubheaderCenter> I look forward to connecting with you! </PageSubheaderCenter>
 
-								<br/><br/>
-								<label>Email </label>
-								<input className={"contact-input"} type="email" name="email" />
+				<RowColumnFlex>
+					<Span>
+						<Link href={email.url} target="_blank">
+							<FontAwesomeIcon icon={email.icon}/> Email
+						</Link>
+					</Span>
+					<Span>
+						<Link href={linkedIn.url} target="_blank" rel="noreferrer">
+							<FontAwesomeIcon icon={linkedIn.icon}/> LinkedIn
+						</Link>
+					</Span>
+					<Span>
+						<Link href={github.url} target="_blank" rel="noreferrer">
+							<FontAwesomeIcon icon={github.icon}/> Github
+						</Link>
+					</Span>
+				</RowColumnFlex>
 
-								<br/><br/>
-								<label>Message </label>
-								<br/>
-								<textarea name="message" className={"email-text-box contact-input"} />
+				{formSubmitted ? (
+					<EmailReceived>
+						<PageSubheaderCenter> Thank you for your message! </PageSubheaderCenter>
+						<p> I have received it and will be in touch as soon as possible. </p>
+						<p className={"italic"}> --Alex </p>
+					</EmailReceived>
+				) : (
+					<EmailSection>
+						<EmailForm ref={contactFormRefObject} id="contact-form" onSubmit={sendEmail}>
+							<label>Name </label>
+							<ContactInput type="text" name="name" />
 
-								<br/>
-								{submittingForm ?
-									<button disabled={true} className={"right btn-submit"}> Sending... </button> :
-									<button type="submit" className={"right btn-submit"}> Send </button>
-								}
-							</form>
-						</div>
-					</section>
-				}
+							<label>Email </label>
+							<ContactInput type="email" name="email" />
+
+							<label>Message </label>
+							<ContactTextarea name="message" />
+
+							{submittingForm ? (
+									<ContactSubmit disabled={true}> Sending... </ContactSubmit>
+								) : (
+									<ContactSubmit type="submit"> Send </ContactSubmit>
+							)}
+						</EmailForm>
+					</EmailSection>
+				)}
 			</Content>
 		</Container>
 	);

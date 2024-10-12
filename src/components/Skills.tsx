@@ -1,7 +1,7 @@
 import React from "react";
 import {
-	Container, GeneralListItem, Content, GeneralType, GeneralDetail,
-} from "@elements/Elements";
+	Container, Span, Content, PageSubheaderLeft, RowColumnFlex
+} from "@library/elements";
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck, faDatabase } from '@fortawesome/free-solid-svg-icons';
@@ -11,53 +11,96 @@ import {
 
 export function Skills() {
 	return (
-		<Container id={"skills"} className={"fade-in scroll-into-margin"}>
-			<Content className={"section"}>
-				<h1 className={"sub-header mb-2 text"}>Skills</h1>
+		<Container id={"skills"}>
+			<Content>
+				<PageSubheaderLeft>Languages </PageSubheaderLeft>
+				<RowColumnFlex>
+					<Span>
+						<FontAwesomeIcon icon={faPython}/> Python
+					</Span>
+					<Span>
+						<FontAwesomeIcon icon={faPhp}/> PHP
+					</Span>
+					<Span>
+						<FontAwesomeIcon icon={faJsSquare}/> JavaScript
+					</Span>
+					<Span>
+						<FontAwesomeIcon icon={faCheck}/> TypeScript
+					</Span>
+				</RowColumnFlex>
+				<RowColumnFlex>
+					<Span>
+						<FontAwesomeIcon icon={faDatabase}/> SQL
+					</Span>
+					<Span>
+						<FontAwesomeIcon icon={faJava}/> Java
+					</Span>
+					<Span>
+						<FontAwesomeIcon icon={faHtml5}/> HTML
+					</Span>
+					<Span>
+						<FontAwesomeIcon icon={faCss3}/> CSS
+					</Span>
+				</RowColumnFlex>
 
-				<GeneralType>Languages </GeneralType>
-				<GeneralDetail className={"flex-center mb-2"}>
-					<GeneralListItem><FontAwesomeIcon icon={faPython}/> Python</GeneralListItem>
-					<GeneralListItem><FontAwesomeIcon icon={faPhp}/> PHP</GeneralListItem>
-					<GeneralListItem><FontAwesomeIcon icon={faJsSquare}/> JavaScript</GeneralListItem>
-					<GeneralListItem><FontAwesomeIcon icon={faCheck}/> TypeScript</GeneralListItem>
-					<GeneralListItem><FontAwesomeIcon icon={faDatabase}/> SQL</GeneralListItem>
-					<GeneralListItem><FontAwesomeIcon icon={faJava}/> Java</GeneralListItem>
-					<GeneralListItem><FontAwesomeIcon icon={faHtml5}/> HTML</GeneralListItem>
-					<GeneralListItem><FontAwesomeIcon icon={faCss3}/> CSS</GeneralListItem>
-				</GeneralDetail>
+				<PageSubheaderLeft>Frameworks etc. </PageSubheaderLeft>
+				<RowColumnFlex>
+					<Span>
+						<FontAwesomeIcon icon={faCheck}/> FastAPI
+					</Span>
+					<Span>
+						<FontAwesomeIcon icon={faCheck}/> Django
+					</Span>
+					<Span>
+						<FontAwesomeIcon icon={faSymfony}/> Symfony
+					</Span>
+					<Span>
+						<FontAwesomeIcon icon={faLaravel}/> Laravel
+					</Span>
+				</RowColumnFlex>
+				<RowColumnFlex>
+					<Span>
+						<FontAwesomeIcon icon={faReact}/> React
+					</Span>
+					<Span>
+						<FontAwesomeIcon icon={faAngular}/> Angular
+					</Span>
+					<Span>
+						<FontAwesomeIcon icon={faNodeJs}/> Node
+					</Span>
+					<Span>
+						<FontAwesomeIcon icon={faCheck}/> Next.js
+					</Span>
+				</RowColumnFlex>
 
-				<GeneralType>Frameworks etc. </GeneralType>
-				<GeneralDetail className={"flex-center mb-2"}>
-					<GeneralListItem><FontAwesomeIcon icon={faCheck}/> FastAPI</GeneralListItem>
-					<GeneralListItem><FontAwesomeIcon icon={faCheck}/> Django</GeneralListItem>
-					<GeneralListItem><FontAwesomeIcon icon={faReact}/> React</GeneralListItem>
-					<GeneralListItem><FontAwesomeIcon icon={faAngular}/> Angular</GeneralListItem>
-					<GeneralListItem><FontAwesomeIcon icon={faNodeJs}/> Node</GeneralListItem>
-					<GeneralListItem><FontAwesomeIcon icon={faSymfony}/> Symfony</GeneralListItem>
-					<GeneralListItem><FontAwesomeIcon icon={faLaravel}/> Laravel</GeneralListItem>
-				</GeneralDetail>
+				<PageSubheaderLeft>Databases </PageSubheaderLeft>
+				<RowColumnFlex>
+					<Span>
+						<FontAwesomeIcon icon={faDatabase}/> MySQL
+					</Span>
+					<Span>
+						<FontAwesomeIcon icon={faDatabase}/> MongoDB
+					</Span>
+					<Span>
+						<FontAwesomeIcon icon={faDatabase}/> PostgreSQL
+					</Span>
+					<Span>
+						<FontAwesomeIcon icon={faDatabase}/> Oracle
+					</Span>
+				</RowColumnFlex>
 
-				<GeneralType>Databases </GeneralType>
-				<GeneralDetail className={"flex-center mb-2"}>
-					<GeneralListItem><FontAwesomeIcon icon={faDatabase}/> MySQL</GeneralListItem>
-					<GeneralListItem><FontAwesomeIcon icon={faDatabase}/> MongoDB</GeneralListItem>
-					<GeneralListItem><FontAwesomeIcon icon={faDatabase}/> PostgreSQL</GeneralListItem>
-					<GeneralListItem><FontAwesomeIcon icon={faDatabase}/> Oracle</GeneralListItem>
-				</GeneralDetail>
-
-				<GeneralType>Knowledge / Experience </GeneralType>
-				<GeneralDetail className={"flex-center mb-2"}>
+				<PageSubheaderLeft>Knowledge / Experience </PageSubheaderLeft>
+				<RowColumnFlex>
 					<p>Object-oriented methodologies and class design, API development (REST, GraphQL), state management (Redux,
 						NgRx), relational database design, query optimization, proficient in debugging and troubleshooting,
 						implementation of third-party integrations</p>
-				</GeneralDetail>
+				</RowColumnFlex>
 
-				<GeneralType>Tools: </GeneralType>
-				<GeneralDetail className={"flex-center mb-2"}>
+				<PageSubheaderLeft>Tools </PageSubheaderLeft>
+				<RowColumnFlex>
 					<p>Docker, AWS (<span className={"italic"}>S3, RDS, ECS, EC2, SQS, Lambda</span>), DataDog, Sentry, Github,
 						Postman, PHPUnit, Selenium, Jenkins, Jira, Excel</p>
-				</GeneralDetail>
+				</RowColumnFlex>
 
 			</Content>
 		</Container>

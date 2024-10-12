@@ -1,28 +1,30 @@
 import React, { Dispatch, SetStateAction, useContext, useEffect, useState } from "react";
-import {
-	HeaderContainer,
-	HeaderNav,
-	NavContainer,
-	NavMenu,
-	NavItem,
-	NavLink, MobileNavMenuIcon, MobileNavMenu, MobileNavItem, MobileList
-} from "@elements/HeaderElements";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faFile, faLayerGroup } from "@fortawesome/free-solid-svg-icons";
-import { MobileContext } from "@utils/MobileContext";
-import { EventParams, logEvent } from "@utils/ga";
+import { MobileContext } from "@library/MobileContext";
+import { EventParams, logGAEvent } from "@library/ga";
+import {
+	HeaderContainer,
+	HeaderNav, MobileList, MobileNavMenu, MobileNavMenuIcon,
+	NavContainer,
+	NavLink,
+	NavUnorderedList,
+	SinglePageLink
+} from "@library/elements";
 
 interface HeaderLink {
 	link: string;
-  name: string;
-  divId: string;
+	name: string;
+	divId: string;
 }
 
-export const Header: React.FC<{
+interface HeaderProps {
 	isSinglePage: boolean;
-	setIsSinglePage: Dispatch<SetStateAction<any>>;
-	setActivePage: Dispatch<SetStateAction<any>>;
-}> = ({ isSinglePage, setIsSinglePage, setActivePage }) => {
+  setIsSinglePage: Dispatch<SetStateAction<any>>;
+  setActivePage: Dispatch<SetStateAction<any>>;
+}
+
+export const Header: React.FC<HeaderProps> = ({ isSinglePage, setIsSinglePage, setActivePage }) => {
 	const isMobile = useContext(MobileContext);
 	const [isScrollingDown, setIsScrollingDown] = useState(false);
 	const [lastScrollTop, setLastScrollTop] = useState(0);
@@ -60,7 +62,10 @@ export const Header: React.FC<{
 		event.preventDefault();
 
 		if (isSinglePage) {
-			document.getElementById(link.divId)?.scrollIntoView({block: "start", behavior: "smooth"});
+			document.getElementById(link.divId)?.scrollIntoView({
+				block: "start",
+				behavior: "smooth"
+			});
 		} else {
 			setActivePage(link.name);
 		}
@@ -68,23 +73,14 @@ export const Header: React.FC<{
 
 	function toggleSinglePage(event: React.MouseEvent<HTMLAnchorElement>) {
 		event.preventDefault();
-		const toggle = document.getElementById("singlePageToggle") as HTMLAnchorElement;
-
-		if (isSinglePage) {
-			setIsSinglePage(false);
-			toggle.className = "single-page-link mb-2";
-		} else {
-			setIsSinglePage(true);
-			toggle.className = "single-page-link mb-2 italic";
-			window.location.hash = "";
-		}
+		isSinglePage ? setIsSinglePage(false) : setIsSinglePage(true);
 
 		const gaEvent: EventParams = {
 			category: "User Interaction",
 			action: "Toggle Single Page",
 			label: isSinglePage ? "Single Page Enabled" : "Single Page Disabled"
 		};
-		logEvent(gaEvent);
+		logGAEvent(gaEvent);
 	}
 
 	function handleMobileMenu() {
@@ -96,61 +92,52 @@ export const Header: React.FC<{
 		}
 	}
 
+	const headerLinkElements =
+		headerLinks.map((link: HeaderLink) =>
+			<NavLink
+				key={link.name}
+				className={isMobile ? 'mb-1' : ''}
+				onClick={(event) => handleHeaderLinkClick(event, link)}
+			>
+				{link.name}
+			</NavLink>
+	);
+
+	const singlePageToggle =
+		<SinglePageLink
+			id={"singlePageToggle"}
+			onClick={(event) => toggleSinglePage(event)}
+		>
+			{isSinglePage ? (
+				<FontAwesomeIcon icon={faFile} size="2x" title="Single Page Enabled"/>
+			) : (
+				<FontAwesomeIcon icon={faLayerGroup} size="2x" title="Single Page Disabled"/>
+			)}
+		</SinglePageLink>
+	;
+
 	return (
-		<HeaderContainer id={"header"} isSinglePage={isSinglePage} isScrollingDown={isScrollingDown}>
+		<HeaderContainer isSinglePage={isSinglePage} isScrollingDown={isScrollingDown}>
 			<HeaderNav>
 				<NavContainer>
-					{isMobile ?
-						<>
-							<MobileNavMenuIcon id={"mobileNavIcon"} onClick={handleMobileMenu}>
-								<FontAwesomeIcon icon={faBars}/>
-								<MobileNavMenu id={"mobileNav"}>
-									<MobileList>
-										<a
-											id={"singlePageToggle"}
-											className={"single-page-link mb-2"}
-											href={"/#"}
-											onClick={(event) => toggleSinglePage(event)}
-										>
-											{isSinglePage ?
-												<FontAwesomeIcon icon={faFile} size={"lg"} title={"Single Page Enabled"}/> :
-												<FontAwesomeIcon icon={faLayerGroup} size={"lg"} title={"Single Page Disabled"}/>
-											}
-										</a>
-										{headerLinks.map(link =>
-											<MobileNavItem key={link.name} className={'mb-1'}>
-												<NavLink onClick={(event) => handleHeaderLinkClick(event, link)}>
-													{link.name}
-												</NavLink>
-											</MobileNavItem>
-										)}
-									</MobileList>
-								</MobileNavMenu>
-							</MobileNavMenuIcon>
-						</> :
-						<>
-							<NavMenu>
-								{headerLinks.map(link =>
-									<NavItem key={link.name}>
-										<NavLink onClick={(event) => handleHeaderLinkClick(event, link)}>
-											{link.name}
-										</NavLink>
-									</NavItem>
-								)}
-							</NavMenu>
-							<a
-								id={"singlePageToggle"}
-								className={"single-page-link"}
-								href={"/"}
-								onClick={(event) => {toggleSinglePage(event);}}
-							>
-								{isSinglePage ?
-									<FontAwesomeIcon icon={faFile} size={"2x"} title={"Single Page Enabled"}/> :
-									<FontAwesomeIcon icon={faLayerGroup} size={"2x"} title={"Single Page Disabled"}/>
-								}
-							</a>
-						</>
-					}
+					{isMobile ? (
+						<MobileNavMenuIcon onClick={handleMobileMenu}>
+							<FontAwesomeIcon icon={faBars}/>
+							<MobileNavMenu id={"mobileNav"}>
+								<MobileList>
+									{singlePageToggle}
+									{headerLinkElements}
+								</MobileList>
+							</MobileNavMenu>
+						</MobileNavMenuIcon>
+						) : (
+							<>
+								<NavUnorderedList>
+									{headerLinkElements}
+								</NavUnorderedList>
+								{singlePageToggle}
+							</>
+					)}
 				</NavContainer>
 			</HeaderNav>
 		</HeaderContainer>
