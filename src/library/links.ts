@@ -1,4 +1,4 @@
-import { faGithub, faLastfmSquare, faLinkedinIn } from "@fortawesome/free-brands-svg-icons";
+import {faGithub, faLastfmSquare, faLinkedinIn, faSquareLetterboxd} from "@fortawesome/free-brands-svg-icons";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 
 export const email = {
@@ -25,9 +25,16 @@ export const lastFm = {
   icon: faLastfmSquare
 };
 
+export const letterboxd = {
+  name: 'Letterboxd',
+  url: 'https://letterboxd.com/alexdulac/',
+  icon: faSquareLetterboxd
+};
+
 export const links = [
   email,
   linkedIn,
   github,
-  lastFm
+  lastFm,
+  letterboxd
 ];

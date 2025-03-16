@@ -286,6 +286,7 @@ export const ContactTextarea = styled.textarea`
 `;
 
 export const ContactSubmit = styled.button`
+  border: none;
   background: none;
   color: ${props => props.theme['color-e']};
   font-size: 1.25rem;

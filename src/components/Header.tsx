@@ -92,18 +92,17 @@ export const Header: React.FC<HeaderProps> = ({ isSinglePage, setIsSinglePage, s
 		}
 	}
 
-	const headerLinkElements =
-		headerLinks.map((link: HeaderLink) =>
-			<NavLink
-				key={link.name}
-				className={isMobile ? 'mb-1' : ''}
-				onClick={(event) => handleHeaderLinkClick(event, link)}
-			>
-				{link.name}
-			</NavLink>
-	);
+	const headerLinkElements = headerLinks.map((link: HeaderLink) => (
+		<NavLink
+			key={link.name}
+			className={isMobile ? 'mb-1' : ''}
+			onClick={(event) => handleHeaderLinkClick(event, link)}
+		>
+			{link.name}
+		</NavLink>
+	));
 
-	const singlePageToggle =
+	const singlePageToggle = (
 		<SinglePageLink
 			id={"singlePageToggle"}
 			onClick={(event) => toggleSinglePage(event)}
@@ -114,7 +113,7 @@ export const Header: React.FC<HeaderProps> = ({ isSinglePage, setIsSinglePage, s
 				<FontAwesomeIcon icon={faLayerGroup} size="2x" title="Single Page Disabled"/>
 			)}
 		</SinglePageLink>
-	;
+	);
 
 	return (
 		<HeaderContainer isSinglePage={isSinglePage} isScrollingDown={isScrollingDown}>
