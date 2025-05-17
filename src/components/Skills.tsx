@@ -156,7 +156,7 @@ export function Skills() {
 				{skillCategories.map((category, index) => (
 					<React.Fragment key={index}>
 						<PageSubheaderLeft>{category.title}</PageSubheaderLeft>
-						{category.title == 'Databases' ? <DatabaseList skills={category.skills}/> : <SkillList skills={category.skills}/>}
+						{category.title === 'Databases' ? <DatabaseList skills={category.skills}/> : <SkillList skills={category.skills}/>}
 					</React.Fragment>
 				))}
 

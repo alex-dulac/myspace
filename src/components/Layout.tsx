@@ -32,13 +32,13 @@ export function Layout() {
 				{page.component}
 			</PageContent>
 		))
-	), [pages]);
+	), []);
 
 	const activePageContent = useMemo(() => (
 		<PageContent>
 			{pages.find(page => page.name === activePage.name)?.component}
 		</PageContent>
-	), [pages, activePage]);
+	), [activePage]);
 
 	return (
 		<LayoutContainer>
