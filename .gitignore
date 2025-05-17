@@ -3,3 +3,4 @@
 /build
 .env
 public/CNAME
+public/*.pdf

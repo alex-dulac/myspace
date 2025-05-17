@@ -36,5 +36,5 @@ export const links = [
   linkedIn,
   github,
   lastFm,
-  letterboxd
+  //letterboxd
 ];

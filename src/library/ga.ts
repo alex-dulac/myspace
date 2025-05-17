@@ -24,19 +24,3 @@ export const logGAEvent = (params: EventParams) => {
   ReactGA.event(params);
 };
 
-export const getPageTitle = (pathname: string): string => {
-  switch (pathname) {
-    case '/' || '/home':
-      return 'Home';
-    case '/experience':
-      return 'Experience';
-    case '/skills':
-      return 'Skills';
-    case '/about':
-      return 'About Me';
-    case '/contact':
-      return 'Contact';
-    default:
-      return 'Page Not Found';
-  }
-}

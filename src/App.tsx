@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { GlobalStyle } from "@styles/global";
 import { ThemeProvider } from "styled-components";
-import { MobileContext } from "@library/MobileContext";
+import { MOBILE_WIDTH, MobileContext } from "@library/MobileContext";
 import { defaultTheme } from "@styles/theme";
 import { initGA } from "@library/ga";
 import { Layout } from "@components/Layout";
-
-const MOBILE_WIDTH: number = 786;
+import { hasExtraPath } from "@library/utils";
 
 function App() {
 	const [isMobile, setIsMobile] = useState(window.innerWidth < MOBILE_WIDTH);
@@ -22,6 +21,10 @@ function App() {
 
 	useEffect(() => {
 		initGA();
+
+		if (hasExtraPath()) {
+			window.location.href = window.location.origin;
+		}
 	}, []);
 
 	return (

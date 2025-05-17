@@ -2,7 +2,7 @@ import React, { Dispatch, SetStateAction, useContext, useEffect, useState } from
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faFile, faLayerGroup } from "@fortawesome/free-solid-svg-icons";
 import { MobileContext } from "@library/MobileContext";
-import { EventParams, logGAEvent } from "@library/ga";
+import { EventParams, logGAEvent, logPageView } from "@library/ga";
 import {
 	HeaderContainer,
 	HeaderNav, MobileList, MobileNavMenu, MobileNavMenuIcon,
@@ -11,37 +11,22 @@ import {
 	NavUnorderedList,
 	SinglePageLink
 } from "@library/elements";
-
-interface HeaderLink {
-	link: string;
-	name: string;
-	divId: string;
-}
+import { Page, pages } from "@components/Layout";
+import { getMostVisiblePage, scrollToSection } from "@library/utils";
 
 interface HeaderProps {
 	isSinglePage: boolean;
-  setIsSinglePage: Dispatch<SetStateAction<any>>;
-  setActivePage: Dispatch<SetStateAction<any>>;
+	setIsSinglePage: Dispatch<SetStateAction<any>>;
+	activePage: Page;
+	setActivePage: Dispatch<SetStateAction<any>>;
 }
 
-export const Header: React.FC<HeaderProps> = ({ isSinglePage, setIsSinglePage, setActivePage }) => {
+export const Header: React.FC<HeaderProps> = (props: HeaderProps) => {
+	const { isSinglePage, setIsSinglePage, activePage, setActivePage } = props;
 	const isMobile = useContext(MobileContext);
 	const [isScrollingDown, setIsScrollingDown] = useState(false);
 	const [lastScrollTop, setLastScrollTop] = useState(0);
-
-	const homeLink: HeaderLink = { link: '/', name: 'Home', divId: 'home' };
-	const experienceLink: HeaderLink = { link: '/#/experience', name: 'Experience', divId: 'experience' };
-	const skillsLink: HeaderLink = { link: '/#/skills', name: 'Skills', divId: 'skills' };
-	const aboutLink: HeaderLink = { link: '/#/about', name: 'About Me', divId: 'about' };
-	const contactLink: HeaderLink = { link: '/#/contact', name: 'Contact', divId: 'contact' };
-
-	const headerLinks: HeaderLink[] = [
-		homeLink,
-		experienceLink,
-		skillsLink,
-		aboutLink,
-		contactLink
-	];
+	const [shouldUpdateActivePage, setShouldUpdateActivePage] = useState(true);
 
 	useEffect(() => {
 		const handleScroll = () => {
@@ -52,38 +37,65 @@ export const Header: React.FC<HeaderProps> = ({ isSinglePage, setIsSinglePage, s
 				setIsScrollingDown(false);
 			}
 			setLastScrollTop(scrollTop <= 0 ? 0 : scrollTop);
+
+			if (isSinglePage && shouldUpdateActivePage) {
+				const mostVisiblePage = getMostVisiblePage();
+				if (mostVisiblePage && mostVisiblePage !== activePage) {
+					setActivePage(mostVisiblePage);
+				}
+			}
 		};
 
 		window.addEventListener('scroll', handleScroll);
 		return () => window.removeEventListener('scroll', handleScroll);
-	}, [lastScrollTop]);
+	}, [lastScrollTop, isSinglePage, shouldUpdateActivePage, activePage, setActivePage]);
 
-	function handleHeaderLinkClick(event: React.MouseEvent<HTMLAnchorElement>, link: HeaderLink) {
+	const handleHeaderLinkClick = (event: React.MouseEvent<HTMLAnchorElement>, page: Page) => {
 		event.preventDefault();
 
 		if (isSinglePage) {
-			document.getElementById(link.divId)?.scrollIntoView({
-				block: "start",
-				behavior: "smooth"
-			});
-		} else {
-			setActivePage(link.name);
+			scrollToSection(page)
 		}
+
+		logPageView(page.path, page.name);
+		setActivePage(page);
 	}
 
-	function toggleSinglePage(event: React.MouseEvent<HTMLAnchorElement>) {
+	const toggleSinglePage = (event: React.MouseEvent<HTMLAnchorElement>) => {
 		event.preventDefault();
-		isSinglePage ? setIsSinglePage(false) : setIsSinglePage(true);
+		const wasSinglePage = isSinglePage;
+
+		setShouldUpdateActivePage(false);
+		setIsSinglePage(!isSinglePage);
 
 		const gaEvent: EventParams = {
 			category: "User Interaction",
 			action: "Toggle Single Page",
 			label: isSinglePage ? "Single Page Enabled" : "Single Page Disabled"
 		};
+
 		logGAEvent(gaEvent);
+
+		setTimeout(() => {
+			if (wasSinglePage) {
+				const mostVisiblePage = getMostVisiblePage();
+				if (mostVisiblePage) {
+					scrollToSection(mostVisiblePage);
+					setActivePage(mostVisiblePage);
+				}
+			} else {
+				scrollToSection(activePage);
+			}
+
+			// Re-enable updating of active page after a short delay
+			// otherwise, scrolling to the sections inadvertently overwrites it
+			setTimeout(() => {
+				setShouldUpdateActivePage(true);
+			}, 500);
+		}, 100);
 	}
 
-	function handleMobileMenu() {
+	const handleMobileMenu = () => {
 		const mobileNav = document.getElementById("mobileNav") as HTMLDivElement;
 		if (mobileNav.style.display === "block") {
 			mobileNav.style.display = "none";
@@ -92,15 +104,18 @@ export const Header: React.FC<HeaderProps> = ({ isSinglePage, setIsSinglePage, s
 		}
 	}
 
-	const headerLinkElements = headerLinks.map((link: HeaderLink) => (
-		<NavLink
-			key={link.name}
-			className={isMobile ? 'mb-1' : ''}
-			onClick={(event) => handleHeaderLinkClick(event, link)}
-		>
-			{link.name}
-		</NavLink>
-	));
+	const headerLinkElements = pages.map((page: Page) => {
+		const className = `${isMobile ? 'mb-1' : ''} ${page === activePage ? 'italic' : ''}`;
+		return (
+			<NavLink
+				key={page.name}
+				className={className}
+				onClick={(event) => handleHeaderLinkClick(event, page)}
+			>
+				{page.name}
+			</NavLink>
+		)
+	});
 
 	const singlePageToggle = (
 		<SinglePageLink

@@ -123,7 +123,7 @@ export const Image = styled.img`
 export const UnorderedList = styled.ul`
 	text-align: left;
 	padding: 0 55px;
-  margin-bottom: 2rem;
+    margin-bottom: 2rem;
   
 	@media (max-width: 680px) {
 		padding: 0;

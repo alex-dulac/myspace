@@ -1,106 +1,174 @@
 import React from "react";
 import {
-	Container, Span, Content, PageSubheaderLeft, RowColumnFlex
+	Container, Span, Content, PageSubheaderLeft, RowColumnFlex, UnorderedList, ListItem
 } from "@library/elements";
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCheck, faDatabase } from '@fortawesome/free-solid-svg-icons';
+import { faCircleCheck, faDatabase } from '@fortawesome/free-solid-svg-icons';
 import {
-	faPhp, faJsSquare, faAngular, faReact, faPython, faHtml5, faCss3, faJava, faNodeJs, faLaravel, faSymfony,
+	faPhp,
+	faJsSquare,
+	faAngular,
+	faReact,
+	faPython,
+	faJava,
+	faNodeJs,
+	faLaravel,
+	faSymfony,
+	IconDefinition,
 } from '@fortawesome/free-brands-svg-icons';
+
+interface Framework {
+	name: string;
+	icon: IconDefinition;
+}
+
+interface Skill {
+	name: string;
+	icon: IconDefinition;
+	frameworks?: Framework[];
+}
+
+interface SkillCategory {
+	title: string;
+	skills: Skill[];
+}
+
+const skillCategories: SkillCategory[] = [
+	{
+		title: "Languages & Frameworks",
+		skills: [
+			{
+				icon: faPython,
+				name: "Python",
+				frameworks: [
+					{icon: faCircleCheck, name: "FastAPI"},
+					{icon: faCircleCheck, name: "Django"},
+					{icon: faCircleCheck, name: "Django REST Framework"},
+					{icon: faCircleCheck, name: "SQLAlchemy"},
+					{icon: faCircleCheck, name: "Beanie"},
+				]
+			},
+			{
+				icon: faPhp,
+				name: "PHP",
+				frameworks: [
+					{icon: faSymfony, name: "Symfony"},
+					{icon: faLaravel, name: "Laravel"},
+				]
+			},
+			{
+				icon: faJsSquare,
+				name: "TypeScript / JavaScript",
+				frameworks: [
+					{icon: faReact, name: "React"},
+					{icon: faAngular, name: "Angular"},
+					{icon: faNodeJs, name: "Node"},
+					{icon: faCircleCheck, name: "Next"},
+				]
+			},
+			{
+				icon: faJava,
+				name: "Java",
+				frameworks: [
+					{icon: faCircleCheck, name: "Spring Boot"},
+				]
+			},
+		]
+	},
+	{
+		title: "Databases",
+		skills: [
+			{icon: faDatabase, name: "MySQL"},
+			{icon: faDatabase, name: "PostgreSQL"},
+			{icon: faDatabase, name: "MongoDB"},
+		]
+	},
+];
+
+const broaderSkills = [
+	"Object-oriented methodologies and class design",
+	<>API development (<span className="italic"> REST, GraphQL </span>)</>,
+	<>State management (<span className="italic"> Redux, NgRx </span>)</>,
+	"Relational database design",
+	"Query optimization",
+	"Proficient in debugging and troubleshooting",
+	"Implementation of third-party integrations",
+	<>Unit testing and e2e testing (<span className="italic"> PHPUnit, Pytest, Jest, Cypress </span>)</>,
+]
+
+const tools = [
+	<>AWS (including <span className="italic">S3, RDS, ECS, EC2, ECR, Cloudwatch, SQS, Lambda, boto3 </span>)</>,
+	<>Infrastructure and workers (<span className="italic"> Docker, Jenkins, Github Actions, Redis </span>)</>,
+	<>Monitoring (<span className="italic"> Datadog, Sentry </span>)</>,
+	<>Workflow (<span className="italic"> Github, Jira, Figma </span>)</>,
+];
+
+const SkillList: React.FC<{ skills: Skill[] }> = ({skills}) => (
+	<div style={{display: 'flex', flexDirection: 'column', gap: '20px'}}>
+		{skills.map((skill, index) => (
+			<div key={index} style={{display: 'flex', flexDirection: 'column'}}>
+				<Span style={{fontWeight: 'bold', textDecoration: 'underline', marginBottom: '5px', marginLeft: '30px'}}>
+					<FontAwesomeIcon icon={skill.icon}/> {skill.name}
+				</Span>
+				{skill.frameworks && (
+					<RowColumnFlex style={{marginLeft: '20px', flexWrap: 'wrap', gap: '10px'}}>
+						{skill.frameworks.map((framework, index) => (
+							<Span key={index}>
+								<FontAwesomeIcon icon={framework.icon}/> {framework.name}
+							</Span>
+						))}
+					</RowColumnFlex>
+				)}
+			</div>
+		))}
+	</div>
+);
+
+const DatabaseList: React.FC<{ skills: Skill[] }> = ({skills}) => (
+	<RowColumnFlex style={{marginLeft: '20px', flexWrap: 'wrap', gap: '10px'}}>
+		{skills.map((skill, index) => (
+			<Span key={index}>
+				<FontAwesomeIcon icon={skill.icon}/> {skill.name}
+			</Span>
+		))}
+	</RowColumnFlex>
+);
+
+const TextSection: React.FC<{ title: string; content: React.ReactNode[] }> = ({title, content}) => (
+	<>
+		<PageSubheaderLeft>{title}</PageSubheaderLeft>
+		<RowColumnFlex>
+			<UnorderedList style={{ textAlign: 'center' }}>
+				{content.map((item, index) => (
+					<ListItem key={index}>{item}</ListItem>
+				))}
+			</UnorderedList>
+		</RowColumnFlex>
+	</>
+);
 
 export function Skills() {
 	return (
 		<Container id={"skills"}>
 			<Content>
-				<PageSubheaderLeft>Languages </PageSubheaderLeft>
-				<RowColumnFlex>
-					<Span>
-						<FontAwesomeIcon icon={faPython}/> Python
-					</Span>
-					<Span>
-						<FontAwesomeIcon icon={faPhp}/> PHP
-					</Span>
-					<Span>
-						<FontAwesomeIcon icon={faJsSquare}/> JavaScript
-					</Span>
-					<Span>
-						<FontAwesomeIcon icon={faCheck}/> TypeScript
-					</Span>
-				</RowColumnFlex>
-				<RowColumnFlex>
-					<Span>
-						<FontAwesomeIcon icon={faDatabase}/> SQL
-					</Span>
-					<Span>
-						<FontAwesomeIcon icon={faJava}/> Java
-					</Span>
-					<Span>
-						<FontAwesomeIcon icon={faHtml5}/> HTML
-					</Span>
-					<Span>
-						<FontAwesomeIcon icon={faCss3}/> CSS
-					</Span>
-				</RowColumnFlex>
 
-				<PageSubheaderLeft>Frameworks etc. </PageSubheaderLeft>
-				<RowColumnFlex>
-					<Span>
-						<FontAwesomeIcon icon={faCheck}/> FastAPI
-					</Span>
-					<Span>
-						<FontAwesomeIcon icon={faCheck}/> Django
-					</Span>
-					<Span>
-						<FontAwesomeIcon icon={faSymfony}/> Symfony
-					</Span>
-					<Span>
-						<FontAwesomeIcon icon={faLaravel}/> Laravel
-					</Span>
-				</RowColumnFlex>
-				<RowColumnFlex>
-					<Span>
-						<FontAwesomeIcon icon={faReact}/> React
-					</Span>
-					<Span>
-						<FontAwesomeIcon icon={faAngular}/> Angular
-					</Span>
-					<Span>
-						<FontAwesomeIcon icon={faNodeJs}/> Node
-					</Span>
-					<Span>
-						<FontAwesomeIcon icon={faCheck}/> Next.js
-					</Span>
-				</RowColumnFlex>
+				{skillCategories.map((category, index) => (
+					<React.Fragment key={index}>
+						<PageSubheaderLeft>{category.title}</PageSubheaderLeft>
+						{category.title == 'Databases' ? <DatabaseList skills={category.skills}/> : <SkillList skills={category.skills}/>}
+					</React.Fragment>
+				))}
 
-				<PageSubheaderLeft>Databases </PageSubheaderLeft>
-				<RowColumnFlex>
-					<Span>
-						<FontAwesomeIcon icon={faDatabase}/> MySQL
-					</Span>
-					<Span>
-						<FontAwesomeIcon icon={faDatabase}/> MongoDB
-					</Span>
-					<Span>
-						<FontAwesomeIcon icon={faDatabase}/> PostgreSQL
-					</Span>
-					<Span>
-						<FontAwesomeIcon icon={faDatabase}/> Oracle
-					</Span>
-				</RowColumnFlex>
+				<TextSection
+					title="Knowledge / Experience"
+					content={broaderSkills}
+				/>
 
-				<PageSubheaderLeft>Knowledge / Experience </PageSubheaderLeft>
-				<RowColumnFlex>
-					<p>Object-oriented methodologies and class design, API development (REST, GraphQL), state management (Redux,
-						NgRx), relational database design, query optimization, proficient in debugging and troubleshooting,
-						implementation of third-party integrations</p>
-				</RowColumnFlex>
-
-				<PageSubheaderLeft>Tools </PageSubheaderLeft>
-				<RowColumnFlex>
-					<p>Docker, AWS (<span className={"italic"}>S3, RDS, ECS, EC2, SQS, Lambda</span>), DataDog, Sentry, Github,
-						Postman, PHPUnit, Selenium, Jenkins, Jira, Excel</p>
-				</RowColumnFlex>
+				<TextSection
+					title="Additional Tools"
+					content={tools}
+				/>
 
 			</Content>
 		</Container>
