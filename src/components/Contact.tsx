@@ -1,4 +1,4 @@
-import React, {useRef, useState} from "react";
+import React, { useState } from "react";
 import emailJs from "@emailjs/browser"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
@@ -13,88 +13,114 @@ import {
 } from "@library/elements";
 import { email, github, linkedIn } from "@library/links";
 
-export function Contact() {
-	const [submittingForm, setSubmittingForm] = useState(false);
-	const [formSubmitted, setFormSubmitted] = useState(false);
+interface ContactFormProps {
+	onSubmitSuccess: () => void;
+}
 
-	const contactFormRefObject = useRef<HTMLFormElement>(null);
+export function ContactForm({ onSubmitSuccess }: ContactFormProps) {
+	const [submitting, setSubmitting] = useState(false);
+	const [error, setError] = useState<string | null>(null);
 
-	const sendEmail = (e: any) => {
+	const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
+		setSubmitting(true);
+		setError(null);
 
-		const form = contactFormRefObject?.current;
-		if (form && form.name !== '' && form.email.value !== '' && form.message.value !== '') {
-			setSubmittingForm(true);
-			const formElements = Array.from(form.elements);
-			formElements.forEach(element => element.setAttribute('readonly', 'true'));
+		const form = e.currentTarget;
+		const formData = new FormData(form);
+		const name = formData.get('name') as string;
+		const email = formData.get('email') as string;
+		const message = formData.get('message') as string;
 
-			emailJs.sendForm(
+		if (!name || !email || !message) {
+			setError("All fields are required");
+			setSubmitting(false);
+			return;
+		}
+
+		if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+			setError("Please enter a valid email address");
+			setSubmitting(false);
+			return;
+		}
+
+		try {
+			await emailJs.sendForm(
 				String(process.env.REACT_APP_EMAILJS_SERVICE_ID),
 				String(process.env.REACT_APP_EMAILJS_TEMPLATE_ID),
 				form,
 				String(process.env.REACT_APP_EMAILJS_PUBLIC_KEY)
-			).then(r => {
-					setSubmittingForm(false);
-					setFormSubmitted(true);
-				}
-			).catch(err => {
-				alert("There was an error with your RSVP submission. Please try again.");
-				setSubmittingForm(false);
-				formElements.forEach(element => element.setAttribute('readonly', 'false'));
-			});
-		} else {
-			alert("Name, Email, and Message are all required fields");
+			);
+			onSubmitSuccess();
+		} catch (err) {
+			setError("There was an error sending your message. Please try again.");
+		} finally {
+			setSubmitting(false);
 		}
-	}
+	};
+
+	return (
+		<EmailSection>
+			<EmailForm onSubmit={handleSubmit}>
+				<label htmlFor="name">Name</label>
+				<ContactInput type="text" id="name" name="name" required aria-required="true" />
+
+				<label htmlFor="email">Email</label>
+				<ContactInput type="email" id="email" name="email" required aria-required="true" />
+
+				<label htmlFor="message">Message</label>
+				<ContactTextarea id="message" name="message" required aria-required="true" />
+
+				{error && <p role="alert" style={{ color: 'red' }}>{error}</p>}
+
+				<ContactSubmit type="submit" disabled={submitting}>
+					{submitting ? "Sending..." : "Send"}
+				</ContactSubmit>
+			</EmailForm>
+		</EmailSection>
+	);
+}
+
+export function SocialLinks() {
+	return (
+		<RowColumnFlex>
+			<Span>
+				<Link href={email.url} target="_blank">
+					<FontAwesomeIcon icon={email.icon}/> Email
+				</Link>
+			</Span>
+			<Span>
+				<Link href={linkedIn.url} target="_blank" rel="noreferrer">
+					<FontAwesomeIcon icon={linkedIn.icon}/> LinkedIn
+				</Link>
+			</Span>
+			<Span>
+				<Link href={github.url} target="_blank" rel="noreferrer">
+					<FontAwesomeIcon icon={github.icon}/> Github
+				</Link>
+			</Span>
+		</RowColumnFlex>
+	)
+}
+
+export function Contact() {
+	const [formSubmitted, setFormSubmitted] = useState(false);
 
 	return (
 		<Container id={"contact"}>
 			<Content>
-				<PageSubheaderCenter> I look forward to connecting with you! </PageSubheaderCenter>
-
-				<RowColumnFlex>
-					<Span>
-						<Link href={email.url} target="_blank">
-							<FontAwesomeIcon icon={email.icon}/> Email
-						</Link>
-					</Span>
-					<Span>
-						<Link href={linkedIn.url} target="_blank" rel="noreferrer">
-							<FontAwesomeIcon icon={linkedIn.icon}/> LinkedIn
-						</Link>
-					</Span>
-					<Span>
-						<Link href={github.url} target="_blank" rel="noreferrer">
-							<FontAwesomeIcon icon={github.icon}/> Github
-						</Link>
-					</Span>
-				</RowColumnFlex>
-
 				{formSubmitted ? (
 					<EmailReceived>
-						<PageSubheaderCenter> Thank you for your message! </PageSubheaderCenter>
-						<p> I have received it and will be in touch as soon as possible. </p>
-						<p className={"italic"}> --Alex </p>
+						<PageSubheaderCenter>Thank you for your message!</PageSubheaderCenter>
+						<p>I have received it and will be in touch as soon as possible.</p>
+						<p className={"italic"}>--Alex</p>
 					</EmailReceived>
 				) : (
-					<EmailSection>
-						<EmailForm ref={contactFormRefObject} id="contact-form" onSubmit={sendEmail}>
-							<label>Name </label>
-							<ContactInput type="text" name="name" />
-
-							<label>Email </label>
-							<ContactInput type="email" name="email" />
-
-							<label>Message </label>
-							<ContactTextarea name="message" />
-
-							{submittingForm ? (
-									<ContactSubmit disabled={true}> Sending... </ContactSubmit>
-								) : (
-									<ContactSubmit type="submit"> Send </ContactSubmit>
-							)}
-						</EmailForm>
-					</EmailSection>
+					<>
+						<PageSubheaderCenter>I look forward to connecting with you!</PageSubheaderCenter>
+						<SocialLinks />
+						<ContactForm onSubmitSuccess={() => setFormSubmitted(true)} />
+					</>
 				)}
 			</Content>
 		</Container>
