@@ -20,7 +20,9 @@ function App() {
 	}, []);
 
 	useEffect(() => {
-		initGA();
+		if (process.env.REACT_APP_GA_ENABLED === 'true') {
+			initGA();
+		}
 
 		if (hasExtraPath()) {
 			window.location.href = window.location.origin;
