@@ -22,44 +22,45 @@ const languagesAndFrameworks = [
 		icon: faPython,
 		name: "Python",
 		frameworks: [
-			{icon: faCircleCheck, name: "FastAPI"},
-			{icon: faCircleCheck, name: "Django"},
-			{icon: faCircleCheck, name: "Django REST Framework"},
-			{icon: faCircleCheck, name: "SQLAlchemy"},
-			{icon: faCircleCheck, name: "Beanie"},
-		]
-	},
-	{
-		icon: faPhp,
-		name: "PHP",
-		frameworks: [
-			{icon: faSymfony, name: "Symfony"},
-			{icon: faLaravel, name: "Laravel"},
+			{ icon: faCircleCheck, name: "FastAPI" },
+			{ icon: faCircleCheck, name: "Django "},
+			{ icon: faCircleCheck, name: "Django REST Framework" },
+			{ icon: faCircleCheck, name: "SQLAlchemy" },
+			{ icon: faCircleCheck, name: "Beanie" },
 		]
 	},
 	{
 		icon: faJsSquare,
 		name: "TypeScript / JavaScript",
 		frameworks: [
-			{icon: faReact, name: "React"},
-			{icon: faAngular, name: "Angular"},
-			{icon: faNodeJs, name: "Node"},
-			{icon: faCircleCheck, name: "Next"},
+			{ icon: faReact, name: "React" },
+			{ icon: faAngular, name: "Angular" },
+			{ icon: faNodeJs, name: "Node" },
+			{ icon: faCircleCheck, name: "Next" },
+		]
+	},
+	{
+		icon: faPhp,
+		name: "PHP",
+		frameworks: [
+			{ icon: faSymfony, name: "Symfony" },
+			{ icon: faLaravel, name: "Laravel" },
 		]
 	},
 	{
 		icon: faJava,
 		name: "Java",
 		frameworks: [
-			{icon: faCircleCheck, name: "Spring Boot"},
+			{ icon: faCircleCheck, name: "Spring Boot" },
 		]
 	},
 ]
 
 const databases = [
-	{icon: faDatabase, name: "MySQL"},
-	{icon: faDatabase, name: "PostgreSQL"},
-	{icon: faDatabase, name: "MongoDB"},
+	{ icon: faDatabase, name: "MySQL" },
+	{ icon: faDatabase, name: "PostgreSQL" },
+	{ icon: faDatabase, name: "MongoDB" },
+	{ icon: faDatabase, name: "PL/SQL" },
 ]
 
 const broaderSkills = [
@@ -75,9 +76,9 @@ const broaderSkills = [
 
 const tools = [
 	<>AWS (including <span className="italic">S3, RDS, ECS, EC2, ECR, Cloudwatch, SQS, Lambda, boto3 </span>)</>,
-	<>Infrastructure and workers (<span className="italic"> Docker, Jenkins, Github Actions, Redis </span>)</>,
+	<>Deployment tooling (<span className="italic"> Docker, Jenkins, Github Actions </span>)</>,
 	<>Monitoring (<span className="italic"> Datadog, Sentry </span>)</>,
-	<>Workflow (<span className="italic"> Github, Jira, Figma </span>)</>,
+	<>Workflow (<span className="italic"> Github, Jira, Confluence, Figma </span>)</>,
 ];
 
 const LanguagesAndFrameworks: React.FC = () => (
@@ -142,7 +143,7 @@ export function Skills() {
 				<LanguagesAndFrameworks />
 				<Databases />
 				<TextSection title="Knowledge / Experience" content={broaderSkills}/>
-				<TextSection title="Additional Tools" content={tools}/>
+				<TextSection title="Tools" content={tools}/>
 			</Content>
 		</Container>
 	);
