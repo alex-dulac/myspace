@@ -10,7 +10,7 @@ export const GlobalStyle = createGlobalStyle`
   body {
     background: ${props => props.theme['color-b']};
     color: ${props => props.theme['color-b']};
-    font-family: "Open Sans", sans-serif;
+    font-family: "Optima", sans-serif;
   }
 	
 	p {
@@ -38,7 +38,7 @@ export const GlobalStyle = createGlobalStyle`
 	
 	ul {
 		list-style: none;
-    text-decoration: none;
+        text-decoration: none;
 	}
 
   *:focus {
@@ -60,7 +60,7 @@ export const GlobalStyle = createGlobalStyle`
   }
 	
   textarea, input {
-      font-family: "Open Sans", sans-serif !important;
+      font-family: "Optima", sans-serif !important;
       font-size: 1.25rem;
       background: transparent !important;
       width: 100%;
