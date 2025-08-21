@@ -1,15 +1,15 @@
 import React from "react";
 
-import {Container, Content, ListItem, PageSubheaderCenter, UnorderedList} from "@library/elements";
+import { Container, Content, ListItem, PageSubheaderCenter, UnorderedList } from "@library/elements";
 
 export function Experience() {
 	const experiences = [
-		"I'm a dynamic software developer with seven years of professional experience, excelling in both backend and frontend cloud-based application development.",
-		"My expertise includes Python, with a strong focus on FastAPI & Django frameworks, and PHP, primarily utilizing Laravel and Symfony.",
-		"On the client side, my skills shine with React, Angular, TypeScript, and state management with Redux/NgRx.",
-		"I'm also proficient in working with various databases, such as MySQL, PostgreSQL, and MongoDB.",
-		"I translate high-level business needs into technical specifications and deliverables, carrying out software development projects from conception to completion.",
-		"My well-rounded skill set and passion for problem-solving make me an invaluable collaborator in any tech team."
+		"Versatile software engineer with 7+ years of experience designing, building, and scaling cloud-based applications across backend and frontend systems.",
+		"Specialized in modern frontend development using React, Angular, and Vue to create engaging, responsive user experiences.",
+		"Skilled in Python (FastAPI, Django) and PHP (Laravel, Symfony), with a proven track record of delivering high-performance, reliable APIs and services.",
+		"Experienced with relational and non-relational databases, including MySQL, PostgreSQL, and MongoDB, ensuring efficient data modeling and performance.",
+		"Adept at translating complex business requirements into technical solutions and driving projects from architecture through production delivery.",
+		"Recognized for problem-solving, adaptability, and collaboration, consistently contributing to high-impact engineering teams."
 	];
 
 	return (

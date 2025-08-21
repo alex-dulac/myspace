@@ -1,6 +1,6 @@
 import React, { Dispatch, SetStateAction, useContext, useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars, faFile, faLayerGroup } from "@fortawesome/free-solid-svg-icons";
+import { faBars, faCompress, faExpand } from "@fortawesome/free-solid-svg-icons";
 import { MobileContext } from "@library/MobileContext";
 import { EventParams, logGAEvent, logPageView } from "@library/ga";
 import {
@@ -16,9 +16,9 @@ import { getMostVisiblePage, scrollToSection } from "@library/utils";
 
 interface HeaderProps {
 	isSinglePage: boolean;
-	setIsSinglePage: Dispatch<SetStateAction<any>>;
+	setIsSinglePage: Dispatch<SetStateAction<boolean>>;
 	activePage: Page;
-	setActivePage: Dispatch<SetStateAction<any>>;
+	setActivePage: Dispatch<SetStateAction<Page>>;
 }
 
 export const Header: React.FC<HeaderProps> = (props: HeaderProps) => {
@@ -54,7 +54,7 @@ export const Header: React.FC<HeaderProps> = (props: HeaderProps) => {
 		event.preventDefault();
 
 		if (isSinglePage) {
-			scrollToSection(page)
+			scrollToSection(page, true);
 		}
 
 		logPageView(page.path, page.name);
@@ -80,11 +80,11 @@ export const Header: React.FC<HeaderProps> = (props: HeaderProps) => {
 			if (wasSinglePage) {
 				const mostVisiblePage = getMostVisiblePage();
 				if (mostVisiblePage) {
-					scrollToSection(mostVisiblePage);
+					scrollToSection(mostVisiblePage, false);
 					setActivePage(mostVisiblePage);
 				}
 			} else {
-				scrollToSection(activePage);
+				scrollToSection(activePage, false);
 			}
 
 			// Re-enable updating of active page after a short delay
@@ -123,9 +123,9 @@ export const Header: React.FC<HeaderProps> = (props: HeaderProps) => {
 			onClick={(event) => toggleSinglePage(event)}
 		>
 			{isSinglePage ? (
-				<FontAwesomeIcon icon={faFile} size="2x" title="Single Page Enabled"/>
+				<FontAwesomeIcon icon={faCompress} size="2x" title="Minimize to per-page view"/>
 			) : (
-				<FontAwesomeIcon icon={faLayerGroup} size="2x" title="Single Page Disabled"/>
+				<FontAwesomeIcon icon={faExpand} size="2x" title="Show all pages"/>
 			)}
 		</SinglePageLink>
 	);
@@ -135,15 +135,17 @@ export const Header: React.FC<HeaderProps> = (props: HeaderProps) => {
 			<HeaderNav>
 				<NavContainer>
 					{isMobile ? (
-						<MobileNavMenuIcon onClick={handleMobileMenu}>
-							<FontAwesomeIcon icon={faBars}/>
-							<MobileNavMenu id={"mobileNav"}>
-								<MobileList>
-									{singlePageToggle}
-									{headerLinkElements}
-								</MobileList>
-							</MobileNavMenu>
-						</MobileNavMenuIcon>
+						<>
+							<MobileNavMenuIcon onClick={handleMobileMenu}>
+								<FontAwesomeIcon icon={faBars}/>
+								<MobileNavMenu id={"mobileNav"}>
+									<MobileList>
+										{headerLinkElements}
+									</MobileList>
+								</MobileNavMenu>
+							</MobileNavMenuIcon>
+							{singlePageToggle}
+						</>
 						) : (
 							<>
 								<NavUnorderedList>

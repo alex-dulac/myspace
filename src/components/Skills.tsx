@@ -15,6 +15,7 @@ import {
 	faNodeJs,
 	faLaravel,
 	faSymfony,
+	faVuejs,
 } from '@fortawesome/free-brands-svg-icons';
 
 const languagesAndFrameworks = [
@@ -37,6 +38,7 @@ const languagesAndFrameworks = [
 			{ icon: faAngular, name: "Angular" },
 			{ icon: faNodeJs, name: "Node" },
 			{ icon: faCircleCheck, name: "Next" },
+			{ icon: faVuejs, name: "Vue" },
 		]
 	},
 	{
@@ -54,14 +56,14 @@ const languagesAndFrameworks = [
 			{ icon: faCircleCheck, name: "Spring Boot" },
 		]
 	},
-]
+];
 
 const databases = [
 	{ icon: faDatabase, name: "MySQL" },
 	{ icon: faDatabase, name: "PostgreSQL" },
 	{ icon: faDatabase, name: "MongoDB" },
 	{ icon: faDatabase, name: "PL/SQL" },
-]
+];
 
 const broaderSkills = [
 	"Object-oriented methodologies and class design",
@@ -72,10 +74,11 @@ const broaderSkills = [
 	"Proficient in debugging and troubleshooting",
 	"Implementation of third-party integrations",
 	<>Unit testing and e2e testing (<span className="italic"> PHPUnit, Pytest, Jest, Cypress </span>)</>,
-]
+];
 
 const tools = [
 	<>AWS (including <span className="italic">S3, RDS, ECS, EC2, ECR, Cloudwatch, SQS, Lambda, boto3 </span>)</>,
+	<>Event architecture (<span className="italic"> Redis, Kafka </span>)</>,
 	<>Deployment tooling (<span className="italic"> Docker, Jenkins, Github Actions </span>)</>,
 	<>Monitoring (<span className="italic"> Datadog, Sentry </span>)</>,
 	<>Workflow (<span className="italic"> Github, Jira, Confluence, Figma </span>)</>,

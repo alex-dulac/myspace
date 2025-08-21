@@ -1,42 +1,34 @@
-import React, {useContext, useMemo} from "react";
-import { Container, Content, Image, ImageContainer, RowColumnFlex } from "@library/elements";
+import React, { useContext, useMemo } from "react";
+import { Container, Content, Image, ImageContainer, Link, RowColumnFlex } from "@library/elements";
 import { ImageCarousel } from "@components/ImageCarousel";
 import { MobileContext } from "@library/MobileContext";
-import { shuffleArray } from "@library/utils";
-
-const dogImages = [
-	"/images/dogs/01_dog.jpg",
-	"/images/dogs/02_dog.jpg",
-	"/images/dogs/03_dog.jpg",
-	"/images/dogs/04_dog.jpg",
-	"/images/dogs/05_dog.jpg",
-	"/images/dogs/06_dog.jpg",
-	"/images/dogs/07_dog.jpg",
-	"/images/dogs/08_dog.jpg",
-    "/images/dogs/09_dog.jpg",
-    "/images/dogs/10_dog.jpg",
-    "/images/dogs/11_dog.jpg",
-];
+import { shuffledDogImages } from "@library/utils";
+import { github, lastFm } from "@library/links";
 
 
 export function About() {
 	const isMobile = useContext(MobileContext);
 
 	const [firstCollectionImages, secondCollectionImages] = useMemo(() => {
-		const shuffled = shuffleArray(dogImages);
-		const midpoint = Math.ceil(shuffled.length / 2);
-		return [shuffled.slice(0, midpoint), shuffled.slice(midpoint)];
+		const images = shuffledDogImages();
+		const midpoint = Math.ceil(images.length / 2);
+		return [images.slice(0, midpoint), images.slice(midpoint)];
 	}, []);
+
+	const lastFmLink = <Link style={{ fontWeight: 'bold' }} href={lastFm.url} target="_blank"> Last.fm</Link>;
+	const scrobblerLink = <Link style={{ fontWeight: 'bold' }} href={github.url + '/py-scrobbler'} target="_blank"> my own tooling</Link>;
 
 	return (
 		<Container id={"about"}>
 			<Content>
 				<RowColumnFlex>
 					<div>
-						I'm a lifelong Mainer, having graduated from Maine schools, with valuable experience from some of Maine's best companies.
-						<br/>
-						<br/>
-						I currently live in southern Maine with my wife and our two pitbulls- Lila & Lou.
+						<p>
+							I'm a lifelong Mainer, and currently live in southern Maine with my wife and our two pitbulls- Lila & Lou.
+						</p>
+						<p>
+							When I’m not writing software, I like to stay creatively and analytically engaged in a few other ways:
+						</p>
 					</div>
 					{isMobile ? (
 						<ImageContainer>
@@ -57,14 +49,20 @@ export function About() {
 						<ImageCarousel images={secondCollectionImages} />
 					)}
 					<div>
-						When I'm not creating/breaking/fixing code, I'm creating/breaking/fixing something in my house. I guess it's
-						what I like to do.
-						<br/>
-						<br/>
-						Or maybe I'm in the basement, turning up my VTM 60 and making my tinnitus worse than it already is.
-						<br/>
-						<br/>
-						But if it's summer, you'll find us at the beach!
+						<p>
+							<span style={{ fontWeight: 'bold' }}>Lifelong Musician</span> – I’ve played in bands for years, and while
+							I’m no longer active on stage, music remains a key creative outlet for me. These days,
+							it’s more about personal projects and continuous learning.
+						</p>
+						<p>
+							<span style={{ fontWeight: 'bold' }}>Amateur Archivist</span> – I log all the music I listen to on {lastFmLink},
+							because I love seeing how my listening taste and habits evolve over time. I also enjoy experimenting
+							with {scrobblerLink} to process and analyze my data.
+						</p>
+						<p>
+							<span style={{ fontWeight: 'bold' }}>Sports Enthusiast</span> – I’m a dedicated NBA and MLB fan. I enjoy
+							both the storytelling of the seasons and the deeper strategy and stats that drive the games.
+						</p>
 					</div>
 				</RowColumnFlex>
 			</Content>

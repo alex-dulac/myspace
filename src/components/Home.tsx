@@ -17,18 +17,15 @@ export function Home() {
 					ALEX DULAC
 				</PageHeader>
 				<PageSubheaderCenter className={"italic"}>
-					Full Stack Software Developer
+					Full Stack Software Engineer
 				</PageSubheaderCenter>
 				<RowColumnFlex>
 					<div>
-						I am software developer who is constantly seeking to improve myself and learn new technologies.
-						<br/>
-						<br/>
-						I'm energized by work that allows me to troubleshoot issues, deliver solutions, and provide a great
-						experience!
+						<p> I am a problem solver who is constantly seeking to improve myself and learn new technologies. </p>
+						<p> I'm energized by work that allows me to troubleshoot issues, deliver solutions, and provide a great experience! </p>
 					</div>
 					<ImageContainer>
-						<Image src="/images/profile2.png"/>
+						<Image src="/images/profile.jpeg"/>
 					</ImageContainer>
 				</RowColumnFlex>
 			</Content>
