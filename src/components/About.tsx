@@ -51,7 +51,7 @@ export function About() {
 					<div>
 						<p>
 							<span style={{ fontWeight: 'bold' }}>Lifelong Musician</span> – I’ve played in bands for years, and while
-							I’m no longer active on stage, music remains a key creative outlet for me. These days,
+							I no longer play out, music remains a key creative outlet for me. These days,
 							it’s more about personal projects and continuous learning.
 						</p>
 						<p>

@@ -166,7 +166,7 @@ export const NavLink = styled.a`
 
 /***** HEADER *****/
 interface HeaderContainerProps {
-  isSinglePage: boolean;
+  showAll: boolean;
   isScrollingDown: boolean;
 }
 
@@ -180,8 +180,8 @@ export const HeaderContainer = styled.header<HeaderContainerProps>`
   transition: top 0.3s;
   margin-bottom: 3rem;
 
-  ${({ isSinglePage }) =>
-    isSinglePage &&
+  ${({ showAll }) =>
+  showAll &&
     `
     position: -webkit-sticky;
     position: sticky;
@@ -209,9 +209,10 @@ export const HeaderNav = styled.nav`
     font-size: 1.2em;
     z-index: 99;
     box-shadow: 0 2px 28px rgba(0, 0, 0, 0.2);
+    position: relative;
 `;
 
-export const SinglePageLink = styled.a`
+export const ShowAllToggle = styled.a`
   display: flex;
   align-items: center;
   height: 100%;
@@ -297,26 +298,68 @@ export const ContactSubmit = styled.button`
 /***** MOBILE *****/
 export const MobileNavMenuIcon = styled.div`
   font-size: 1.75rem;
-  padding-top: 20px;
-  display: block;
+  display: flex;
+  align-items: center;
+  height: 100%;
+  padding: 0 1rem;
+  margin-bottom: 1rem;
+  cursor: pointer;
   
   svg {
     cursor: pointer;
     text-decoration: none;
     color: ${props => props.theme['color-e']};
+    transition: color 0.3s ease;
+    
     &:hover {
       color: ${props => props.theme['color-b']};
     }
   }
 `;
 
-export const MobileNavMenu = styled.div`
-  display: none;
+interface MobileNavMenuProps {
+  isOpen: boolean;
+}
+
+export const MobileNavMenu = styled.div<MobileNavMenuProps>`
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
   background-color: ${props => props.theme['color-a']};
   border: 1px solid ${props => props.theme['color-b']};
-	font-size: 1.2rem;
+  border-top: none;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  font-size: 1.2rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transform: translateY(${props => props.isOpen ? '0' : '-100%'});
+  opacity: ${props => props.isOpen ? '1' : '0'};
+  visibility: ${props => props.isOpen ? 'visible' : 'hidden'};
+  transition: all 0.3s ease-in-out;
+  z-index: 1000;
+  max-height: 70vh;
+  overflow-y: auto;
 `;
 
 export const MobileList = styled.ul`
-	padding: 20px;
+  padding: 20px;
+  margin: 0;
+  list-style: none;
+  
+  ${NavLink} {
+    display: block;
+    padding: 12px 0;
+    border-bottom: 1px solid ${props => props.theme['color-b']}20;
+    
+    &:last-child {
+      border-bottom: none;
+    }
+    
+    &:hover {
+      background-color: ${props => props.theme['color-b']}10;
+      padding-left: 10px;
+      transition: all 0.2s ease;
+    }
+  }
 `;

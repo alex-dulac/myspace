@@ -1,6 +1,6 @@
 import React, { Dispatch, SetStateAction, useContext, useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars, faCompress, faExpand } from "@fortawesome/free-solid-svg-icons";
+import { faBars, faCompress, faExpand, faTimes } from "@fortawesome/free-solid-svg-icons";
 import { MobileContext } from "@library/MobileContext";
 import { EventParams, logGAEvent, logPageView } from "@library/ga";
 import {
@@ -9,21 +9,22 @@ import {
 	NavContainer,
 	NavLink,
 	NavUnorderedList,
-	SinglePageLink
+	ShowAllToggle
 } from "@library/elements";
 import { Page, pages } from "@components/Layout";
 import { getMostVisiblePage, scrollToSection } from "@library/utils";
 
 interface HeaderProps {
-	isSinglePage: boolean;
-	setIsSinglePage: Dispatch<SetStateAction<boolean>>;
+	showAll: boolean;
+	setShowAll: Dispatch<SetStateAction<boolean>>;
 	activePage: Page;
 	setActivePage: Dispatch<SetStateAction<Page>>;
 }
 
 export const Header: React.FC<HeaderProps> = (props: HeaderProps) => {
-	const { isSinglePage, setIsSinglePage, activePage, setActivePage } = props;
+	const { showAll, setShowAll, activePage, setActivePage } = props;
 	const isMobile = useContext(MobileContext);
+	const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(isMobile);
 	const [isScrollingDown, setIsScrollingDown] = useState(false);
 	const [lastScrollTop, setLastScrollTop] = useState(0);
 	const [shouldUpdateActivePage, setShouldUpdateActivePage] = useState(true);
@@ -38,7 +39,7 @@ export const Header: React.FC<HeaderProps> = (props: HeaderProps) => {
 			}
 			setLastScrollTop(scrollTop <= 0 ? 0 : scrollTop);
 
-			if (isSinglePage && shouldUpdateActivePage) {
+			if (showAll && shouldUpdateActivePage) {
 				const mostVisiblePage = getMostVisiblePage();
 				if (mostVisiblePage && mostVisiblePage !== activePage) {
 					setActivePage(mostVisiblePage);
@@ -48,36 +49,46 @@ export const Header: React.FC<HeaderProps> = (props: HeaderProps) => {
 
 		window.addEventListener('scroll', handleScroll);
 		return () => window.removeEventListener('scroll', handleScroll);
-	}, [lastScrollTop, isSinglePage, shouldUpdateActivePage, activePage, setActivePage]);
+	}, [lastScrollTop, showAll, shouldUpdateActivePage, activePage, setActivePage]);
+
+	useEffect(() => {
+		if (!isMobile) {
+			setIsMobileMenuOpen(false);
+		}
+	}, [isMobile]);
 
 	const handleHeaderLinkClick = (event: React.MouseEvent<HTMLAnchorElement>, page: Page) => {
 		event.preventDefault();
 
-		if (isSinglePage) {
+		if (showAll) {
 			scrollToSection(page, true);
 		}
 
 		logPageView(page.path, page.name);
 		setActivePage(page);
+
+		if (isMobile) {
+			setIsMobileMenuOpen(false);
+		}
 	}
 
-	const toggleSinglePage = (event: React.MouseEvent<HTMLAnchorElement>) => {
+	const toggleShowAll = (event: React.MouseEvent<HTMLAnchorElement>) => {
 		event.preventDefault();
-		const wasSinglePage = isSinglePage;
+		const wasShowAll = showAll;
 
 		setShouldUpdateActivePage(false);
-		setIsSinglePage(!isSinglePage);
+		setShowAll(!showAll);
 
 		const gaEvent: EventParams = {
 			category: "User Interaction",
-			action: "Toggle Single Page",
-			label: isSinglePage ? "Single Page Enabled" : "Single Page Disabled"
+			action: "Toggle All Pages",
+			label: showAll ? "Show All Enabled" : "Show All Disabled"
 		};
 
 		logGAEvent(gaEvent);
 
 		setTimeout(() => {
-			if (wasSinglePage) {
+			if (wasShowAll) {
 				const mostVisiblePage = getMostVisiblePage();
 				if (mostVisiblePage) {
 					scrollToSection(mostVisiblePage, false);
@@ -95,13 +106,8 @@ export const Header: React.FC<HeaderProps> = (props: HeaderProps) => {
 		}, 100);
 	}
 
-	const handleMobileMenu = () => {
-		const mobileNav = document.getElementById("mobileNav") as HTMLDivElement;
-		if (mobileNav.style.display === "block") {
-			mobileNav.style.display = "none";
-		} else {
-			mobileNav.style.display = "block";
-		}
+	const toggleMobileMenu = () => {
+		setIsMobileMenuOpen(!isMobileMenuOpen);
 	}
 
 	const headerLinkElements = pages.map((page: Page) => {
@@ -117,41 +123,41 @@ export const Header: React.FC<HeaderProps> = (props: HeaderProps) => {
 		)
 	});
 
-	const singlePageToggle = (
-		<SinglePageLink
-			id={"singlePageToggle"}
-			onClick={(event) => toggleSinglePage(event)}
+	const showAllToggle = (
+		<ShowAllToggle
+			id={"showAllToggle"}
+			onClick={(event) => toggleShowAll(event)}
 		>
-			{isSinglePage ? (
+			{showAll ? (
 				<FontAwesomeIcon icon={faCompress} size="2x" title="Minimize to per-page view"/>
 			) : (
 				<FontAwesomeIcon icon={faExpand} size="2x" title="Show all pages"/>
 			)}
-		</SinglePageLink>
+		</ShowAllToggle>
 	);
 
 	return (
-		<HeaderContainer isSinglePage={isSinglePage} isScrollingDown={isScrollingDown}>
+		<HeaderContainer showAll={showAll} isScrollingDown={isScrollingDown}>
 			<HeaderNav>
 				<NavContainer>
 					{isMobile ? (
 						<>
-							<MobileNavMenuIcon onClick={handleMobileMenu}>
-								<FontAwesomeIcon icon={faBars}/>
-								<MobileNavMenu id={"mobileNav"}>
-									<MobileList>
-										{headerLinkElements}
-									</MobileList>
-								</MobileNavMenu>
+							<MobileNavMenuIcon onClick={toggleMobileMenu}>
+								<FontAwesomeIcon icon={isMobileMenuOpen ? faTimes : faBars}/>
 							</MobileNavMenuIcon>
-							{singlePageToggle}
+							{showAllToggle}
+							<MobileNavMenu isOpen={isMobileMenuOpen}>
+								<MobileList>
+									{headerLinkElements}
+								</MobileList>
+							</MobileNavMenu>
 						</>
 						) : (
 							<>
 								<NavUnorderedList>
 									{headerLinkElements}
 								</NavUnorderedList>
-								{singlePageToggle}
+								{showAllToggle}
 							</>
 					)}
 				</NavContainer>

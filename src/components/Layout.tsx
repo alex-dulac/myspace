@@ -23,10 +23,10 @@ const contact: Page = { name: 'Contact', component: <Contact />, path: '/contact
 export const pages: Page[] = [home, experience, skills, about, contact];
 
 export function Layout() {
-	const [isSinglePage, setIsSinglePage] = useState(false);
+	const [showAll, setShowAll] = useState(false);
 	const [activePage, setActivePage] = useState<Page>(home);
 
-	const singlePageContent = useMemo(() => (
+	const allContent = useMemo(() => (
 		pages.map((page, index) => (
 			<PageContent key={index}>
 				{page.component}
@@ -43,13 +43,13 @@ export function Layout() {
 	return (
 		<LayoutContainer>
 			<Header
-				isSinglePage={isSinglePage}
-				setIsSinglePage={setIsSinglePage}
+				showAll={showAll}
+				setShowAll={setShowAll}
 				activePage={activePage}
 				setActivePage={setActivePage}
 			/>
 			<PageContainer>
-				{isSinglePage ? singlePageContent : activePageContent}
+				{showAll ? allContent : activePageContent}
 			</PageContainer>
 			<Footer />
 		</LayoutContainer>

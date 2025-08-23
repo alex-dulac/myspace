@@ -14,7 +14,7 @@ export const GlobalStyle = createGlobalStyle`
   }
 	
 	p {
-		margin-bottom: 1rem;
+		margin: 1rem;
 	}
 
   img {
