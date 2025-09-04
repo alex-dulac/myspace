@@ -1,4 +1,4 @@
-import React, {useMemo, useState} from "react";
+import { type ReactElement, useMemo, useState } from "react";
 import { Header } from "@components/Header";
 import { Footer } from "@components/Footer";
 import { Home } from "@components/Home";
@@ -10,7 +10,7 @@ import { LayoutContainer, PageContainer, PageContent } from "@library/elements";
 
 export interface Page {
 	name: string;
-	component: React.ReactElement;
+	component: ReactElement;
 	path: string;
 	divId: string;
 }

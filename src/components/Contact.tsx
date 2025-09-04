@@ -46,10 +46,10 @@ export function ContactForm({ onSubmitSuccess }: ContactFormProps) {
 
 		try {
 			await emailJs.sendForm(
-				String(process.env.REACT_APP_EMAILJS_SERVICE_ID),
-				String(process.env.REACT_APP_EMAILJS_TEMPLATE_ID),
+				String(import.meta.env.VITE_EMAILJS_SERVICE_ID),
+				String(import.meta.env.VITE_EMAILJS_TEMPLATE_ID),
 				form,
-				String(process.env.REACT_APP_EMAILJS_PUBLIC_KEY)
+				String(import.meta.env.VITE_EMAILJS_PUBLIC_KEY)
 			);
 			onSubmitSuccess();
 		} catch (err) {

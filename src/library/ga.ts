@@ -1,6 +1,6 @@
 import ReactGA from 'react-ga4';
 
-const GA_TRACKING_ID = String(process.env.REACT_APP_GA_KEY);
+const GA_TRACKING_ID = String(import.meta.env.VITE_GA_KEY);
 
 export const initGA = () => {
   ReactGA.initialize(GA_TRACKING_ID);

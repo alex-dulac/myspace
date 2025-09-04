@@ -1,4 +1,4 @@
-import React, { useContext, useMemo } from "react";
+import { useContext, useMemo } from "react";
 import { Container, Content, Image, ImageContainer, Link, RowColumnFlex } from "@library/elements";
 import { ImageCarousel } from "@components/ImageCarousel";
 import { MobileContext } from "@library/MobileContext";

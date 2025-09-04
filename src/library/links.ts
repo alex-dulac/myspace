@@ -1,4 +1,4 @@
-import {faGithub, faLastfmSquare, faLinkedinIn, faSquareLetterboxd} from "@fortawesome/free-brands-svg-icons";
+import { faGithub, faLastfmSquare, faLinkedinIn, faSquareLetterboxd } from "@fortawesome/free-brands-svg-icons";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 
 export const email = {

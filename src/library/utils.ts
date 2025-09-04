@@ -1,4 +1,4 @@
-import { Page, pages } from "@components/Layout";
+import { type Page, pages } from "@components/Layout";
 
 export function hasExtraPath(): boolean {
 	const path = window.location.pathname;
@@ -57,7 +57,7 @@ export function getMostVisiblePage(): Page | null {
 	return mostVisiblePage;
 }
 
-export const shuffleArray = (array: any[]) => {
+export const shuffleArray = (array: string[]) => {
 	const shuffled = [...array];
 	for (let i = shuffled.length - 1; i > 0; i--) {
 		const j = Math.floor(Math.random() * (i + 1));

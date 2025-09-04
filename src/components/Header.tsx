@@ -1,8 +1,8 @@
-import React, { Dispatch, SetStateAction, useContext, useEffect, useState } from "react";
+import { type Dispatch, type SetStateAction, useContext, useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faCompress, faExpand, faTimes } from "@fortawesome/free-solid-svg-icons";
 import { MobileContext } from "@library/MobileContext";
-import { EventParams, logGAEvent, logPageView } from "@library/ga";
+import { type EventParams, logGAEvent, logPageView } from "@library/ga";
 import {
 	HeaderContainer,
 	HeaderNav, MobileList, MobileNavMenu, MobileNavMenuIcon,
@@ -11,7 +11,7 @@ import {
 	NavUnorderedList,
 	ShowAllToggle
 } from "@library/elements";
-import { Page, pages } from "@components/Layout";
+import { type Page, pages } from "@components/Layout";
 import { getMostVisiblePage, scrollToSection } from "@library/utils";
 
 interface HeaderProps {
@@ -91,7 +91,7 @@ export const Header: React.FC<HeaderProps> = (props: HeaderProps) => {
 			if (wasShowAll) {
 				const mostVisiblePage = getMostVisiblePage();
 				if (mostVisiblePage) {
-					scrollToSection(mostVisiblePage, false);
+					scrollToSection(mostVisiblePage, true);
 					setActivePage(mostVisiblePage);
 				}
 			} else {
