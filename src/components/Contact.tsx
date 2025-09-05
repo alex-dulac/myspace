@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { type FormEvent, useState } from "react";
 import emailJs from "@emailjs/browser"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
@@ -21,7 +21,7 @@ export function ContactForm({ onSubmitSuccess }: ContactFormProps) {
 	const [submitting, setSubmitting] = useState(false);
 	const [error, setError] = useState<string | null>(null);
 
-	const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+	const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
 		setSubmitting(true);
 		setError(null);
