@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { type FormEvent, useState } from "react";
 import emailJs from "@emailjs/browser"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
@@ -21,7 +21,7 @@ export function ContactForm({ onSubmitSuccess }: ContactFormProps) {
 	const [submitting, setSubmitting] = useState(false);
 	const [error, setError] = useState<string | null>(null);
 
-	const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+	const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
 		setSubmitting(true);
 		setError(null);
@@ -46,10 +46,10 @@ export function ContactForm({ onSubmitSuccess }: ContactFormProps) {
 
 		try {
 			await emailJs.sendForm(
-				String(process.env.REACT_APP_EMAILJS_SERVICE_ID),
-				String(process.env.REACT_APP_EMAILJS_TEMPLATE_ID),
+				String(import.meta.env.VITE_EMAILJS_SERVICE_ID),
+				String(import.meta.env.VITE_EMAILJS_TEMPLATE_ID),
 				form,
-				String(process.env.REACT_APP_EMAILJS_PUBLIC_KEY)
+				String(import.meta.env.VITE_EMAILJS_PUBLIC_KEY)
 			);
 			onSubmitSuccess();
 		} catch (err) {

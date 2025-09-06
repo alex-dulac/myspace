@@ -1,5 +1,3 @@
-import React from "react";
-
 import { Container, Content, ListItem, PageSubheaderCenter, UnorderedList } from "@library/elements";
 
 export function Experience() {

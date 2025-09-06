@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { GlobalStyle } from "@styles/global";
 import { ThemeProvider } from "styled-components";
 import { MOBILE_WIDTH, MobileContext } from "@library/MobileContext";
@@ -12,7 +12,7 @@ function App() {
 
 	useEffect(() => {
 		const handleResize = () => {
-			window.innerWidth < MOBILE_WIDTH ? setIsMobile(true) : setIsMobile(false);
+			return window.innerWidth < MOBILE_WIDTH ? setIsMobile(true) : setIsMobile(false);
 		};
 
 		window.addEventListener('resize', handleResize);
@@ -20,7 +20,7 @@ function App() {
 	}, []);
 
 	useEffect(() => {
-		if (process.env.REACT_APP_GA_ENABLED === 'true') {
+		if (import.meta.env.VITE_GA_ENABLED === 'true') {
 			initGA();
 		}
 
