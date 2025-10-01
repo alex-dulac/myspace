@@ -1,4 +1,4 @@
-import { type Dispatch, type SetStateAction, useContext, useEffect, useState } from "react";
+import { type Dispatch, type FC, type SetStateAction, useContext, useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faCompress, faExpand, faTimes } from "@fortawesome/free-solid-svg-icons";
 import { MobileContext } from "@library/MobileContext";
@@ -21,7 +21,7 @@ interface HeaderProps {
 	setActivePage: Dispatch<SetStateAction<Page>>;
 }
 
-export const Header: React.FC<HeaderProps> = (props: HeaderProps) => {
+export const Header: FC<HeaderProps> = (props: HeaderProps) => {
 	const { showAll, setShowAll, activePage, setActivePage } = props;
 	const isMobile = useContext(MobileContext);
 	const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(isMobile);
