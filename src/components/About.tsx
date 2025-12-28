@@ -27,7 +27,7 @@ export function About() {
 							I'm a lifelong Mainer, and currently live in southern Maine with my wife and our two pitbulls- Lila & Lou.
 						</p>
 						<p>
-							When I’m not writing software, I like to stay creatively and analytically engaged in a few other ways:
+							When I’m not developing software, I like to stay creatively and analytically engaged in a few other ways:
 						</p>
 					</div>
 					{isMobile ? (

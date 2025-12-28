@@ -8,13 +8,29 @@ export const GlobalStyle = createGlobalStyle`
   }
   
   body {
-    background: ${props => props.theme['color-b']};
-    color: ${props => props.theme['color-b']};
-    font-family: "Optima", sans-serif;
+    background: ${props => props.theme.colors.secondary};
+    color: ${props => props.theme.colors.secondary};
+		font-family: ${props => props.theme.fonts.main};
+    line-height: 1.6;
   }
-	
-	p {
-		margin: 1rem;
+
+  h1, h2, h3, h4, h5, h6 {
+	  font-family: ${props => props.theme.fonts.headings};
+	  font-weight: 700;
+	  line-height: 1.2;
+  }
+
+  p {
+    margin: 2rem;
+    font-size: ${props => props.theme.fontSizes.large};
+  }
+
+  textarea, input {
+    font-family: ${props => props.theme.fonts.main} !important;
+    font-size: ${props => props.theme.fontSizes.large};
+    background: transparent !important;
+    width: 100%;
+    padding: 5px;
 	}
 
   img {
@@ -24,15 +40,15 @@ export const GlobalStyle = createGlobalStyle`
   a {
     cursor: pointer;
     text-decoration: none;
-    color: ${props => props.theme['color-e']}; 
+    color: ${props => props.theme.colors.quinary}; 
 		&:hover {
-      color: ${props => props.theme['color-b']};
+      color: ${props => props.theme.colors.secondary};
     }
   }
 	
 	button {
 		&:hover {
-				color: ${props => props.theme['color-b']};
+				color: ${props => props.theme.colors.secondary};
 		}
 	}
 	
@@ -57,13 +73,5 @@ export const GlobalStyle = createGlobalStyle`
       0% {
           opacity: 0;
       }
-  }
-	
-  textarea, input {
-      font-family: "Optima", sans-serif !important;
-      font-size: 1.25rem;
-      background: transparent !important;
-      width: 100%;
-      padding: 5px;
   }
 `;

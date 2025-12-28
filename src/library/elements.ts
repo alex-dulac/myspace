@@ -21,7 +21,7 @@ export const PageContent = styled.section`
     display: flex;
     justify-content: center;
     align-items: center;
-    background: ${props => props.theme['color-a']};
+    background: ${props => props.theme.colors.primary};
     max-width: 1100px;
     width: 100%;
     min-height: 760px;
@@ -33,17 +33,17 @@ export const PageContent = styled.section`
 /***** PAGES *****/
 export const Container = styled.div`
 	width: 100%;
-	color: ${props => props.theme['color-e']};
+	color: ${props => props.theme.colors.quinary};
 	display: flex;
   flex-direction: column;
   align-items: center;
-  font-size: 1.3rem;
+  font-size: ${props => props.theme.fontSizes.xlarge};
   animation: fade 0.9s ease-in;
   padding: 2rem;
   scroll-margin-top: 100px;
 
   @media screen and (max-width: 768px) {
-      font-size: 1rem;
+    font-size: ${props => props.theme.fontSizes.medium};
   }
 `;
 
@@ -59,8 +59,7 @@ export const Content = styled.div`
 export const PageHeader = styled.h1`
   font-size: 4rem;
   text-align: center;
-  margin-bottom: 2rem;
-    color: ${props => props.theme['color-e']};
+  color: ${props => props.theme.colors.quinary};
 `;
 
 export const RowColumnFlex = styled.div`
@@ -76,13 +75,13 @@ export const RowColumnFlex = styled.div`
 `;
 
 export const PageSubheaderLeft = styled.h3`
-  color: ${props => props.theme['color-d']};
+  color: ${props => props.theme.colors.quaternary};
   text-align: left;
   margin-bottom: 1rem;
 `;
 
 export const PageSubheaderCenter = styled.h3`
-  color: ${props => props.theme['color-d']};
+  color: ${props => props.theme.colors.quaternary};
   text-align: center;
   margin-bottom: 1rem;
 `;
@@ -132,7 +131,7 @@ export const UnorderedList = styled.ul`
 
 export const ListItem = styled.li`
 	margin-bottom: 1.5rem;
-	font-size: 1.1rem;
+	font-size: ${props => props.theme.fontSizes.large};
 `;
 
 export const Link = styled.a`
@@ -154,7 +153,7 @@ export const NavUnorderedList = styled.ul`
 `;
 
 export const NavLink = styled.a`
-    color: ${props => props.theme['color-e']};
+    color: ${props => props.theme.colors.quinary};
     display: flex;
     align-items: center;
     text-decoration: none;
@@ -196,7 +195,7 @@ export const HeaderContainer = styled.header<HeaderContainerProps>`
 `;
 
 export const HeaderNav = styled.nav`
-    background: ${props => props.theme['color-a']};
+    background: ${props => props.theme.colors.primary};
     height: 5rem;
     display: flex;
     justify-content: space-between;
@@ -217,7 +216,7 @@ export const ShowAllToggle = styled.a`
   align-items: center;
   height: 100%;
   padding: 0 1rem;
-  font-size: 0.9rem;
+  font-size: ${props => props.theme.fontSizes.small};
   margin-bottom: 1rem;
 `;
 
@@ -231,7 +230,7 @@ export const FooterContainer = styled.footer`
 `;
 
 export const FooterNav = styled.nav`
-  background: ${props => props.theme['color-a']};
+  background: ${props => props.theme.colors.primary};
   height: 5rem;
   display: flex;
   justify-content: center;
@@ -248,7 +247,7 @@ export const FooterNav = styled.nav`
 `;
 
 export const FooterText = styled.h3`
-  color: ${props => props.theme['color-d']};
+  color: ${props => props.theme.colors.quaternary};
   display: flex;
   align-items: center;
 `;
@@ -274,13 +273,13 @@ export const EmailForm = styled.form`
 
 export const ContactInput = styled.input`
   border-radius: 15px;
-  border-color: ${props => props.theme['color-e']};
+  border-color: ${props => props.theme.colors.quinary};
   margin-bottom: 2rem;
 `;
 
 export const ContactTextarea = styled.textarea`
   border-radius: 15px;
-  border-color: ${props => props.theme['color-e']};
+  border-color: ${props => props.theme.colors.quinary};
   margin-bottom: 2rem;
   padding: 10px;
   height: 100px;
@@ -289,8 +288,8 @@ export const ContactTextarea = styled.textarea`
 export const ContactSubmit = styled.button`
   border: none;
   background: none;
-  color: ${props => props.theme['color-e']};
-  font-size: 1.25rem;
+  color: ${props => props.theme.colors.quinary};
+  font-size: ${props => props.theme.fontSizes.xlarge};
   cursor: pointer;
   transition: all 0.3s ease;
 `;
@@ -308,11 +307,11 @@ export const MobileNavMenuIcon = styled.div`
   svg {
     cursor: pointer;
     text-decoration: none;
-    color: ${props => props.theme['color-e']};
+    color: ${props => props.theme.colors.quinary};
     transition: color 0.3s ease;
     
     &:hover {
-      color: ${props => props.theme['color-b']};
+      color: ${props => props.theme.colors.secondary};
     }
   }
 `;
@@ -326,8 +325,8 @@ export const MobileNavMenu = styled.div<MobileNavMenuProps>`
   top: 100%;
   left: 0;
   right: 0;
-  background-color: ${props => props.theme['color-a']};
-  border: 1px solid ${props => props.theme['color-b']};
+  background-color: ${props => props.theme.colors.primary};
+  border: 1px solid ${props => props.theme.colors.secondary};
   border-top: none;
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
@@ -350,14 +349,14 @@ export const MobileList = styled.ul`
   ${NavLink} {
     display: block;
     padding: 12px 0;
-    border-bottom: 1px solid ${props => props.theme['color-b']}20;
+    border-bottom: 1px solid ${props => props.theme.colors.secondary}20;
     
     &:last-child {
       border-bottom: none;
     }
     
     &:hover {
-      background-color: ${props => props.theme['color-b']}10;
+      background-color: ${props => props.theme.colors.secondary}10;
       padding-left: 10px;
       transition: all 0.2s ease;
     }
@@ -380,13 +379,13 @@ export const SkillCard = styled.div`
   flex-direction: column;
   gap: 1rem;
   padding: 1.5rem;
-  background: ${props => props.theme['color-b']}10;
+  background: ${props => props.theme.colors.secondary}10;
   border-radius: 12px;
-  border-left: 4px solid ${props => props.theme['color-d']};
+  border-left: 4px solid ${props => props.theme.colors.quaternary};
 `;
 
 export const SkillCategory = styled.h4`
-  color: ${props => props.theme['color-d']};
+  color: ${props => props.theme.colors.quaternary};
   font-size: 1.2rem;
   font-weight: bold;
   margin: 0;
@@ -410,7 +409,7 @@ export const SkillTag = styled.span`
   align-items: center;
   gap: 0.5rem;
   padding: 0.5rem 1rem;
-  background: ${props => props.theme['color-e']}15;
+  background: ${props => props.theme.colors.quinary}15;
   border-radius: 20px;
   font-size: 0.95rem;
   white-space: nowrap;
