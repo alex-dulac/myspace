@@ -363,3 +363,81 @@ export const MobileList = styled.ul`
     }
   }
 `;
+
+export const SkillsGrid = styled.div`
+  display: grid;
+	grid-template-columns: 1fr;  gap: 2rem;
+  width: 100%;
+  margin-bottom: 2rem;
+
+  @media screen and (max-width: 768px) {
+    gap: 1rem;
+  }
+`;
+
+export const SkillCard = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1.5rem;
+  background: ${props => props.theme['color-b']}10;
+  border-radius: 12px;
+  border-left: 4px solid ${props => props.theme['color-d']};
+`;
+
+export const SkillCategory = styled.h4`
+  color: ${props => props.theme['color-d']};
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  svg {
+    font-size: 1.3rem;
+  }
+`;
+
+export const SkillsList = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+`;
+
+export const SkillTag = styled.span`
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: ${props => props.theme['color-e']}15;
+  border-radius: 20px;
+  font-size: 0.95rem;
+  white-space: nowrap;
+
+  svg {
+    font-size: 1rem;
+  }
+`;
+
+export const SkillsSection = styled.section`
+  width: 100%;
+  margin-bottom: 3rem;
+  text-align: left;
+`;
+
+export const SkillsDescriptionList = styled.ul`
+  text-align: left;
+  padding-left: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  @media (max-width: 680px) {
+    padding-left: 1rem;
+  }
+`;
+
+export const SkillsDescriptionItem = styled.li`
+  font-size: 1.1rem;
+`;
