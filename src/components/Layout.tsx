@@ -1,4 +1,4 @@
-import { type ReactElement, useMemo, useState } from "react";
+import { type ReactElement, useContext, useMemo, useState } from "react";
 import { Header } from "@components/Header";
 import { Footer } from "@components/Footer";
 import { Home } from "@components/Home";
@@ -7,6 +7,7 @@ import { Skills } from "@components/Skills";
 import { Contact } from "@components/Contact";
 import { About } from "@components/About";
 import { LayoutContainer, PageContainer, PageContent } from "@library/elements";
+import { MobileContext } from "@library/MobileContext.tsx";
 
 export interface Page {
 	name: string;
@@ -23,7 +24,8 @@ const contact: Page = { name: 'Contact', component: <Contact />, path: '/contact
 export const pages: Page[] = [home, experience, skills, about, contact];
 
 export function Layout() {
-	const [showAll, setShowAll] = useState(false);
+	const isMobile = useContext(MobileContext);
+	const [showAll, setShowAll] = useState(isMobile);
 	const [activePage, setActivePage] = useState<Page>(home);
 
 	const allContent = useMemo(() => (
