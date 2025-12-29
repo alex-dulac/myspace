@@ -24,7 +24,7 @@ interface HeaderProps {
 export const Header: FC<HeaderProps> = (props: HeaderProps) => {
 	const { showAll, setShowAll, activePage, setActivePage } = props;
 	const isMobile = useContext(MobileContext);
-	const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(isMobile);
+	const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 	const [isScrollingDown, setIsScrollingDown] = useState(false);
 	const [lastScrollTop, setLastScrollTop] = useState(0);
 	const [shouldUpdateActivePage, setShouldUpdateActivePage] = useState(true);
