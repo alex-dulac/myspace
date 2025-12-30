@@ -33,13 +33,13 @@ export const PageContent = styled.section`
 /***** PAGES *****/
 export const Container = styled.div`
 	width: 100%;
-	color: ${props => props.theme.colors.quinary};
+	color: ${props => props.theme.colors.textPrimary};
 	display: flex;
   flex-direction: column;
   align-items: center;
   font-size: ${props => props.theme.fontSizes.xlarge};
   animation: fade 0.9s ease-in;
-  padding: 2rem;
+  padding: ${props => props.theme.spacing.medium};
   scroll-margin-top: 100px;
 
   @media screen and (max-width: 768px) {
@@ -52,14 +52,14 @@ export const Content = styled.div`
   flex-direction: column;
   text-align: center;
   justify-content: center;
-  gap: 1rem;
+  gap: ${props => props.theme.spacing.small};
   width: 100%;
 `;
 
 export const PageHeader = styled.h1`
   font-size: 4rem;
   text-align: center;
-  color: ${props => props.theme.colors.quinary};
+  color: ${props => props.theme.colors.textPrimary};
 `;
 
 export const RowColumnFlex = styled.div`
@@ -67,7 +67,7 @@ export const RowColumnFlex = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  gap: 1rem;
+  gap: ${props => props.theme.spacing.small};
 
   @media screen and (max-width: 768px) {
     flex-direction: column;
@@ -75,15 +75,15 @@ export const RowColumnFlex = styled.div`
 `;
 
 export const PageSubheaderLeft = styled.h3`
-  color: ${props => props.theme.colors.quaternary};
+  color: ${props => props.theme.colors.textSecondary};
   text-align: left;
-  margin-bottom: 1rem;
+  margin-bottom: ${props => props.theme.spacing.small};
 `;
 
 export const PageSubheaderCenter = styled.h3`
-  color: ${props => props.theme.colors.quaternary};
+  color: ${props => props.theme.colors.textSecondary};
   text-align: center;
-  margin-bottom: 1rem;
+  margin-bottom: ${props => props.theme.spacing.small};
 `;
 
 export const Span = styled.span`
@@ -101,7 +101,7 @@ export const ImageContainer = styled.div`
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  gap: 2rem;
+  gap: ${props => props.theme.spacing.medium};
   padding: 20px;
   
   @media screen and (max-width: 768px) {
@@ -122,7 +122,7 @@ export const Image = styled.img`
 export const UnorderedList = styled.ul`
 	text-align: left;
 	padding: 0 55px;
-    margin-bottom: 2rem;
+	margin-bottom: ${props => props.theme.spacing.medium};
   
 	@media (max-width: 680px) {
 		padding: 0;
@@ -153,12 +153,12 @@ export const NavUnorderedList = styled.ul`
 `;
 
 export const NavLink = styled.a`
-    color: ${props => props.theme.colors.quinary};
+    color: ${props => props.theme.colors.textPrimary};
     display: flex;
     align-items: center;
     text-decoration: none;
     height: 3.6em;
-    padding: 0 1rem;
+    padding: 0 ${props => props.theme.spacing.small};
     font-weight: bold;
     outline : none;
 `;
@@ -215,9 +215,9 @@ export const ShowAllToggle = styled.a`
   display: flex;
   align-items: center;
   height: 100%;
-  padding: 0 1rem;
+  padding: 0 ${props => props.theme.spacing.small};
   font-size: ${props => props.theme.fontSizes.small};
-  margin-bottom: 1rem;
+  margin-bottom: ${props => props.theme.spacing.small};
 `;
 
 /***** FOOTER *****/
@@ -247,7 +247,7 @@ export const FooterNav = styled.nav`
 `;
 
 export const FooterText = styled.h3`
-  color: ${props => props.theme.colors.quaternary};
+  color: ${props => props.theme.colors.textSecondary};
   display: flex;
   align-items: center;
 `;
@@ -262,8 +262,7 @@ export const EmailSection = styled.section`
 
 export const EmailReceived = styled.section`
   padding: 20px;
-  margin-top: 2rem;
-  margin-bottom: 2rem;
+	margin: ${props => props.theme.spacing.medium} auto;
 `;
 
 export const EmailForm = styled.form`
@@ -273,14 +272,14 @@ export const EmailForm = styled.form`
 
 export const ContactInput = styled.input`
   border-radius: 15px;
-  border-color: ${props => props.theme.colors.quinary};
-  margin-bottom: 2rem;
+  border-color: ${props => props.theme.colors.textPrimary};
+  margin-bottom: ${props => props.theme.spacing.medium};
 `;
 
 export const ContactTextarea = styled.textarea`
   border-radius: 15px;
-  border-color: ${props => props.theme.colors.quinary};
-  margin-bottom: 2rem;
+  border-color: ${props => props.theme.colors.textPrimary};
+  margin-bottom: ${props => props.theme.spacing.medium};
   padding: 10px;
   height: 100px;
 `;
@@ -288,7 +287,7 @@ export const ContactTextarea = styled.textarea`
 export const ContactSubmit = styled.button`
   border: none;
   background: none;
-  color: ${props => props.theme.colors.quinary};
+  color: ${props => props.theme.colors.textPrimary};
   font-size: ${props => props.theme.fontSizes.xlarge};
   cursor: pointer;
   transition: all 0.3s ease;
@@ -300,14 +299,14 @@ export const MobileNavMenuIcon = styled.div`
   display: flex;
   align-items: center;
   height: 100%;
-  padding: 0 1rem;
-  margin-bottom: 1rem;
+  padding: 0 ${props => props.theme.spacing.small};
+  margin-bottom: ${props => props.theme.spacing.small};
   cursor: pointer;
   
   svg {
     cursor: pointer;
     text-decoration: none;
-    color: ${props => props.theme.colors.quinary};
+    color: ${props => props.theme.colors.textPrimary};
     transition: color 0.3s ease;
     
     &:hover {
@@ -330,7 +329,7 @@ export const MobileNavMenu = styled.div<MobileNavMenuProps>`
   border-top: none;
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
-  font-size: 1.2rem;
+  font-size: ${props => props.theme.fontSizes.xlarge};
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   transform: translateY(${props => props.isOpen ? '0' : '-100%'});
   opacity: ${props => props.isOpen ? '1' : '0'};
@@ -365,33 +364,34 @@ export const MobileList = styled.ul`
 
 export const SkillsGrid = styled.div`
   display: grid;
-	grid-template-columns: 1fr;  gap: 2rem;
+	grid-template-columns: 1fr;
+	gap: ${props => props.theme.spacing.medium};
   width: 100%;
-  margin-bottom: 2rem;
+  margin-bottom: ${props => props.theme.spacing.medium};
 
   @media screen and (max-width: 768px) {
-    gap: 1rem;
+    gap: ${props => props.theme.spacing.small};
   }
 `;
 
 export const SkillCard = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 1rem;
-  padding: 1.5rem;
+  gap: ${props => props.theme.spacing.small};
+  padding: ${props => props.theme.spacing.medium};
   background: ${props => props.theme.colors.secondary}10;
   border-radius: 12px;
-  border-left: 4px solid ${props => props.theme.colors.quaternary};
+  border-left: 4px solid ${props => props.theme.colors.textSecondary};
 `;
 
 export const SkillCategory = styled.h4`
-  color: ${props => props.theme.colors.quaternary};
-  font-size: 1.2rem;
+  color: ${props => props.theme.colors.textSecondary};
+  font-size: ${props => props.theme.fontSizes.xlarge};
   font-weight: bold;
   margin: 0;
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: ${props => props.theme.spacing.xsmall};
 
   svg {
     font-size: 1.3rem;
@@ -401,42 +401,42 @@ export const SkillCategory = styled.h4`
 export const SkillsList = styled.div`
   display: flex;
   flex-wrap: wrap;
-  gap: 0.75rem;
+  gap: ${props => props.theme.spacing.small};
 `;
 
 export const SkillTag = styled.span`
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
-  padding: 0.5rem 1rem;
-  background: ${props => props.theme.colors.quinary}15;
+  gap: ${props => props.theme.spacing.xsmall};
+  padding: ${props => props.theme.spacing.xsmall} ${props => props.theme.spacing.small};
+  background: ${props => props.theme.colors.textPrimary}15;
   border-radius: 20px;
-  font-size: 0.95rem;
+  font-size: ${props => props.theme.fontSizes.medium};
   white-space: nowrap;
 
   svg {
-    font-size: 1rem;
+    font-size: ${props => props.theme.fontSizes.medium};
   }
 `;
 
 export const SkillsSection = styled.section`
   width: 100%;
-  margin-bottom: 3rem;
+  margin-bottom: ${props => props.theme.spacing.large};
   text-align: left;
 `;
 
 export const SkillsDescriptionList = styled.ul`
   text-align: left;
-  padding-left: 2rem;
+  padding-left: ${props => props.theme.spacing.medium};;
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: ${props => props.theme.spacing.small};
 
   @media (max-width: 680px) {
-    padding-left: 1rem;
+    padding-left: ${props => props.theme.spacing.small};
   }
 `;
 
 export const SkillsDescriptionItem = styled.li`
-  font-size: 1.1rem;
+  font-size: ${props => props.theme.fontSizes.large};
 `;

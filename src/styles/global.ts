@@ -21,7 +21,7 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   p {
-    margin: 2rem;
+    margin: ${props => props.theme.spacing.medium};
     font-size: ${props => props.theme.fontSizes.large};
   }
 
@@ -40,7 +40,7 @@ export const GlobalStyle = createGlobalStyle`
   a {
     cursor: pointer;
     text-decoration: none;
-    color: ${props => props.theme.colors.quinary}; 
+    color: ${props => props.theme.colors.textPrimary}; 
 		&:hover {
       color: ${props => props.theme.colors.secondary};
     }
@@ -62,7 +62,7 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   .mb-1 {
-      margin-bottom: 1rem;
+      margin-bottom: ${props => props.theme.spacing.small};
   }
 
   .italic {

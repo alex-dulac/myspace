@@ -5,8 +5,8 @@ export const defaultTheme = {
 		primary: '#90C2E7',
 		secondary: '#4E8098',
 		tertiary: '#00A9A5',
-		quaternary: '#0b5351',
-		quinary: '#092327',
+		textPrimary: '#092327',
+		textSecondary: '#0b5351',
 	},
 	fonts: {
 		main: "'Inter', sans-serif",
@@ -17,6 +17,14 @@ export const defaultTheme = {
 		medium: '1rem',
 		large: '1.125rem',
 		xlarge: '1.25rem',
+	},
+	spacing: {
+		xsmall: '0.5rem',
+		small: '1rem',
+		medium: '2rem',
+		large: '3rem',
+		xlarge: '4rem',
+		xxlarge: '5rem',
 	}
 } as const;
 
