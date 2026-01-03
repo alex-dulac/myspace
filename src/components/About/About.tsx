@@ -1,7 +1,7 @@
-import { useContext, useMemo } from "react";
+import { useMemo } from "react";
 import { BoldSpan, Image, ImageContainer, Link, RowColumnFlex } from "@styles/shared-styles.ts";
 import { ImageCarousel } from "@components/ImageCarousel/ImageCarousel.tsx";
-import { MobileContext } from "@hooks/useIsMobile.ts";
+import { useIsMobile } from "@hooks/useIsMobile.ts";
 import { shuffledDogImages } from "@library/utils.ts";
 import { github, lastFm } from "@library/links.ts";
 
@@ -62,7 +62,7 @@ function InterestsSection({ isMobile, secondCollectionImages }: { isMobile: bool
 }
 
 export function About() {
-	const isMobile = useContext(MobileContext);
+	const isMobile = useIsMobile();
 
 	const [firstCollectionImages, secondCollectionImages] = useMemo(() => {
 		const images = shuffledDogImages();

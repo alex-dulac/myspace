@@ -5,11 +5,8 @@ import { defaultTheme } from "@styles/theme";
 import { initGA } from "@library/ga";
 import { Layout } from "@components/Layout/Layout.tsx";
 import { hasExtraPath } from "@library/utils";
-import { useIsMobile, MobileContext } from "@hooks/useIsMobile.ts";
 
 function App() {
-	const isMobile = useIsMobile();
-
 	useEffect(() => {
 		if (import.meta.env.VITE_GA_ENABLED === 'true') {
 			initGA();
@@ -22,9 +19,7 @@ function App() {
 
 	return (
 		<ThemeProvider theme={defaultTheme}>
-			<MobileContext.Provider value={isMobile}>
-				<Layout/>
-			</MobileContext.Provider>
+			<Layout/>
 			<GlobalStyle/>
 		</ThemeProvider>
 	);

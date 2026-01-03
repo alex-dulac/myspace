@@ -1,4 +1,4 @@
-import { type ReactElement, useContext, useMemo, useState } from "react";
+import { type ReactElement, useMemo, useState } from "react";
 import { Header } from "@components/Header/Header.tsx";
 import { Footer } from "@components/Footer/Footer.tsx";
 import { Home } from "@components/Home/Home.tsx";
@@ -6,7 +6,7 @@ import { Experience } from "@components/Experience/Experience.tsx";
 import { Skills } from "@components/Skills/Skills.tsx";
 import { Contact } from "@components/Contact/Contact.tsx";
 import { About } from "@components/About/About.tsx";
-import { MobileContext } from "@hooks/useIsMobile.ts";
+import { useIsMobile } from "@hooks/useIsMobile.ts";
 import { Container, Content, LayoutContainer, PageContainer, PageContent } from "@components/Layout/styles.ts";
 
 export interface Page {
@@ -24,7 +24,7 @@ const contact: Page = { name: 'Contact', component: <Contact />, path: '/contact
 export const pages: Page[] = [home, experience, skills, about, contact];
 
 export function Layout() {
-	const isMobile = useContext(MobileContext);
+	const isMobile = useIsMobile();
 	const [showAll, setShowAll] = useState(isMobile);
 	const [activePage, setActivePage] = useState<Page>(home);
 

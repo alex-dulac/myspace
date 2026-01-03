@@ -1,7 +1,7 @@
-import { type Dispatch, type FC, type SetStateAction, useContext, useEffect, useState } from "react";
+import { type Dispatch, type FC, type SetStateAction, useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faCompress, faExpand, faTimes } from "@fortawesome/free-solid-svg-icons";
-import { MobileContext } from "@hooks/useIsMobile.ts";
+import { useIsMobile } from "@hooks/useIsMobile.ts";
 import { type EventParams, logGAEvent, logPageView } from "@library/ga.ts";
 import { type Page, pages } from "@components/Layout/Layout.tsx";
 import { getMostVisiblePage, scrollToSection } from "@library/utils.ts";
@@ -24,7 +24,7 @@ interface HeaderProps {
 
 export const Header: FC<HeaderProps> = (props: HeaderProps) => {
 	const { showAll, setShowAll, activePage, setActivePage } = props;
-	const isMobile = useContext(MobileContext);
+	const isMobile = useIsMobile();
 	const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 	const [isScrollingDown, setIsScrollingDown] = useState(false);
 	const [lastScrollTop, setLastScrollTop] = useState(0);
