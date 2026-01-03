@@ -1,23 +1,14 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { GlobalStyle } from "@styles/global";
 import { ThemeProvider } from "styled-components";
-import { MOBILE_WIDTH, MobileContext } from "@library/MobileContext";
 import { defaultTheme } from "@styles/theme";
 import { initGA } from "@library/ga";
-import { Layout } from "@components/Layout";
+import { Layout } from "@components/Layout/Layout.tsx";
 import { hasExtraPath } from "@library/utils";
+import { useIsMobile, MobileContext } from "@hooks/useIsMobile.ts";
 
 function App() {
-	const [isMobile, setIsMobile] = useState(window.innerWidth < MOBILE_WIDTH);
-
-	useEffect(() => {
-		const handleResize = () => {
-			return window.innerWidth < MOBILE_WIDTH ? setIsMobile(true) : setIsMobile(false);
-		};
-
-		window.addEventListener('resize', handleResize);
-		return () => window.removeEventListener('resize', handleResize);
-	}, []);
+	const isMobile = useIsMobile();
 
 	useEffect(() => {
 		if (import.meta.env.VITE_GA_ENABLED === 'true') {
@@ -32,7 +23,7 @@ function App() {
 	return (
 		<ThemeProvider theme={defaultTheme}>
 			<MobileContext.Provider value={isMobile}>
-				<Layout />
+				<Layout/>
 			</MobileContext.Provider>
 			<GlobalStyle/>
 		</ThemeProvider>

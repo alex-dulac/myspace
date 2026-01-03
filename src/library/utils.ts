@@ -1,4 +1,4 @@
-import { type Page, pages } from "@components/Layout";
+import { type Page, pages } from "@components/Layout/Layout.tsx";
 
 export function hasExtraPath(): boolean {
 	const path = window.location.pathname;

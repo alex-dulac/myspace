@@ -1,17 +1,5 @@
 import React from "react";
-import {
-	Container,
-	Content,
-	PageSubheaderLeft,
-	SkillCard,
-	SkillCategory,
-	SkillsDescriptionItem,
-	SkillsDescriptionList,
-	SkillsGrid,
-	SkillsList,
-	SkillsSection,
-	SkillTag
-} from "@library/elements.ts";
+import { PageSubheaderLeft } from "@styles/shared-styles.ts";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChartBar, faCircleCheck, faDatabase, faServer } from '@fortawesome/free-solid-svg-icons';
 import {
@@ -24,8 +12,24 @@ import {
 	faNodeJs,
 	faLaravel,
 	faSymfony,
-	faVuejs, faSquareJs, faAws, faDocker, faGithub, faJenkins, faMicrosoft,
+	faVuejs,
+	faSquareJs,
+	faAws,
+	faDocker,
+	faGithub,
+	faJenkins,
+	faMicrosoft,
 } from '@fortawesome/free-brands-svg-icons';
+import {
+	SkillCard,
+	SkillCategory,
+	SkillsDescriptionItem,
+	SkillsDescriptionList,
+	SkillsGrid,
+	SkillsList,
+	SkillsSection,
+	SkillTag
+} from "@components/Skills/styles.ts";
 
 const languagesAndFrameworks = [
 	{
@@ -139,19 +143,17 @@ const DescriptionSection: React.FC<{ title: string; items: React.ReactNode[] }> 
 
 export function Skills() {
 	return (
-		<Container id={"skills"}>
-			<Content>
-				<SkillsSection>
-					<PageSubheaderLeft>Languages & Frameworks</PageSubheaderLeft>
-					<SkillsGrid>
-						{languagesAndFrameworks.map((skill, index) => (
-							<LanguageCard key={index} skill={skill} />
-						))}
-					</SkillsGrid>
-				</SkillsSection>
+		<>
+			<SkillsSection>
+				<PageSubheaderLeft>Languages & Frameworks</PageSubheaderLeft>
+				<SkillsGrid>
+					{languagesAndFrameworks.map((skill, index) => (
+						<LanguageCard key={index} skill={skill} />
+					))}
+				</SkillsGrid>
+			</SkillsSection>
 
-				<DescriptionSection title="Additional Skills" items={broaderSkills} />
-			</Content>
-		</Container>
+			<DescriptionSection title="Additional Skills" items={broaderSkills} />
+		</>
 	);
 }

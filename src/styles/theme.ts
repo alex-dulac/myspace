@@ -7,6 +7,7 @@ export const defaultTheme = {
 		tertiary: '#00A9A5',
 		textPrimary: '#092327',
 		textSecondary: '#0b5351',
+		error: '#dc2626',
 	},
 	fonts: {
 		main: "'Inter', sans-serif",
@@ -31,5 +32,6 @@ export const defaultTheme = {
 type ThemeType = typeof defaultTheme;
 
 declare module 'styled-components' {
-	export interface DefaultTheme extends ThemeType { }
+	export interface DefaultTheme extends ThemeType {
+	}
 }

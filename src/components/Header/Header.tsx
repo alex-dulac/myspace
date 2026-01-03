@@ -1,18 +1,19 @@
 import { type Dispatch, type FC, type SetStateAction, useContext, useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faCompress, faExpand, faTimes } from "@fortawesome/free-solid-svg-icons";
-import { MobileContext } from "@library/MobileContext";
-import { type EventParams, logGAEvent, logPageView } from "@library/ga";
+import { MobileContext } from "@hooks/useIsMobile.ts";
+import { type EventParams, logGAEvent, logPageView } from "@library/ga.ts";
+import { type Page, pages } from "@components/Layout/Layout.tsx";
+import { getMostVisiblePage, scrollToSection } from "@library/utils.ts";
 import {
 	HeaderContainer,
-	HeaderNav, MobileList, MobileNavMenu, MobileNavMenuIcon,
-	NavContainer,
-	NavLink,
-	NavUnorderedList,
+	HeaderNav,
+	MobileList,
+	MobileNavMenu,
+	MobileNavMenuIcon,
 	ShowAllToggle
-} from "@library/elements";
-import { type Page, pages } from "@components/Layout";
-import { getMostVisiblePage, scrollToSection } from "@library/utils";
+} from "@components/Header/styles.ts";
+import { NavContainer, NavLink, NavUnorderedList } from "@styles/nav-styles.ts";
 
 interface HeaderProps {
 	showAll: boolean;

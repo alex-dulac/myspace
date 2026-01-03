@@ -1,13 +1,13 @@
 import { type ReactElement, useContext, useMemo, useState } from "react";
-import { Header } from "@components/Header";
-import { Footer } from "@components/Footer";
-import { Home } from "@components/Home";
-import { Experience } from "@components/Experience";
-import { Skills } from "@components/Skills";
-import { Contact } from "@components/Contact";
-import { About } from "@components/About";
-import { LayoutContainer, PageContainer, PageContent } from "@library/elements";
-import { MobileContext } from "@library/MobileContext.tsx";
+import { Header } from "@components/Header/Header.tsx";
+import { Footer } from "@components/Footer/Footer.tsx";
+import { Home } from "@components/Home/Home.tsx";
+import { Experience } from "@components/Experience/Experience.tsx";
+import { Skills } from "@components/Skills/Skills.tsx";
+import { Contact } from "@components/Contact/Contact.tsx";
+import { About } from "@components/About/About.tsx";
+import { MobileContext } from "@hooks/useIsMobile.ts";
+import { Container, Content, LayoutContainer, PageContainer, PageContent } from "@components/Layout/styles.ts";
 
 export interface Page {
 	name: string;
@@ -31,16 +31,29 @@ export function Layout() {
 	const allContent = useMemo(() => (
 		pages.map((page, index) => (
 			<PageContent key={index}>
-				{page.component}
+				<Container id={page.divId}>
+					<Content>
+						{page.component}
+					</Content>
+				</Container>
 			</PageContent>
 		))
 	), []);
 
-	const activePageContent = useMemo(() => (
-		<PageContent>
-			{pages.find(page => page.name === activePage.name)?.component}
-		</PageContent>
-	), [activePage]);
+	// important to note the key location here compared to allContent
+	// forces remount so the fade-in animation triggers
+	const activePageContent = useMemo(() => {
+		const page = pages.find(page => page.name == activePage.name) || home;
+		return (
+			<PageContent>
+				<Container key={page.name} id={page.divId}>
+					<Content>
+						{page.component}
+					</Content>
+				</Container>
+			</PageContent>
+		)
+	}, [activePage]);
 
 	return (
 		<LayoutContainer>

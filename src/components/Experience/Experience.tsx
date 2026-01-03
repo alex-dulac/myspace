@@ -1,4 +1,5 @@
-import { Container, Content, ListItem, PageSubheaderCenter, UnorderedList } from "@library/elements";
+import { PageSubheaderCenter } from "@styles/shared-styles.ts";
+import { ListItem, UnorderedList } from "@components/Experience/styles.ts";
 
 export function Experience() {
 	const experiences = [
@@ -11,15 +12,17 @@ export function Experience() {
 	];
 
 	return (
-		<Container id={"experience"}>
-			<Content>
-				<PageSubheaderCenter>Experience</PageSubheaderCenter>
-				<UnorderedList>
-					{experiences.map((experience, index) => (
-						<ListItem key={index}>{experience}</ListItem>
-					))}
-				</UnorderedList>
-			</Content>
-		</Container>
+		<>
+			<PageSubheaderCenter>
+				Experience
+			</PageSubheaderCenter>
+			<UnorderedList>
+				{experiences.map((experience, index) => (
+					<ListItem key={index}>
+						{experience}
+					</ListItem>
+				))}
+			</UnorderedList>
+		</>
 	);
 }
