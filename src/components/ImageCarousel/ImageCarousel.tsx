@@ -1,22 +1,21 @@
-import React, { useState } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faChevronLeft, faChevronRight } from "@fortawesome/free-solid-svg-icons";
-import { CarouselButton, CarouselContainer, CarouselImage } from "@components/ImageCarousel/styles.ts";
+import React, { useState, useEffect } from "react";
+import { CarouselContainer, CarouselImage } from "@components/ImageCarousel/styles.ts";
 
 interface ImageCarouselProps {
 	images: string[];
+	autoPlayInterval?: number; // interval in milliseconds
 }
 
-export const ImageCarousel: React.FC<ImageCarouselProps> = ({ images }) => {
+export const ImageCarousel: React.FC<ImageCarouselProps> = ({ images, autoPlayInterval = 4000 }) => {
 	const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
-	const nextImage = () => {
-		setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
-	};
+	useEffect(() => {
+		const interval = setInterval(() => {
+			setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
+		}, autoPlayInterval);
 
-	const prevImage = () => {
-		setCurrentImageIndex((prevIndex) => (prevIndex - 1 + images.length) % images.length);
-	};
+		return () => clearInterval(interval);
+	}, [images.length, autoPlayInterval]);
 
 	return (
 		<CarouselContainer>
@@ -27,12 +26,6 @@ export const ImageCarousel: React.FC<ImageCarouselProps> = ({ images }) => {
 					className={index === currentImageIndex ? "active" : ""}
 				/>
 			))}
-			<CarouselButton className="prev" onClick={prevImage}>
-				<FontAwesomeIcon icon={faChevronLeft} />
-			</CarouselButton>
-			<CarouselButton className="next" onClick={nextImage}>
-				<FontAwesomeIcon icon={faChevronRight} />
-			</CarouselButton>
 		</CarouselContainer>
 	);
 };

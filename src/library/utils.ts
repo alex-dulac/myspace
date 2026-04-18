@@ -68,15 +68,11 @@ export const shuffleArray = (array: string[]) => {
 
 export const shuffledDogImages = () => {
 	const dogImages = [
-		"/images/dogs/01_dog.jpg",
 		"/images/dogs/02_dog.jpg",
 		"/images/dogs/03_dog.jpg",
 		"/images/dogs/05_dog.jpg",
-		"/images/dogs/06_dog.jpg",
-		"/images/dogs/07_dog.jpg",
 		"/images/dogs/08_dog.jpg",
 		"/images/dogs/09_dog.jpg",
-		"/images/dogs/11_dog.jpg",
 	];
 
 	return shuffleArray(dogImages);

@@ -11,17 +11,13 @@ function IntroSection({ isMobile, firstCollectionImages }: { isMobile: boolean; 
 		<RowColumnFlex>
 			<div>
 				<p>
-					I'm a lifelong Mainer, and currently live in southern Maine with my wife and our two pitbulls- Lila & Lou.
+					I'm a lifelong Mainer, and currently live in southern Maine with my wife and our pitbull Lou.
 				</p>
 				<p>
 					When I'm not developing software, I like to stay creatively and analytically engaged in a few other ways:
 				</p>
 			</div>
-			{isMobile ? (
-				<ImageContainer>
-					<Image src="/images/dogs/01_dog.jpg"/>
-				</ImageContainer>
-			) : (
+			{isMobile ? (<></>) : (
 				<ImageCarousel images={firstCollectionImages} />
 			)}
 		</RowColumnFlex>
